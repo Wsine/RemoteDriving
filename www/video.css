@@ -32,18 +32,16 @@ body {
 	margin-top: 10%;
 }
 
-#content #camera {
-	width: 48%;
-	float: left;
-	padding-right: 2%;
+#content {
+	margin-top: 10px;
 }
 
-#content #gauge {
-	width: 48%;
-	float: left;
-	padding-left: 2%;
-}
-
-#content #gauge #chart {
+#content #video {
 	width: 100%;
+}
+
+#content #chart {
+	position: absolute;
+	bottom: 20px;
+	right: 7.5%;
 }
