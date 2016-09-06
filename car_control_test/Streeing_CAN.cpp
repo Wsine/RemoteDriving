@@ -145,6 +145,32 @@ int Streeing::SendStreeingCommand(BYTE command, unsigned short int steeringangle
 	return 1;
 }
 
+int SendStreeingCommandForAX7SRS_R(ussint steerWheelAngle, BYTE steerWheelSpd,
+		BYTE vehicleSpd, BYTE engineSpd, BYTE steerWheelStatus)
+{
+	int dwRel;
+	vco_send[0].ID = (UINT)(0x00009876);
+	vco_send[0].RemoteFlag = 0;
+	vco_send[0].ExternFlag = 0;
+	vco_send[0].DataLen = 7;
+
+	BYTE highangel = steerWheelAngle >> 8;
+	BYTE lowangel = (steerWheelAngle << 8) >> 8;
+
+	BYTE b0 = vco_send[0].Data[0] = highangel;
+	BYTE b1 = vco_send[0].Data[1] = lowangel;
+	BYTE b2 = vco_send[0].Data[2] = steerWheelSpd;
+	BYTE b3 = vco_send[0].Data[3] = vehicleSpd;
+
+	BYTE b4 = vco_send[0].Data[4] = engineSpd;
+	BYTE b5 = vco_send[0].Data[5] = steerWheelStatus;
+	BYTE chSum = b0^b1^b2^b3^b4^b5;
+	BYTE b6 = vco_send[0].Data[6] = 0x00 | chSum;
+
+	dwRel = VCI_Transmit(nDeviceType, nDeviceInd, nCANInd_1, vco_send, 1);
+	return 1;
+}
+
 int Streeing::StartHuman_Driving(unsigned short int steeringangle)
 {
 	SendStreeingCommand(0x10, steeringangle);

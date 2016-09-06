@@ -4,7 +4,7 @@
 #include <iostream>
 #include "ControlCAN.h"
 
-
+#define ussint unsigned short int
 
 class Streeing
 {
@@ -19,6 +19,10 @@ class Streeing
 
 	//	int dwRel;
 	int SendStreeingCommand(BYTE command, unsigned short int steering_angle);
+
+	// Add by Wsine
+	int SendStreeingCommandForAX7SRS_R(ussint steerWheelAngle, BYTE steerWheelSpd,
+		BYTE vehicleSpd, BYTE engineSpd, BYTE steerWheelStatus);
 
 	int nCANInd_1;
 	VCI_INIT_CONFIG vic_1;
