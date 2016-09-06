@@ -1,4 +1,4 @@
-body {
+html, body {
 	margin: 0;
 	padding: 0;
 }
@@ -44,4 +44,27 @@ body {
 	position: absolute;
 	bottom: 20px;
 	right: 7.5%;
+}
+
+#tools {
+	position: fixed;
+	bottom: 1%;
+	right: 1%;
+}
+
+.btn {
+	width: 3em;
+	height: 3em;
+	border: solid 1px #000;
+	border-radius: 50%;
+	margin: 0.5em 0 0.5em 0;
+	cursor: pointer;
+}
+
+.green {
+	background-color: green;
+}
+
+.yellow {
+	background-color: yellow;
 }
