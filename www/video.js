@@ -3,7 +3,8 @@ var guageChart;
 $(function() {
 	adjustEleHeight();
 	initChart();
-	randomData();
+	// randomData();
+    getData();
     $("#tools .btn.yellow").click(function() {
         $("#content canvas").toggle();
     });
@@ -124,4 +125,21 @@ function randomData() {
 	    option.series[1].data[0].value = (Math.random()*7).toFixed(2) - 0;
 	    guageChart.setOption(option, true);
 	}, 2000);
+}
+
+function getData() {
+    setInterval(function() {
+        $.ajax({
+            type: 'GET',
+            url: "http://127.0.0.1:5000/getWheel",
+            data: {},
+            success: function(data) {
+                var option = guageChart.getOption();
+                option.series[0].data[0].value = data.speed;
+                option.series[1].data[0].value = data.rpm;
+                guageChart.setOption(option, true);
+            }, 
+            dataType: 'json'
+        });
+    }, 2000);
 }
