@@ -15,11 +15,19 @@
 
 #include "ControlCAN.h"
 #include "Streeing_CAN.h"
+#include "Encoder.h"
 
 #include "calculateCRC.h"
 #include "accelerator.h"
 
 using namespace std;
+
+#define DEBUG_MODE true
+#define DEBUG_INDEX 1
+void runDebug();
+void Brake_Test();
+void Brake_Feedback_Test();
+
 int logger(void);
 
 int input_mv = 700;
@@ -174,6 +182,12 @@ VOID CALLBACK TimerLogSendRSDS(PVOID lpParam, BOOLEAN TimerOrWaitFired)
 
 int main(int argc, char* argv[])
 {
+	if (DEBUG_MODE) {
+		runDebug();
+		system("pause");
+		return 0;
+	}
+
 	Handler_Ins handIns;
 	Com_acc.Open(8, 9600);
 	Com_acc.InputVoltage(700);
@@ -247,3 +261,54 @@ int main(int argc, char* argv[])
 	return 0;
 }
 
+void runDebug() {
+	if (DEBUG_INDEX == 1) {
+		Brake_Test();
+	} else if (DEBUG_INDEX == 2) {
+		Brake_Feedback_Test();
+	}
+}
+
+void Brake_Test() {
+	Motor_Comm motorComm;
+	// 打开设备，参数一是设备管理器的端口COM8
+	motorComm.Open(8, 9600);
+	unsigned char address = ;
+	// 键盘输入测试
+	int code, speed = 0;
+	while (true) {
+		printf("Please enter your code: ");
+		scanf("%d", &code);
+		if (code == 1) {
+			if (speed <= 70) {
+				speed += 10;
+			}
+			motorComm.DriveForward(0x80, speed);
+			printf("Current Speed = %d\n", speed);
+		} else if (code == 2) {
+			if (speed >= 10) {
+				speed -= 10;
+			}
+			motorComm.DriveBackward(0x80, speed);
+			printf("Current Speed = %d\n", speed);
+		} else if (code == 3) {
+			motorComm.stop();
+		} else if (code == -1) {
+			break;
+		} else {
+			continue;
+		}
+	}
+}
+
+void Brake_Feedback_Test() {
+	Encoder_Comm encoderComm;
+	// 打开设备，参数一是设备管理器的端口COM8
+	encoderComm.Open(8, 9600);
+	// 持续打开访问设备
+	int maxFire = 50;
+	while (maxFire--) {
+		encoderComm.OnReceive();
+		Sleep(1000);
+	}
+}
