@@ -276,7 +276,7 @@ void Brake_Test() {
 	Motor_Comm motorComm;
 	// 打开设备，参数一是设备管理器的端口COM8
 	motorComm.Open(8, 9600);
-	unsigned char address = ;
+	// unsigned char address = ;
 	// 键盘输入测试
 	int code, speed = 60;
 	while (true) {

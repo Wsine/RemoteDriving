@@ -1,6 +1,8 @@
 #ifndef ENCODER_H_
 #define ENCODER_H_
 
+#include "CnComm.h"
+
 #define uchar unsigned char
 #define ushort unsigned short
 

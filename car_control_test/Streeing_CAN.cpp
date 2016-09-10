@@ -145,7 +145,7 @@ int Streeing::SendStreeingCommand(BYTE command, unsigned short int steeringangle
 	return 1;
 }
 
-int SendStreeingCommandForAX7SRS_R(ussint steerWheelAngle, BYTE steerWheelSpd,
+int Streeing::SendStreeingCommandForAX7SRS_R(ussint steerWheelAngle, BYTE steerWheelSpd,
 		BYTE vehicleSpd, BYTE engineSpd, BYTE steerWheelStatus)
 {
 	int dwRel;
