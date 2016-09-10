@@ -23,10 +23,11 @@
 using namespace std;
 
 #define DEBUG_MODE true
-#define DEBUG_INDEX 1
+#define DEBUG_INDEX 3
 void runDebug();
 void Brake_Test();
 void Brake_Feedback_Test();
+void Throttle_Test();
 
 int logger(void);
 
@@ -266,6 +267,8 @@ void runDebug() {
 		Brake_Test();
 	} else if (DEBUG_INDEX == 2) {
 		Brake_Feedback_Test();
+	} else if (DEBUG_INDEX == 3) {
+		Throttle_Test();
 	}
 }
 
@@ -275,22 +278,18 @@ void Brake_Test() {
 	motorComm.Open(8, 9600);
 	unsigned char address = ;
 	// 键盘输入测试
-	int code, speed = 0;
+	int code, speed = 60;
 	while (true) {
 		printf("Please enter your code: ");
 		scanf("%d", &code);
 		if (code == 1) {
-			if (speed <= 70) {
-				speed += 10;
-			}
 			motorComm.DriveForward(0x80, speed);
-			printf("Current Speed = %d\n", speed);
+			Sleep(500);
+			motorComm.stop();
 		} else if (code == 2) {
-			if (speed >= 10) {
-				speed -= 10;
-			}
 			motorComm.DriveBackward(0x80, speed);
-			printf("Current Speed = %d\n", speed);
+			Sleep(500);
+			motorComm.stop();
 		} else if (code == 3) {
 			motorComm.stop();
 		} else if (code == -1) {
@@ -310,5 +309,32 @@ void Brake_Feedback_Test() {
 	while (maxFire--) {
 		encoderComm.OnReceive();
 		Sleep(1000);
+	}
+}
+
+void Throttle_Test() {
+	Accelerator_Comm throttleComm;
+	// 打开设备，参数一是设备管理器的端口COMn
+	throttleComm.Open(8, 9600);
+	throttleComm.InputVoltage(700);
+	throttleComm.ShiftRelay(OFF);
+	// 键盘输入测试
+	int code, voltage = 0;
+	while (true) {
+		printf("Please enter your code: ");
+		scanf("%d", &code);
+		if (code == 1) {
+			scanf("%d", &voltage);
+			throttleComm.InputVoltage(voltage);
+			printf("Current voltage = %d\n", voltage);
+		} else if (code == 2) {
+			int left, right;
+			throttleComm.CollectingVoltage(&left, &right);
+			printf("left = %d, right = %d\n", left, right);
+		} else if (code == -1) {
+			break;
+		} else {
+			continue;
+		}
 	}
 }
