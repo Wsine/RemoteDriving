@@ -15,35 +15,28 @@ int count_flag = 0;
 class Motor_Comm : public CnComm
 {
 public:
-public:
-	void DriveForward(uchar address, uchar speed)
-	{
-		uchar buf[4];                   
-		address = 0x80;			//Í³Ò»Îª0x80
-		buf[0] = address;
-		buf[1] = 0;
-		buf[2] = speed;
-		buf[3] = (uchar)((buf[0] + buf[1] + buf[2]) & 0x7f);
-		Write(buf, 4);    
+	void OnReceive() {
+		char buffer[256];
+		ReadString(buffer, 256);
+		cout << "Get string from motor: " << buffer << endl;
 	}
-
-	void DriveBackward(uchar address, uchar speed)
+public:
+	void TurningTarget(int left_right, int speed)
 	{
-		uchar buf[4];
-		address = 0x80;			//Í³Ò»Îª0x80
-		buf[0] = address;
-		buf[1] = 1;
-		buf[2] = speed;
-		buf[3] = (uchar)((buf[0] + buf[1] + buf[2]) & 0x7f);
+		unsigned char buf[4];
+		buf[0] = 0x80;
+		buf[1] = (unsigned char)left_right;
+		buf[2] = (unsigned char)speed;
+		buf[3] = (unsigned char)((buf[0] + buf[1] + buf[2]) & 0x7f);
 		Write(buf, 4);
 	}
-	void stop()
-	{
-		uchar buf[4];
+
+	void stop() {
+		unsigned char buf[4];
 		buf[0] = 0x80;
-		buf[1] = 0x00;
-		buf[2] = 0x00;
-		buf[3] = 0x00;
+		buf[1] = 0x10;
+		buf[2] = 0;
+		buf[3] = (unsigned char)((buf[0] + buf[1] + buf[2]) & 0x7f);
 		Write(buf, 4);
 	}
 

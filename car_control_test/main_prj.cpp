@@ -233,11 +233,11 @@ int main(int argc, char* argv[])
 		//Sleep(20);
     	//g_accelerate_feedback_info.low_sensor_v = Com_acc.CollectingVoltage2();
 		//Sleep(20);
-		int a=0,b=0;
+		/*int a=0,b=0;
 		Com_acc.CollectingVoltage(&a,&b);
 		g_accelerate_feedback_info.high_sensor_v = a;
 		g_accelerate_feedback_info.low_sensor_v = b;
-		Sleep(20);
+		Sleep(20);*/
 
 		//Sleep(150);
 
@@ -275,23 +275,24 @@ void runDebug() {
 void Brake_Test() {
 	Motor_Comm motorComm;
 	// 打开设备，参数一是设备管理器的端口COM8
-	motorComm.Open(8, 9600);
-	// unsigned char address = ;
+	motorComm.Open(8, 38400);
 	// 键盘输入测试
 	int code, speed = 60;
 	while (true) {
 		printf("Please enter your code: ");
 		scanf("%d", &code);
 		if (code == 1) {
-			motorComm.DriveForward(0x80, speed);
+			motorComm.TurningTarget(1, 30); // motor turn left
 			Sleep(500);
 			motorComm.stop();
 		} else if (code == 2) {
-			motorComm.DriveBackward(0x80, speed);
+			motorComm.TurningTarget(0, 40); // motor turn right
 			Sleep(500);
 			motorComm.stop();
 		} else if (code == 3) {
 			motorComm.stop();
+		} else if (code == 4) {
+			motorComm.OnReceive();
 		} else if (code == -1) {
 			break;
 		} else {
@@ -316,8 +317,8 @@ void Throttle_Test() {
 	Accelerator_Comm throttleComm;
 	// 打开设备，参数一是设备管理器的端口COMn
 	throttleComm.Open(8, 9600);
-	throttleComm.InputVoltage(700);
-	throttleComm.ShiftRelay(OFF);
+	throttleComm.InputVoltage(800);
+	throttleComm.ShiftRelay(ON);
 	// 键盘输入测试
 	int code, voltage = 0;
 	while (true) {
@@ -326,11 +327,10 @@ void Throttle_Test() {
 		if (code == 1) {
 			scanf("%d", &voltage);
 			throttleComm.InputVoltage(voltage);
-			printf("Current voltage = %d\n", voltage);
+			printf("Input voltage = %d\n", voltage);
 		} else if (code == 2) {
-			int left, right;
-			throttleComm.CollectingVoltage(&left, &right);
-			printf("left = %d, right = %d\n", left, right);
+			unsigned short curVoltage = throttleComm.CollectingVoltage();
+			printf("Current voltage = %d\n", curVoltage);
 		} else if (code == -1) {
 			break;
 		} else {
