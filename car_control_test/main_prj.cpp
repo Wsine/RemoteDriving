@@ -282,11 +282,11 @@ void Brake_Test() {
 		printf("Please enter your code: ");
 		scanf("%d", &code);
 		if (code == 1) {
-			motorComm.TurningTarget(1, 30); // motor turn left
+			motorComm.TurningDirection(1, 30); // motor turn left
 			Sleep(500);
 			motorComm.stop();
 		} else if (code == 2) {
-			motorComm.TurningTarget(0, 40); // motor turn right
+			motorComm.TurningDirection(0, 40); // motor turn right
 			Sleep(500);
 			motorComm.stop();
 		} else if (code == 3) {

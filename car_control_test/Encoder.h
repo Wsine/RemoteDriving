@@ -14,14 +14,37 @@ int count_flag = 0;
 
 class Motor_Comm : public CnComm
 {
+private:
+	/* 1 for increase
+	 * 0 for stop
+	 * -1 for decrease
+	 */
+	unsigned short dir;
+	unsigned short aim;
+	unsigned short current;
+	unsigned short send;
+
 public:
+	void setAim(unsigned short _aim) {
+		this->aim = _aim;
+		this->dir = this->aim - this->current;
+	}
+	void setCurrent(unsigned short _current) {
+		this->current = _current;
+	}
+	void setSend(unsigned short _send) {
+		this->send = _send;
+	}
 	void OnReceive() {
 		char buffer[256];
 		ReadString(buffer, 256);
 		cout << "Get string from motor: " << buffer << endl;
 	}
 public:
-	void TurningTarget(int left_right, int speed)
+	Motor_Comm() {
+		dir = aim = current = send = 0;
+	}
+	void TurningDirection(int left_right, int speed)
 	{
 		unsigned char buf[4];
 		buf[0] = 0x80;
@@ -38,6 +61,24 @@ public:
 		buf[2] = 0;
 		buf[3] = (unsigned char)((buf[0] + buf[1] + buf[2]) & 0x7f);
 		Write(buf, 4);
+	}
+
+	void TurningToAim() {
+		if (dir > 0) {
+			if (current < aim) {
+				TurningDirection(1, 40);
+			} else {
+				stop();
+				dir = 0;
+			}
+		} else if (dir < 0) {
+			if (current > aim) {
+				TurningDirection(0, 40);
+			} else {
+				stop();
+				dir = 0;
+			}
+		}
 	}
 
 };
@@ -97,9 +138,9 @@ public:
 				{
 					iIsHead = 1;
 					ucBuffer[iBufferLen] =buffer[i];
-			     	break; 
 					iBufferLen++;
 				}
+				break;
 			case 1:
 				if (buffer[i] == 0x81)
 				{
@@ -118,15 +159,14 @@ public:
 						iIsHead = 0;
 						iBufferLen = 0;
 						iBufferFlag = 1;
+						ushEncoderValue = 0;
 					}
 				}
-			
 				break;
-				//ushEncoderValue = 0;
 			}
 
 			
-			//´¦ÀíÊý¾Ýbuffer
+			// 成功读取到数据
 			if (iBufferFlag == 1)
 			{
 				
@@ -142,7 +182,7 @@ public:
 						ushEncoderValue = ucBuffer[2] & 0x0003;
 						ushTemp = ucBuffer[3] & 0x00FF;
 						ushEncoderValue = ((ushEncoderValue << 8) & 0x0300 | ushTemp) & 0xFFFF;
-						//			printf("EncoderVal=%d",ushEncoderValue);
+						printf("EncoderVal = %d\n", ushEncoderValue);
 						rec_flag = true;
 						if (ushEncoderValue >= iStart || ushEncoderValue <= iEnd)
 						{
@@ -151,8 +191,8 @@ public:
 					}
 					else
 					{
-						printf("Êý¾ÝÐ£Ñé´íÎó£¡\n");
-						 count_flag ++;
+						printf("校验位失败\n");
+						count_flag ++;
 					}
 				}
 				iBufferFlag = 0;
