@@ -44,22 +44,22 @@ int Streeing::StartDevice(void)
 
 	if (dwRelOpenDevice != 1)
 	{
-		cout << "´ò¿ªÉè±¸Ê§°Ü! " << endl;
+		cout << "VCI_OpenDevice fail! " << endl;
 		return -1;
 	}
 
-	/* µÚ1¸öÍ¨µÀ ·¢ËÍ*/
+	/*初始 CAN*/
 	vic_1.AccCode = 0x80000008;
 	vic_1.AccMask = 0xFFFFFFFF;
-	vic_1.Filter = 1;
-	vic_1.Timing0 = 0x01;
-	vic_1.Timing1 = 0x1C;
-	vic_1.Mode = 0;
+	vic_1.Filter = 1;  //接受所有帧
+	vic_1.Timing0 = 0x00;
+	vic_1.Timing1 = 0x1C;//波特率500Kbps
+	vic_1.Mode = 0;		//正常模式
 	dwRelVCI_InitCAN = VCI_InitCAN(nDeviceType, nDeviceInd, nCANInd_1, &vic_1);
 	if (dwRelVCI_InitCAN != 1)
 	{
 		VCI_CloseDevice(nDeviceType, nDeviceInd);
-		cout << "¹Ø±ÕÉè±¸Ê§°Ü!" << endl;
+		cout << "dwRelVCI_InitCAN fail!" << endl;
 		return -1;
 	}
 
@@ -67,14 +67,14 @@ int Streeing::StartDevice(void)
 	vic_2.AccCode = 0x80000008;
 	vic_2.AccMask = 0xFFFFFFFF;
 	vic_2.Filter = 1;
-	vic_2.Timing0 = 0x01;
+	vic_2.Timing0 = 0x00;
 	vic_2.Timing1 = 0x1C;
 	vic_2.Mode = 0;
 	dwRelVCI_InitCAN_1 = VCI_InitCAN(nDeviceType, nDeviceInd, nCANInd_2, &vic_2);
 	if (dwRelVCI_InitCAN_1 != 1)
 	{
 		VCI_CloseDevice(nDeviceType, nDeviceInd);
-		cout << "¹Ø±ÕÉè±¸Ê§°Ü!" << endl;
+		cout << "dwRelVCI_InitCAN_1 fail!" << endl;
 		return -1;
 	}
 
@@ -89,28 +89,30 @@ int Streeing::StartDevice(void)
 	if (dwRelVCI_InitCAN_2 != 1)
 	{
 		VCI_CloseDevice(nDeviceTypeCar, nDeviceIndCar);
-		cout << "¹Ø±ÕÉè±¸Ê§°Ü!" << endl;
+		cout << "dwRelVCI_InitCAN_2 fail!" << endl;
 		return -1;
 	}
+
+
 
 	if (VCI_StartCAN(nDeviceType, nDeviceInd, nCANInd_1) != 1)
 	{
 		VCI_CloseDevice(nDeviceType, nDeviceInd);
-		cout << "¹Ø±ÕÉè±¸Ê§°Ü!" << endl;
+		cout << "VCI_StartCAN 1 fail!!" << endl;
 		return -1;
 	}
 
 	if (VCI_StartCAN(nDeviceType, nDeviceInd, nCANInd_2) != 1)
 	{
 		VCI_CloseDevice(nDeviceType, nDeviceInd);
-		cout << "¹Ø±ÕÉè±¸Ê§°Ü!" << endl;
+		cout << "VCI_StartCAN 2 fail!" << endl;
 		return -1;
 	}
 
 	if (VCI_StartCAN(nDeviceTypeCar, nDeviceIndCar, nCANInd_3) != 1)
 	{
 		VCI_CloseDevice(nDeviceTypeCar, nDeviceIndCar);
-		cout << "¹Ø±ÕÉè±¸Ê§°Ü!" << endl;
+		cout << "¹VCI_StartCAN 3 fail!" << endl;
 		return -1;
 	}
 
@@ -119,43 +121,27 @@ int Streeing::StartDevice(void)
 	return 1;
 }
 
-int Streeing::SendStreeingCommand(BYTE command, unsigned short int steeringangle)
+int Streeing::SendStreeingCommand(short  steerWheelAngle, BYTE steerWheelSpd,
+	BYTE vehicleSpd, BYTE engineSpd, BYTE steerWheelStatus)
 {
 	int dwRel;
-	vco_send[0].ID = (UINT)(0x00000500);
+	vco_send[0].ID = (UINT)(0x0000B500);
 	vco_send[0].RemoteFlag = 0;
-	vco_send[0].ExternFlag = 0;
-	vco_send[0].DataLen = 8;
-
-	unsigned short int actionangle = 1024 + steeringangle;
-	BYTE highangel = actionangle >> 8;
-	BYTE lowangel = (actionangle << 8) >> 8;
-
-	BYTE b0 = vco_send[0].Data[0] = command;
-	BYTE b1 = vco_send[0].Data[1] = 0x00;
-	BYTE b2 = vco_send[0].Data[2] = 0x00;
-	BYTE b3 = vco_send[0].Data[3] = highangel;  // high
-
-	BYTE b4 = vco_send[0].Data[4] = lowangel;  // low
-	BYTE b5 = vco_send[0].Data[5] = 0x00;
-	BYTE b6 = vco_send[0].Data[6] = 0x80;
-	BYTE b7 = vco_send[0].Data[7] = b0^b1^b2^b3^b4^b5^b6;
-
-	dwRel = VCI_Transmit(nDeviceType, nDeviceInd, nCANInd_1, vco_send, 1);
-	return 1;
-}
-
-int Streeing::SendStreeingCommandForAX7SRS_R(ussint steerWheelAngle, BYTE steerWheelSpd,
-		BYTE vehicleSpd, BYTE engineSpd, BYTE steerWheelStatus)
-{
-	int dwRel;
-	vco_send[0].ID = (UINT)(0x00009876);
-	vco_send[0].RemoteFlag = 0;
-	vco_send[0].ExternFlag = 0;
+	vco_send[0].ExternFlag = 1; //扩展帧
 	vco_send[0].DataLen = 7;
 
+	//steerWheelAngle = 1024 + steerWheelAngle; //?
+
+	steerWheelAngle = steerWheelAngle * 10;
+
 	BYTE highangel = steerWheelAngle >> 8;
+
 	BYTE lowangel = (steerWheelAngle << 8) >> 8;
+
+	//short temp_angle;
+	//temp_angle = ((int)highangel << 8) + (int)lowangel;
+	//temp_angle = temp_angle / 10;
+
 
 	BYTE b0 = vco_send[0].Data[0] = highangel;
 	BYTE b1 = vco_send[0].Data[1] = lowangel;
@@ -164,8 +150,8 @@ int Streeing::SendStreeingCommandForAX7SRS_R(ussint steerWheelAngle, BYTE steerW
 
 	BYTE b4 = vco_send[0].Data[4] = engineSpd;
 	BYTE b5 = vco_send[0].Data[5] = steerWheelStatus;
-	BYTE chSum = b0^b1^b2^b3^b4^b5;
-	BYTE b6 = vco_send[0].Data[6] = 0x00 | chSum;
+	//BYTE temp_result = b0^b1^b2^b3^b4^b5;
+	BYTE b6 = vco_send[0].Data[6] = 0x00;
 
 	dwRel = VCI_Transmit(nDeviceType, nDeviceInd, nCANInd_1, vco_send, 1);
 	return 1;
@@ -173,20 +159,20 @@ int Streeing::SendStreeingCommandForAX7SRS_R(ussint steerWheelAngle, BYTE steerW
 
 int Streeing::StartHuman_Driving(unsigned short int steeringangle)
 {
-	SendStreeingCommand(0x10, steeringangle);
+	//SendStreeingCommand(0x10, steeringangle,);
 	return 1;
 }
 
-int Streeing::StartSelf_Driving(unsigned short int steeringangle)
+int Streeing::StartSelf_Driving(short steeringangle, BYTE steerWheelSpd)
 {
-	SendStreeingCommand(0x20, steeringangle);
+	SendStreeingCommand(steeringangle, steerWheelSpd, 0x00, 0x00, 0x20);
 	return 1;
 }
 
 
 int Streeing::StopDSP(unsigned short int steeringangle)
 {
-	SendStreeingCommand(0x00, steeringangle);
+	//SendStreeingCommand(0x00, steeringangle);
 	return 1;
 }
 
@@ -208,28 +194,41 @@ int Streeing::ReceiveStreeingAngle(void)
 	//-574  531   
 	//-552  552  //left -553   right 548
 	double current_steeringangle = 0;
-	dwRel = VCI_Receive(nDeviceType, nDeviceInd, nCANInd_2, vco_receive, 60, 0);
-	if (dwRel > 0)
+	short temp_angle = 0;
+	dwRel = VCI_Receive(nDeviceType, nDeviceInd, nCANInd_1, vco_receive, 60, 0);
+
+	if (dwRel > 0 && vco_receive[0].ID == (UINT)(0x0000A500))
 	{
+		BYTE high = (BYTE)(vco_receive[0].Data[0]);
+		BYTE low = (BYTE)(vco_receive[0].Data[1]);
 
-		BYTE high = (BYTE)(vco_receive[0].Data[3]);
-		BYTE low = (BYTE)(vco_receive[0].Data[4]);
+		temp_angle = ((int)high << 8) + (int)low;
+		current_steeringangle = temp_angle / 10.0;
+		//current_steeringangle = current_steeringangle - 1024 + 23;
 
-		current_steeringangle = ((int)high << 8) + (int)low;
-		current_steeringangle = current_steeringangle - 1024 + 23;
-
+		//std::cout << "temp_angle: " << temp_angle << endl;
 		steering_feedback.steering_angle = current_steeringangle;
-		steering_feedback.steering_angle_speed = 3.0;
+		//steering_feedback.steering_angle_speed = (double)vco_receive[0].Data[2];
+		memcpy(&(steering_feedback.steering_angle_speed), &(vco_receive[0].Data[2]), sizeof(double));
+		steering_feedback.steering_angle_speed = steering_feedback.steering_angle_speed * 4;
 
-		//std::cout<<"current_steeringangle ="<<current_steeringangle<<endl;
+		//std::cout<<"current_steeringangle = "<<current_steeringangle<<endl;
+		//std::cout << "current_steering_angle_speed = " << steering_feedback.steering_angle_speed << endl;
+
 	}
 	else if (dwRel == -1)
 	{
-		cout << "no streeing CAN data. " << endl;
+		//cout << "no streeing CAN data. " << endl;
 		VCI_CloseDevice(nDeviceType, nDeviceInd);
 		VCI_OpenDevice(nDeviceType, nDeviceInd, 0);
 	}
-	//	Sleep(10);//发送频率小于100Hz
+	else
+	{
+		//cout << "othet CAN data" << endl;
+
+		//std::cout << "ID =" << vco_receive[0].ID << endl;
+
+	}
 	return 1;
 }
 

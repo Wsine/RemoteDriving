@@ -14,26 +14,25 @@ int count_flag = 0;
 
 class Motor_Comm : public CnComm
 {
-private:
-	/* 1 for increase
-	 * 0 for stop
-	 * -1 for decrease
-	 */
-	unsigned short dir;
+public:
 	unsigned short aim;
 	unsigned short current;
 	unsigned short send;
+	unsigned short margin;
+	bool isNeedtoStop;
+	bool isTurning;
 
 public:
 	void setAim(unsigned short _aim) {
 		this->aim = _aim;
-		this->dir = this->aim - this->current;
+		//updateDir();
 	}
 	void setCurrent(unsigned short _current) {
 		this->current = _current;
 	}
 	void setSend(unsigned short _send) {
 		this->send = _send;
+
 	}
 	void OnReceive() {
 		char buffer[256];
@@ -42,7 +41,16 @@ public:
 	}
 public:
 	Motor_Comm() {
-		dir = aim = current = send = 0;
+		current = aim = 550;
+		margin = 15;
+		isNeedtoStop = false;
+		isTurning = false;
+	}
+	~Motor_Comm() {
+		/*setAim(600);
+		TurningToAim();
+		Sleep(1000);
+		stop();*/
 	}
 	void TurningDirection(int left_right, int speed)
 	{
@@ -57,28 +65,53 @@ public:
 	void stop() {
 		unsigned char buf[4];
 		buf[0] = 0x80;
-		buf[1] = 0x10;
+		buf[1] = 0;
 		buf[2] = 0;
 		buf[3] = (unsigned char)((buf[0] + buf[1] + buf[2]) & 0x7f);
 		Write(buf, 4);
 	}
 
-	void TurningToAim() {
-		if (dir > 0) {
-			if (current < aim) {
-				TurningDirection(1, 40);
-			} else {
+	bool TurningToAim() {
+		if (current > 700 && isTurning)
+		{
+			printf("overflow stop!!!!!\n");
+			stop();
+			isTurning = false;
+			return true;
+		}
+
+		if (current >= aim - margin && current <= aim + margin) {
+			if (isTurning) {
 				stop();
-				dir = 0;
+				printf("Stop now......\n");
+
 			}
-		} else if (dir < 0) {
-			if (current > aim) {
-				TurningDirection(0, 40);
-			} else {
-				stop();
-				dir = 0;
+			//printf("stopping......\n");
+			isTurning = false;
+			return true;
+		}
+		// 左转
+		else if (current > aim + margin) {
+			if (!isTurning) {
+				printf("current > aim; aim = %d; current = %d\n", aim, current);
+				isTurning = true;
+				TurningDirection(0, 80);
 			}
 		}
+		// 右转
+		else if (current < aim - margin) {
+			if (!isTurning) {
+				printf("current < aim aim = %d; current = %d\n", aim, current);
+				isTurning = true;
+				TurningDirection(1, 80);
+			}
+		}
+		return false;
+	}
+
+	bool resetToInit() {
+		aim = 650;
+		return TurningToAim();
 	}
 
 };
@@ -86,12 +119,12 @@ public:
 class Encoder_Comm : public CnComm
 {
 public:
-	int iIsHead;				//0:Ã»ÓÐÕÒµ½Í·£»1£º±íÊ¾ÕÒµ½0xff;2£º±íÊ¾ÕÒµ½0x81
+	int iIsHead;				//0:脙禄脫脨脮脪碌陆脥路拢禄1拢潞卤铆脢戮脮脪碌陆0xff;2拢潞卤铆脢戮脮脪碌陆0x81
 	bool bIsHead;
 	bool bStop;
 	int iBufferLen;
-	int iBufferFlag;   	//0:±íÊ¾buffer 5×Ö½ÚÎ´ÌîÂú£»1£º±íÊ¾buffer 5×Ö½ÚÌîÂú£»
-	int iTurnOrent;  //0±íÊ¾ÏòÍ£×ª£¬1±íÊ¾ÏòÓÒ×ª, 2±íÊ¾ÓÒ×ª£»16-6-10 WFHÔö¼Ó
+	int iBufferFlag;   	//0:卤铆脢戮buffer 5脳脰陆脷脦麓脤卯脗煤拢禄1拢潞卤铆脢戮buffer 5脳脰陆脷脤卯脗煤拢禄
+	int iTurnOrent;  //0卤铆脢戮脧貌脥拢脳陋拢卢1卤铆脢戮脧貌脫脪脳陋, 2卤铆脢戮脫脪脳陋拢禄16-6-10 WFH脭枚录脫
 	ushort ushEncoderValue;    //1024  0-1023	
 	ushort ushABSValue;
 	ushort ushStandard;
@@ -99,7 +132,7 @@ public:
 	uchar ucBuffer[5];
 	int iStart;
 	int iEnd;
-	
+
 	CRITICAL_SECTION encoderCS;
 
 public:
@@ -121,13 +154,14 @@ public:
 	}
 public:
 	bool rec_flag;
-	void OnReceive()
-	
+	void OnReceive(bool print = false)
+
 	{
-		
+
 		unsigned char buffer[512];
 		DWORD dwRealRead;
-		dwRealRead = Read(buffer, 64);
+		//dwRealRead = Read(buffer, 64);
+		dwRealRead = Read(buffer, 10);
 
 		for (int i = 0; i < dwRealRead; i++)
 		{
@@ -137,7 +171,7 @@ public:
 				if (buffer[i] == 0xFF)
 				{
 					iIsHead = 1;
-					ucBuffer[iBufferLen] =buffer[i];
+					ucBuffer[iBufferLen] = buffer[i];
 					iBufferLen++;
 				}
 				break;
@@ -165,36 +199,37 @@ public:
 				break;
 			}
 
-			
-			// 成功读取到数据
+
+			// 鎴愬姛璇诲彇鍒版暟鎹?
 			if (iBufferFlag == 1)
 			{
-				
-				if (memcmp(ucOldData, ucBuffer, 5) != 0)
+
+				//if (memcmp(ucOldData, ucBuffer, 5) != 0)
+				//{
+				memcpy(ucOldData, ucBuffer, 5);
+				uchar ucTemp = 0;
+				ucTemp = ucBuffer[2] + ucBuffer[3];
+				if (ucTemp == ucBuffer[4])
 				{
-					memcpy(ucOldData, ucBuffer, 5);
-					uchar ucTemp = 0;
-					ucTemp = ucBuffer[2] + ucBuffer[3];
-					if (ucTemp == ucBuffer[4])
-					{
-						ushort ushTemp;
-						ushEncoderValue = ushTemp = 0;
-						ushEncoderValue = ucBuffer[2] & 0x0003;
-						ushTemp = ucBuffer[3] & 0x00FF;
-						ushEncoderValue = ((ushEncoderValue << 8) & 0x0300 | ushTemp) & 0xFFFF;
+					ushort ushTemp;
+					ushEncoderValue = ushTemp = 0;
+					ushEncoderValue = ucBuffer[2] & 0x0003;
+					ushTemp = ucBuffer[3] & 0x00FF;
+					ushEncoderValue = ((ushEncoderValue << 8) & 0x0300 | ushTemp) & 0xFFFF;
+					if (print)
 						printf("EncoderVal = %d\n", ushEncoderValue);
-						rec_flag = true;
-						if (ushEncoderValue >= iStart || ushEncoderValue <= iEnd)
-						{
-							bStop = true;
-						}
-					}
-					else
+					//rec_flag = true;
+					/*if (ushEncoderValue >= iStart || ushEncoderValue <= iEnd)
 					{
-						printf("校验位失败\n");
-						count_flag ++;
-					}
+						bStop = true;
+					}*/
 				}
+				//else
+				//{
+				//printf("鏍￠獙浣嶅け璐n");
+				//count_flag++;
+				//}
+				//}
 				iBufferFlag = 0;
 				memset(ucBuffer, 0, 5);
 			}

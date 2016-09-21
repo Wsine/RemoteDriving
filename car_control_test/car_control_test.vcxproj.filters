@@ -15,14 +15,25 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main_prj.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="calculateCRC.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Streeing_CAN.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="steering_test.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Streeing_CAN.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ControlCAN.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Encoder.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

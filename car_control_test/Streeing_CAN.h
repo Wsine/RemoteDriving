@@ -4,7 +4,7 @@
 #include <iostream>
 #include "ControlCAN.h"
 
-#define ussint unsigned short int
+
 
 class Streeing
 {
@@ -18,10 +18,7 @@ class Streeing
 	int nDeviceIndCar; /* µÚ1¸öÉè±¸*/
 
 	//	int dwRel;
-	int SendStreeingCommand(BYTE command, unsigned short int steering_angle);
-
-	// Add by Wsine
-	int SendStreeingCommandForAX7SRS_R(ussint steerWheelAngle, BYTE steerWheelSpd,
+	int SendStreeingCommand( short steerWheelAngle, BYTE steerWheelSpd,
 		BYTE vehicleSpd, BYTE engineSpd, BYTE steerWheelStatus);
 
 	int nCANInd_1;
@@ -58,7 +55,7 @@ public:
 	int CloseDevice();
 
 	int StartHuman_Driving(unsigned short int steering_angle);
-	int StartSelf_Driving(unsigned short int steering_angle);
+	int StartSelf_Driving(short steeringangle, BYTE steerWheelSpd);
 	int StopDSP(unsigned short int steering_angle);
 
 	int ReceiveStreeingAngle();
