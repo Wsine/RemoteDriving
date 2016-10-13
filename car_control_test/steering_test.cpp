@@ -183,12 +183,12 @@ public:
 
 
 		/* 将通过LCM获得的上层控制数据包转换成对应类型,对全局变量进行写操作
-		* @param	steerWheelSpd_rempte	BYTE
-		* @param	steerWheelAngle_remote	short
-		* @param	pedal_remote	short
-		* @param	brake_remote	short
-		* @param	gear	string	档位信息，用来切换遥控驾驶和真人驾驶
-		*/
+		 * @param	steerWheelSpd_rempte	BYTE
+		 * @param	steerWheelAngle_remote	short
+		 * @param	pedal_remote	short
+		 * @param	brake_remote	short
+		 * @param	gear	string	档位信息，用来切换遥控驾驶和真人驾驶
+		 */
 		steerWheelAngle_remote = atoi(steering_angle_str.c_str());
 		brake_remote = atoi(brake.c_str());
 		pedal_remote = atoi(pedal.c_str());
