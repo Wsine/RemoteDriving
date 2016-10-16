@@ -1,3 +1,7 @@
+
+/* 本代码是转向类实现文件，需要通过CAN口向底层读写
+ * 2016.10.14
+ */
 #include <Windows.h>
 #include <stdio.h>
 #include <string>
@@ -23,6 +27,8 @@ obu_lcm::CAN_value canValuedata;
 obu_lcm::CAN_status canStatusdata;
 obu_lcm::steering_feedback_info steering_feedback;
 
+
+/* @func	StartDevice 	开启设备 */
 int Streeing::StartDevice(void)
 {
 	int dwRelOpenDevice;
@@ -30,11 +36,11 @@ int Streeing::StartDevice(void)
 	int dwRelVCI_InitCAN_1;
 	int dwRelVCI_InitCAN_2;
 
-	nDeviceType = 4; /* USBCAN-2A»òUSBCAN-2C»òCANalyst-II */
-	nDeviceInd = 0; /* µÚ1¸öÉè±¸*/
+	nDeviceType = 4; /* USBCAN-2A USBCAN-2C CANalyst-II */
+	nDeviceInd = 0;
 
-	nDeviceTypeCar = 4; /* USBCAN-2A»òUSBCAN-2C»òCANalyst-II */
-	nDeviceIndCar = 0; /* µÚ1¸öÉè±¸*/
+	nDeviceTypeCar = 4; /* USBCAN-2A USBCAN-2C CANalyst-II */
+	nDeviceIndCar = 0;
 
 	nCANInd_1 = 0;
 	nCANInd_2 = 0;
@@ -50,11 +56,18 @@ int Streeing::StartDevice(void)
 
 	/*初始 CAN*/
 	vic_1.AccCode = 0x80000008;
-	vic_1.AccMask = 0xFFFFFFFF;
+	vic_1.AccMask = 0xFFFFFFFF;//屏蔽码，现在代表全部接收
 	vic_1.Filter = 1;  //接受所有帧
 	vic_1.Timing0 = 0x00;
 	vic_1.Timing1 = 0x1C;//波特率500Kbps
-	vic_1.Mode = 0;		//正常模式
+	vic_1.Mode = 0;		//正常模式，为1的时候只接收
+	
+	/* @func	VCI_InitCAN 			初始化指定的CAN通道
+	 * @param	nDeviceType 			设备类型号
+	 * @param	nDeviceInd 				设备索引号，从0开始增加
+	 * @param	nCANInd_ 				第几路CAN，即对应卡的CAN通道号
+	 * @param	&vic_ 					初始化参数结构体，描述此通道CAN接收帧的情况
+	 */
 	dwRelVCI_InitCAN = VCI_InitCAN(nDeviceType, nDeviceInd, nCANInd_1, &vic_1);
 	if (dwRelVCI_InitCAN != 1)
 	{
@@ -63,7 +76,7 @@ int Streeing::StartDevice(void)
 		return -1;
 	}
 
-	/* µÚ1¸öÍ¨µÀ ½ÓÊÕ*/
+	
 	vic_2.AccCode = 0x80000008;
 	vic_2.AccMask = 0xFFFFFFFF;
 	vic_2.Filter = 1;
@@ -78,7 +91,7 @@ int Streeing::StartDevice(void)
 		return -1;
 	}
 
-	/* µÚ1¸öÍ¨µÀ ·¢ËÍ*/
+
 	vic_3.AccCode = 0x80000008;
 	vic_3.AccMask = 0xFFFFFFFF;
 	vic_3.Filter = 1;
@@ -94,7 +107,11 @@ int Streeing::StartDevice(void)
 	}
 
 
-
+	/* @func	VCI_StartCAN 			启动CAN卡的某一个CAN通道
+	 * @param	nDeviceType 			设备类型号
+	 * @param	nDeviceInd 				设备索引号，从0开始增加
+	 * @param	nCANInd_ 				第几路CAN，即对应卡的CAN通道号
+	 */
 	if (VCI_StartCAN(nDeviceType, nDeviceInd, nCANInd_1) != 1)
 	{
 		VCI_CloseDevice(nDeviceType, nDeviceInd);
@@ -121,14 +138,22 @@ int Streeing::StartDevice(void)
 	return 1;
 }
 
+
+/* @func	SendStreeingCommand 	向底层发送转动命令
+ * @param	steerWheelAngle 		需要转动的角度
+ * @param 	steerWheelSpd 			转速
+ * @param	vehicleSpd 				车速，默认0x00
+ * @param	engineSpd 				发动机转速，默认0x00
+ * @param	steerWheelStatus 		0x20，此状态代表控制权交给
+ */
 int Streeing::SendStreeingCommand(short  steerWheelAngle, BYTE steerWheelSpd,
 	BYTE vehicleSpd, BYTE engineSpd, BYTE steerWheelStatus)
 {
 	int dwRel;
-	vco_send[0].ID = (UINT)(0x0000B500);
-	vco_send[0].RemoteFlag = 0;
+	vco_send[0].ID = (UINT)(0x0000B500);//固定格式的帧的首部
+	vco_send[0].RemoteFlag = 0;//远程帧
 	vco_send[0].ExternFlag = 1; //扩展帧
-	vco_send[0].DataLen = 7;
+	vco_send[0].DataLen = 7;//长度为7个byte
 
 	//steerWheelAngle = 1024 + steerWheelAngle; //?
 
@@ -142,27 +167,51 @@ int Streeing::SendStreeingCommand(short  steerWheelAngle, BYTE steerWheelSpd,
 	//temp_angle = ((int)highangel << 8) + (int)lowangel;
 	//temp_angle = temp_angle / 10;
 
-
+	/* 发送给底层帧的格式
+	 * byte[0]			转向角右移8位？
+	 * byte[1]			转向角
+	 * byte[2]			转角速度
+	 * byte[3]			车速，默认0x00
+	 * byte[4]			发动机转速，默认0x00
+	 * byte[5]			工作状态，0x20代表无人驾驶模式
+	 * byte[6]			？默认0x00
+	 */
 	BYTE b0 = vco_send[0].Data[0] = highangel;
 	BYTE b1 = vco_send[0].Data[1] = lowangel;
 	BYTE b2 = vco_send[0].Data[2] = steerWheelSpd;
 	BYTE b3 = vco_send[0].Data[3] = vehicleSpd;
-
 	BYTE b4 = vco_send[0].Data[4] = engineSpd;
 	BYTE b5 = vco_send[0].Data[5] = steerWheelStatus;
 	//BYTE temp_result = b0^b1^b2^b3^b4^b5;
 	BYTE b6 = vco_send[0].Data[6] = 0x00;
 
+	/* @func	VCI_Transmit 			发送帧的函数，返回值为实际发送成功帧的数量
+	 * @param	nDeviceType 			设备类型号
+	 * @param	nDeviceInd 				设备索引号，从0开始增加
+	 * @param	nCANInd_ 				第几路CAN，即对应卡的CAN通道号
+	 * @param	vco_send				要发送的内容
+	 * @param	len 					每一次发送帧的数量，这里每一次只发一个帧，所以就是1
+	 */
 	dwRel = VCI_Transmit(nDeviceType, nDeviceInd, nCANInd_1, vco_send, 1);
 	return 1;
 }
 
+
+/*
+ * @func	StartHuman_Driving 		转回手动驾驶
+ * To be implemented
+ */
 int Streeing::StartHuman_Driving(unsigned short int steeringangle)
 {
 	//SendStreeingCommand(0x10, steeringangle,);
 	return 1;
 }
 
+
+/* @func	StartSelf_Driving 		自动驾驶或者遥控驾驶模式，油门由此程序接口
+ * @param	steeringangle 			即将要转的角度
+ * @param	steerWheelSpd 			转速
+ */
 int Streeing::StartSelf_Driving(short steeringangle, BYTE steerWheelSpd)
 {
 	SendStreeingCommand(steeringangle, steerWheelSpd, 0x00, 0x00, 0x20);
@@ -170,12 +219,20 @@ int Streeing::StartSelf_Driving(short steeringangle, BYTE steerWheelSpd)
 }
 
 
+/*
+ * @func	StopDSP 		？
+ * To be implemented
+ */
 int Streeing::StopDSP(unsigned short int steeringangle)
 {
 	//SendStreeingCommand(0x00, steeringangle);
 	return 1;
 }
 
+
+/*
+ * @func	CloseDevice 		关闭CAN
+ */
 int Streeing::CloseDevice()
 {
 	int dwRel;
@@ -188,13 +245,22 @@ int Streeing::CloseDevice()
 	return 1;
 }
 
+
+/* @func	ReceiveStreeingAngle 	读取当前转速情况 */
 int Streeing::ReceiveStreeingAngle(void)
 {
 	int dwRel;
-	//-574  531   
-	//-552  552  //left -553   right 548
 	double current_steeringangle = 0;
 	short temp_angle = 0;
+
+	/* @func	VCI_Receive 			接收帧的函数，从指定设备的CAN通道缓冲接收区读取数据，返回值为实际读取到的帧数
+	 * @param	nDeviceType 			设备类型号
+	 * @param	nDeviceInd 				设备索引号，从0开始增加
+	 * @param	nCANInd_ 				第几路CAN，即对应卡的CAN通道号
+	 * @param	vco_receive				接收的内容
+	 * @param	Len 					本次接收最多帧的数目
+	 * @param	WaitTime				缓冲区无数据，函数阻塞等待时间，毫秒级
+	 */
 	dwRel = VCI_Receive(nDeviceType, nDeviceInd, nCANInd_1, vco_receive, 60, 0);
 
 	if (dwRel > 0 && vco_receive[0].ID == (UINT)(0x0000A500))
@@ -214,7 +280,6 @@ int Streeing::ReceiveStreeingAngle(void)
 
 		//std::cout<<"current_steeringangle = "<<current_steeringangle<<endl;
 		//std::cout << "current_steering_angle_speed = " << steering_feedback.steering_angle_speed << endl;
-
 	}
 	else if (dwRel == -1)
 	{

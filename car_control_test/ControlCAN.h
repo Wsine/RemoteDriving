@@ -1,3 +1,7 @@
+
+/* 本代码是CAN调用头文件，Windows下需要搭配相应的DLL，linux下需要相应的so文件
+ * 2016.10.14
+ */
 #ifndef CONTROLCAN_H
 #define CONTROLCAN_H
 
