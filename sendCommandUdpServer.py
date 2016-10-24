@@ -6,7 +6,7 @@ import time
 import car_t
 import socket, traceback
 #from socket import *
-host = "192.168.42.19"
+host = "192.168.191.3"
 port = 8000
 
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -56,5 +56,5 @@ while 1:
 	except (KeyboardInterrupt, SystemExit):
 		raise
 	except:
-		trackback.print_exc()
+		traceback.print_exc()
 
