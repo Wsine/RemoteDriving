@@ -14,18 +14,17 @@
 #pragma comment(lib,"ws2_32.lib")
 #pragma comment(lib, "LogitechSteeringWheelLib.lib")
 #include "LogitechSteeringWheelLib.h"
-
 using namespace std;
 
 /* tool fucntion : parse button value to string*/
 int maxPedal = 2500;
-
+string thisAdd = "192.168.191.1";
 string toGear(unsigned char * button);
 string toLRSlice(unsigned char * button);
 int wheelToStandardDataType(int wheel);
 float pedalToStandardDataType(int pedal);
 float brakeToStandardDataType(int brake);
-
+int threadForHearbeatListener(void * param);
 
 int main()
 {
@@ -36,9 +35,9 @@ int main()
 	cin >> serverAdd;
 	cout << "Input command server port:";
 	cin >> serverPort;
-	//int timeDelay;
-	//cout << "Input sleep time:";
-	//cin >> timeDelay;
+	cout << "Input this client IP address(xxx.xxx.xxx.xxx):";
+	cin >> thisAdd;
+
 	DIJOYSTATE2ENGINES* pState;
 	
 	if (LogiSteeringInitialize(true)) {
@@ -60,24 +59,16 @@ int main()
 	SOCKET sclient = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
 	sockaddr_in sin;
 	sin.sin_family = AF_INET;
-	//sin.sin_port = htons(8000);
 	sin.sin_port = htons(serverPort);
-	//sin.sin_addr.S_un.S_addr = inet_addr("192.168.0.227");
 	sin.sin_addr.S_un.S_addr = inet_addr(serverAdd.c_str());
 
 	int len = sizeof(sin);
-
+	CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)threadForHearbeatListener, NULL, 0, 0);
 
 	while (1) {
 		if (LogiUpdate()) {
 			pState = LogiGetStateENGINES(0);
-			//to get the return results in string
 			strstream ss;
-			string wheel = "wheel=";
-			string pedal = "pedal=";
-			string brake = "brake=";
-			string id = "id=";
-			string time = "time=";
 			/*	Notice what the value represents
 			(steering) wheel
 			left ---- middle ---- right
@@ -88,9 +79,6 @@ int main()
 			-32768				  32767
 			*/
 
-			/*ss << wheel << pState->lX << "&" << pedal <<  pState->lY << "&" << brake << pState->lRz;
-			ss << "&" << clutch << pState->rglSlider[1] << "&" << toGear(pState->rgbButtons);
-			ss << "&" << toLRSlice(pState->rgbButtons);*/
 			SYSTEMTIME sysTime;
 			GetLocalTime(&sysTime);
 			unsigned long int mTime;
@@ -100,19 +88,21 @@ int main()
 			ss << "&" << toGear(pState->rgbButtons);
 			ss << "&" << ID << "&" << mTime;
 			ID++;
-			cout << "ID: " << ID << endl;
 			string strResult;
-			ss >> strResult;
-						
+			string showResult;
+			ss >> strResult;		
 			sendto(sclient, strResult.c_str(), strlen(strResult.c_str()), 0, (sockaddr *)&sin, len);
-			cout << strResult << endl;
-			//Sleep(timeDelay);	
+			strstream out;
+			out << "方向盘值：" << wheelToStandardDataType(pState->lX) << "油门值：" << pedalToStandardDataType(pState->lY)
+				<< "刹车值：" << brakeToStandardDataType(pState->lRz);
+			out << "档位值：" << toGear(pState->rgbButtons);
+			out >> showResult;
+			cout << showResult << endl;
 			Sleep(100);
 		}
 	}
 	closesocket(sclient);
 	WSACleanup();
-
 	system("pause");
 	return 0;
 }
@@ -220,4 +210,61 @@ float brakeToStandardDataType(int brake) {
 	}
 	result = brake * 5000 / 65535;
 	return result;
+}
+
+int threadForHearbeatListener(void * param) {
+	/* 计时器 */
+	DWORD start, end;
+	bool isConnected = true;
+	WSADATA wsaData;
+	WORD sockVersion = MAKEWORD(2, 2);
+	
+	if (WSAStartup(sockVersion, &wsaData) != 0) {
+		return 1;
+	}
+	SOCKET serSocket = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
+	if (serSocket == INVALID_SOCKET) {
+		printf("socket error !");
+		return 1;
+	}
+	sockaddr_in serAddr;
+	serAddr.sin_family = AF_INET;
+	serAddr.sin_port = htons(8000);
+	serAddr.sin_addr.S_un.S_addr = inet_addr(thisAdd.c_str());;
+	if (bind(serSocket, (sockaddr *)&serAddr, sizeof(serAddr)) == SOCKET_ERROR) {
+		printf("bind error !");
+		closesocket(serSocket);
+		return 1;
+	}
+	sockaddr_in remoteAddr;
+	int nAddrLen = sizeof(remoteAddr);
+	start = GetTickCount();
+	while (true) {		
+		end = GetTickCount();
+		char recvData[255];
+		int iMode = 1;
+		ioctlsocket(serSocket, FIONBIO, (u_long FAR*) &iMode);
+		int ret = recvfrom(serSocket, recvData, 255, 0, (sockaddr *)&remoteAddr, &nAddrLen);
+		
+		if (ret > 0) {
+			recvData[ret] = 0x00;
+			printf("收到指令指令服务器返回的心跳包：\r\n");
+			printf(recvData);
+			isConnected = true;
+			start = GetTickCount();
+			end = GetTickCount();
+		}
+		if (end - start <= 1500) {
+			isConnected = true;
+		}
+		else {
+			if (isConnected == true) {
+				printf("\n*****未连接到指令服务器！*****\r\n");
+				isConnected = false;
+			}
+		}
+	}
+	closesocket(serSocket);
+	WSACleanup();
+	return 0;
 }
