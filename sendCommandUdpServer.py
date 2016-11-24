@@ -5,8 +5,8 @@ import lcm
 import time
 import car_t
 import socket, traceback
-#from socket import *
-host = "192.168.191.3"
+
+host = "192.168.191.4"
 port = 8000
 
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -15,7 +15,9 @@ s.bind((host, port))
 angle_previous = 0
 time_previous = 0
 angle_speed = 0
-i = 0;
+heart_counter = 0
+heart_packet=""
+
 while 1:
 	try:
 		message, address = s.recvfrom(1024)
@@ -31,6 +33,21 @@ while 1:
 		brake = float(brake_str)
 		get_id = int(id_str)
 		get_time = int(time_str)
+		heart_packet = heart_packet + '&' + id_str
+		heart_counter = heart_counter + 1
+		if (heart_counter == 10):
+			heart_packet = heart_packet + time.strftime("%Y-%m-%d-%T")
+			heart_packet = heart_packet + '\n'
+			remote_host = '192.168.191.1'
+			remote_port = 8000
+			remote_bufsize = 256
+			remote_addr = (remote_host, remote_port)
+			heartPacket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+			heartPacket.sendto(heart_packet, remote_addr)
+			print "success sent"
+			heartPacket.close()
+			heart_counter = 0
+			heart_packet = ""
 
 		if (time_previous != 0):
 			if (get_time > time_previous):
@@ -47,14 +64,12 @@ while 1:
 		msg.gear = gear_str		
 		msg.steering_angle_speed = str(angle_speed)
 		lc.publish("COMMAND", msg.encode()) 
-		print 'No. ', i
+		print 'No. ', get_id
 		print 'angle: ', steering_angle, 'speed: ', angle_speed, 'pedal: ', pedal_str, 'brake: ', brake_str, 'gear: ', gear_str
 		time_previous = get_time
 		angle_previous = steering_angle
-		i = i + 1
 		#time.sleep(0.001)		
 	except (KeyboardInterrupt, SystemExit):
 		raise
 	except:
 		traceback.print_exc()
-
