@@ -1,8 +1,4 @@
-﻿
-/* 本代码是转向类头文件，需要通过CAN口向底层读写
- * 2016.10.13
- */
-#pragma once
+﻿#pragma once
 
 #include <Windows.h>
 #include <iostream>
@@ -15,11 +11,11 @@ class Streeing
 	VCI_CAN_OBJ vco_receive[64];//64
 	VCI_CAN_OBJ vco_receiveCar[64];
 	VCI_CAN_OBJ vco_send[8];
-	int nDeviceType; /* USBCAN-2A USBCAN-2C CANalyst-II */
-	int nDeviceInd;
+	int nDeviceType; /* USBCAN-2A»òUSBCAN-2C»òCANalyst-II */
+	int nDeviceInd; /* µÚ1¸öÉè±¸*/
 
-	int nDeviceTypeCar; /* USBCAN-2A USBCAN-2C CANalyst-II */
-	int nDeviceIndCar;
+	int nDeviceTypeCar; /* USBCAN-2A»òUSBCAN-2C»òCANalyst-II */
+	int nDeviceIndCar; /* µÚ1¸öÉè±¸*/
 
 	//	int dwRel;
 	int SendStreeingCommand( short steerWheelAngle, BYTE steerWheelSpd,
@@ -39,11 +35,11 @@ public:
 
 	Streeing()
 	{
-		nDeviceType = 4; /* USBCAN-2A USBCAN-2C CANalyst-II */
-		nDeviceInd = 0;
+		nDeviceType = 4; /* USBCAN-2A»òUSBCAN-2C»òCANalyst-II */
+		nDeviceInd = 0; /* µÚ1¸öÉè±¸*/
 
-		nDeviceTypeCar = 4; /* USBCAN-2A USBCAN-2C CANalyst-II */
-		nDeviceIndCar = 0; 
+		nDeviceTypeCar = 4; /* USBCAN-2A»òUSBCAN-2C»òCANalyst-II */
+		nDeviceIndCar = 0; /* µÚ1¸öÉè±¸*/
 
 		nCANInd_1 = 0;
 		nCANInd_2 = 0;
@@ -62,7 +58,8 @@ public:
 	int StartSelf_Driving(short steeringangle, BYTE steerWheelSpd);
 	int StopDSP(unsigned short int steering_angle);
 
-	/* 用于反馈转向的信息 */
 	int ReceiveStreeingAngle();
 	int ReceiveVehicleSpeed();
-};
+};	
+
+

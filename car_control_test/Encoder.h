@@ -1,7 +1,3 @@
-
-/* 本代码是刹车电机函数声明及实现，通过串口读写
- * 2016.10.16
- */
 #ifndef ENCODER_H_
 #define ENCODER_H_
 
@@ -12,6 +8,10 @@
 
 #define STANDARD_ENCODER_VALUE 0
 #define STANDARD_OFFSET_VALUE 20
+
+#define STAMP_BRAKE 560
+#define LOOSE_BRAKE 720
+#define BARKE_MARGIN 15
 
 using namespace std;
 int count_flag = 0;
@@ -45,8 +45,8 @@ public:
 	}
 public:
 	Motor_Comm() {
-		current = aim = 550;
-		margin = 15;
+		current = aim = LOOSE_BRAKE;
+		margin = BARKE_MARGIN;
 		isNeedtoStop = false;
 		isTurning = false;
 	}
@@ -76,7 +76,7 @@ public:
 	}
 
 	bool TurningToAim() {
-		if (current > 700 && isTurning)
+		if (current > LOOSE_BRAKE && isTurning)
 		{
 			printf("overflow stop!!!!!\n");
 			stop();
@@ -84,11 +84,17 @@ public:
 			return true;
 		}
 
-		/* 超出区间，停止 */
+		if (current < STAMP_BRAKE && isTurning) {
+			printf("downflow stop!!!!!\n");
+			stop();
+			isTurning = false;
+			return true;
+		}
+
 		if (current >= aim - margin && current <= aim + margin) {
 			if (isTurning) {
 				stop();
-				printf("Stop now......\n");
+				//printf("Stop now......\n");
 
 			}
 			//printf("stopping......\n");
@@ -115,7 +121,7 @@ public:
 	}
 
 	bool resetToInit() {
-		aim = 650;
+		aim = LOOSE_BRAKE;
 		return TurningToAim();
 	}
 
@@ -124,13 +130,13 @@ public:
 class Encoder_Comm : public CnComm
 {
 public:
-	int iIsHead;
+	int iIsHead;				//0:脙禄脫脨脮脪碌陆脥路拢禄1拢潞卤铆脢戮脮脪碌陆0xff;2拢潞卤铆脢戮脮脪碌陆0x81
 	bool bIsHead;
 	bool bStop;
 	int iBufferLen;
-	int iBufferFlag;
-	int iTurnOrent;
-	ushort ushEncoderValue;
+	int iBufferFlag;   	//0:卤铆脢戮buffer 5脳脰陆脷脦麓脤卯脗煤拢禄1拢潞卤铆脢戮buffer 5脳脰陆脷脤卯脗煤拢禄
+	int iTurnOrent;  //0卤铆脢戮脧貌脥拢脳陋拢卢1卤铆脢戮脧貌脫脪脳陋, 2卤铆脢戮脫脪脳陋拢禄16-6-10 WFH脭枚录脫
+	ushort ushEncoderValue;    //1024  0-1023	
 	ushort ushABSValue;
 	ushort ushStandard;
 	uchar ucOldData[5];
@@ -205,7 +211,7 @@ public:
 			}
 
 
-			//
+			// 鎴愬姛璇诲彇鍒版暟鎹?
 			if (iBufferFlag == 1)
 			{
 
@@ -226,11 +232,12 @@ public:
 					//rec_flag = true;
 					/*if (ushEncoderValue >= iStart || ushEncoderValue <= iEnd)
 					{
-						bStop = true;
+					bStop = true;
 					}*/
 				}
 				//else
 				//{
+				//printf("鏍￠獙浣嶅け璐n");
 				//count_flag++;
 				//}
 				//}

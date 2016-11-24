@@ -1,7 +1,3 @@
-
-/* 本代码用来调试测试油门，通过串口读写
- * 2016.10.16
- */
 #include <stdio.h>
 #include <tchar.h>
 #include <Windows.h>

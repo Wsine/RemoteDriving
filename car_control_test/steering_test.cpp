@@ -1,11 +1,3 @@
-
-/* 工控机为Windows的底层控制代码，适合于远程遥控项目，上层需传输转向、油门、刹车以及档位（切换模式）的信息
- * 通过CAN实现对方向盘的控制
- * 通过串口实现对油门和刹车的控制
- * 通过局域网LCM接收上层发来的控制指令
- * 2016.10.13
- */
-
 #include <stdio.h>
 #include <tchar.h>
 #include <Windows.h>
@@ -42,14 +34,15 @@ using namespace std;
 #define REMOTE_MODE 3
 #define AUTO_MODE 4
 
-/* LCM的组播地址与端口号，需要与上层发送端一致 */
-lcm::LCM xyz_lcm("udpm://239.255.76.68:7667?ttl=2&recv_buf_size=40860000");
+obu_lcm::accelerate_feedback_info g_accelerate_feedback_info;
+lcm::LCM xyz_lcm("udpm://239.255.76.68:7667?ttl=2&recv_buf_size=40860000");//监听INS信息
 
 
 /****************控制参数***************************/
+bool control_force = false;
 short control_mode = INIT_MODE;
 short steerWheelAngle_remote = 0; //转向角
-BYTE steerWheelSpd_remote = 0x10;	  //方向盘转向速度，初始化10
+BYTE steerWheelSpd_remote = 0x10;	  //方向盘转向速度
 short pedal_remote = 0; //接收到目的油门踏板状态，最开始初始化为0mv，代表未踩
 unsigned short current_pedal = 0; //当前实际油门的状态
 short brake_remote = 0; //接收到目的刹车踏板状态，最开始初始化为0mv，代表未踩
@@ -58,25 +51,18 @@ short write_brake = 0;//通过PID计算，实际应该继续拉动刹车电机的值
 /***************************************************/
 
 
-/*
 bool isRemotedriving = false;
 bool isSendingCAN = false;
 bool isNeedtoStopSend = false;
 
-
 extern obu_lcm::CAN_value canValuedata;
 extern obu_lcm::CAN_status canStatusdata;
 extern obu_lcm::steering_feedback_info steering_feedback;
-*/
-
-/* 转向、油门、刹车 */
 class Streeing  AX7_Streeing;
 Accelerator_Comm throttleComm;
 Motor_Comm motorComm;
 
-/* 把string类型的转角速度转换位16进制的byte类型，返回值为byte
- * @param	steering_angle_speed_str	angle speed to be converted.
- */
+//把string类型的转角速度转换位16进制的byte类型数
 BYTE STRINGtoBYTE(string steering_angle_speed_str)
 {
 	short temp_speed = atoi(steering_angle_speed_str.c_str());
@@ -181,13 +167,7 @@ BYTE STRINGtoBYTE(string steering_angle_speed_str)
 		return  0x11;
 }
 
-/* 通过LCM收到数据，并进行类型转换，各线程将调用转换后的数据
- * @param	steering_angle_speed_str	转向速度		非负数，为0时设置为10
- * @param	steering_angle_str 			转向角			-450~450
- * @param	pedal 						油门大小		0~2500
- * @param	brake 						刹车大小		0~5000
- * @param	gear						模式切换		3为远程
- */
+
 class Handler {
 public:
 	~Handler() {}
@@ -204,68 +184,71 @@ public:
 
 
 		/* 将通过LCM获得的上层控制数据包转换成对应类型,对全局变量进行写操作
-		 * @param	steerWheelSpd_remote	BYTE
-		 * @param	steerWheelAngle_remote	short
-		 * @param	pedal_remote	short
-		 * @param	brake_remote	short
-		 * @param	gear	string	档位信息，用来切换状态
-		 */
+		* @param	steerWheelSpd_rempte	BYTE
+		* @param	steerWheelAngle_remote	short
+		* @param	pedal_remote	short
+		* @param	brake_remote	short
+		* @param	gear	string	档位信息，用来切换遥控驾驶和真人驾驶
+		*/
 		steerWheelAngle_remote = atoi(steering_angle_str.c_str());
 		brake_remote = atoi(brake.c_str());
 		pedal_remote = atoi(pedal.c_str());
-		/* 当控制端发来角速度小于10时，这里赋值为一个固定角速度，保持方向盘固定不变。*/
+		//当控制端发来角速度小于10时，这里赋值为一个固定角速度，保持方向盘固定不变。
 		steerWheelSpd_remote = STRINGtoBYTE(steering_angle_speed_str);
 
-		if (gear[0] == '4') {
-			control_mode = MANUAL_MODE;
-			printf("current mode = MANUAL\n");
-		}
-		else if (gear[0] == '3') {
-			control_mode = REMOTE_MODE;
-			printf("current mode = REMOTE\n");
-		}
-		else if (gear[0] == '2') {
-			control_mode = AUTO_MODE;
-			printf("current mode = AUTO\n");
-		}
+
+
+
 		//printf("Received message on channel \"%s\":\n", chan.c_str());
-		//std::cout << "wheel: " << steerWheelAngle_remote << ", pedal: " << pedal << ", brake: " << brake << ", gear" << gear << std::endl;
+	std::cout << "wheel: " << steerWheelAngle_remote << ", pedal: " << pedal << ", brake: " << brake << ", gear" << gear << std::endl;
 	}
 };
 
 
-/* 监听INS数据 */
+/*监听INS数据*/
 int Thread_ins_Function(void* param) {
 	int i = 0;
 	while (0 == xyz_lcm.handle())
 	{
-		/*cout << "NO." << i << endl;
-		cout << "trying angle: " << steerWheelAngle_remote;
-		cout << "  current angle: " << steering_feedback.steering_angle;
-		printf("  speed: %x ", steerWheelSpd_remote);
-		cout << "  trying brake: " << brake_remote;
-		cout << "  current brake: " << current_brake << endl;
-		i++;*/
+		//cout << "NO." << i << endl;
+		//cout << "trying angle: " << steerWheelAngle_remote;
+		//cout << "  current angle: " << steering_feedback.steering_angle;
+		//printf("  speed: %x ", steerWheelSpd_remote);
+		//cout << "  trying brake: " << brake_remote;
+		//cout << "  current brake: " << current_brake << endl;
+		//i++;
 	}
 	return 0;
 }
 
 
-/* 方向盘角度读取，若需要通过LCM返回给上层，则需要另开启一个LCM通道 */
+/*方向盘角度读取*/
 int Thread_steering_feedback_Function(void* param) {
 	int exitcode = 1;
 	Streeing* pStreeing = (Streeing*)param;
 	while (1 == exitcode)
 	{
+		control_force = (GetKeyState(VK_CAPITAL) & 0x0001);
+		if (control_force) {
+			control_mode = MANUAL_MODE;
+			cout << "manaul mode" << endl;
+		}
+		else {
+			control_mode = REMOTE_MODE;
+			//cout << "AUTO mode" << endl;
+
+		}
+		//cout << "1" << endl;
 		exitcode = pStreeing->ReceiveStreeingAngle();
 		//steering_lcm.publish("steering_feedback_info", &steering_feedback);
 		Sleep(10);
 	}
+
 	return 0;
 }
 
 
-/* 发送steer控制命令到CAN口，需要根据此时切换状态判断是否发送 */
+/*发送steer控制命令到CAN口*/
 int Thread_CANCar_Function(void* param) {
 	Streeing* pStreeing = (Streeing*)param;
 	while (true) {
@@ -278,16 +261,20 @@ int Thread_CANCar_Function(void* param) {
 }
 
 
-/* 设定工作区间，判断刹车电机停止工作的条件 */
+/**
+* 向底层电机写入刹车命令，调用参数为write_brake，即通过PID计算，实际应该给电机输入的值write_brake
+*
+**/
 void Thread_Brake_Function(void* param) {
+
+	// 打开设备，参数一是设备管理器的端口COM8
 	short oldValue = -1;
 	while (true) {
 		short diff = brake_remote - oldValue;
-		/* 将刹车电机拉线的工作区间设置为-100~100，最终落在此区间内停止拉线 */
-		if (!motorComm.isTurning && (diff > 100 || diff < -100)) {
+		if ((!motorComm.isTurning && (diff > 100 || diff < -100)||brake_remote ==3500) && control_mode != MANUAL_MODE) 
+		//if (control_mode != MANUAL_MODE){
 			oldValue = brake_remote;
-			/* 刹车拉线的目标值 */
-			unsigned short value = (unsigned short)(brake_remote * -1 * 274.0 / 5000 + 650);
+			unsigned short value = (unsigned short)(brake_remote * -1 * 160.0 / 5000 + 720);
 			//printf("value = %d\n", value);
 			motorComm.setAim(value);
 			//motorComm.isNeedtoStop = false;
@@ -296,12 +283,16 @@ void Thread_Brake_Function(void* param) {
 	}
 }
 
-/* 编码器读回此时电机转动情况 */
+/**
+* 得到此时刹车电机工作程度，给current_brake赋值
+*
+**/
 void Thread_Brake_feedback_Function(void* param) {
 	Encoder_Comm encoderComm;
-	/* 打开编码器设备，端口COM9，波特率38400 */
+	// 打开设备，参数一是设备管理器的端口COM8
 	encoderComm.Open(9, 38400);
-	//int counter = 0;
+	// 持续打开访问设备
+	int counter = 0;
 	while (true) {
 		encoderComm.OnReceive();
 		if (encoderComm.ushEncoderValue != 0)
@@ -310,7 +301,9 @@ void Thread_Brake_feedback_Function(void* param) {
 	}
 }
 
-/* 判断control_mode并根据模式控制刹车电机 */
+/**
+*  输入current_brake和brake_remote，即目标值和当前值，通过调用PID算法，得到当前应该输入的write_brake
+**/
 int Thread_Brake_calculate_Function(void* param) {
 	short last_control_mode = control_mode;
 	while (true) {
@@ -327,29 +320,30 @@ int Thread_Brake_calculate_Function(void* param) {
 	return 0;
 }
 
-/* 根据当前模式，控制油门 */
+
+/***
+* 通过ECU向油门写入命令
+*
+**/
 int Thread_Pedal_Function(void* param) {
-	/* 油门串口，端口COM10，波特率9600 */
+	// 打开设备，参数一是设备管理器的端口COMn
 	throttleComm.Open(10, 9600);
 	throttleComm.InputVoltage(400);
 	throttleComm.ShiftRelay(OFF);
 	while (true) {
-		/* 如果当前模式切为手动驾驶，关油门 */
 		if (control_mode == MANUAL_MODE && throttleComm.isShiftRelayON) {
 			throttleComm.InputVoltage(400);
 			throttleComm.ShiftRelay(OFF);
 			throttleComm.isShiftRelayON = false;
 		}
-		/* 远程驾驶模式 */
 		else if (control_mode == REMOTE_MODE) {
-			/* 初始化，给400mv */
 			if (!throttleComm.isShiftRelayON) {
 				throttleComm.InputVoltage(400);
 				throttleComm.ShiftRelay(ON);
-				throttleComm.isShiftRelayON = true;
 			}
-			// 400 ~ 500
+			// 400 ~ 600
 			short value = (short)(pedal_remote / 12.5 + 400);
+			//printf("vlaue = %d\n", value);
 			throttleComm.InputVoltage(value);
 		}
 		// AUTO_MODE implement here
@@ -359,7 +353,10 @@ int Thread_Pedal_Function(void* param) {
 	return 0;
 }
 
-/* 读取此时油门状态 */
+/**
+* 读取此时油门状态
+*
+**/
 int Thread_Pedal_feedback_Function(void* param) {
 	//To be continued
 	//current_pedal = throttleComm.CollectingVoltage();
@@ -368,59 +365,59 @@ int Thread_Pedal_feedback_Function(void* param) {
 
 int main(int argc, char* argv[]) {
 
-	/* 开启LCM，监听上层指令数据包 */
 	if (!xyz_lcm.good()) {
 		cout << "steering_lcm is bad...." << endl;
 		return -1;
 	}
+
 	Handler handlerObject;
 	xyz_lcm.subscribe("COMMAND", &Handler::handleMessage, &handlerObject);
 
-	/* 开启CAN，控制方向盘 */
 	if (AX7_Streeing.StartDevice() == -1) {
 		cout << "StartDevic failed......" << endl;
 	}
-
-	/* 开启串口，控制刹车电机，串口COM8，波特率9600 */
 	motorComm.Open(8, 9600);
+
+
 	cout << "system begin" << endl;
 
-	/* 监听INS */
 	CreateThread(NULL, 0,
 		(LPTHREAD_START_ROUTINE)Thread_ins_Function,
 		NULL, 0, 0);
-	/* 向底层方向盘写数据 */
+	//开启向底层方向盘写数据
 	CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)Thread_CANCar_Function,
 		(LPVOID)(&AX7_Streeing), 0, 0);
-	/* 监听方向盘返回数据 */
+	//开启监听方向盘返回数据
 	CreateThread(NULL, 0,
 		(LPTHREAD_START_ROUTINE)Thread_steering_feedback_Function,
 		(LPVOID)(&AX7_Streeing), 0, 0);
 
-	/* 设置刹车电机工作区间 */
-	/*CreateThread(NULL, 0,
+	////开启向底层刹车驱动写数据
+	CreateThread(NULL, 0,
 		(LPTHREAD_START_ROUTINE)Thread_Brake_Function,
-		NULL, 0, 0);*/
-	
-	/* 刹车电机编码器工作，读回数据 */
-	/*CreateThread(NULL, 0,
+		NULL, 0, 0);
+	//开启监听此时刹车电机状态
+	CreateThread(NULL, 0,
 		(LPTHREAD_START_ROUTINE)Thread_Brake_feedback_Function,
-		NULL, 0, 0);*/
-	/* 根据当前模式，控制刹车电机工作 */
-	/*CreateThread(NULL, 0,
+		NULL, 0, 0);
+	//开启利用PID计算下一个刹车的参数
+	CreateThread(NULL, 0,
 		(LPTHREAD_START_ROUTINE)Thread_Brake_calculate_Function,
-		NULL, 0, 0);*/
-	/* 油门串口工作 */
+		NULL, 0, 0);
+
+	//开启向底层油门驱动写数据
 	/*CreateThread(NULL, 0,
 		(LPTHREAD_START_ROUTINE)Thread_Pedal_Function,
-		NULL, 0, 0);*/
-	/* 油门串口返回当前值 */
-	/*CreateThread(NULL, 0,
+		NULL, 0, 0);
+	//开启监听此时油门状态
+	CreateThread(NULL, 0,
 		(LPTHREAD_START_ROUTINE)Thread_Pedal_feedback_Function,
 		NULL, 0, 0);*/
+
 
 	while (1) {
 		Sleep(10000);
 	}
 	return 0;
 }
+
