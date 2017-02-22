@@ -1,7 +1,4 @@
-
-/* 本代码是油门类文件，通过串口读写
- * 2016.10.14
- */
+//#include "stdafx.h"
 #include <stdio.h>
 #include <tchar.h>
 #include <string>
@@ -14,6 +11,11 @@
 #define uchar unsigned char
 #define  ON 1
 #define  OFF 0
+
+// accelerator.cpp : 定义控制台应用程序的入口点。
+//
+
+
 
 using namespace std;
 
@@ -32,7 +34,6 @@ public:
 		Close();
 	}
 public:
-	/* 没有用到 */
 	void OnReceive()
 	{
 		// 		uchar buffer[256];
@@ -43,10 +44,11 @@ public:
 		// 		{
 		// 			//printf("\n%02x ", buffer[i]);
 		// 		}
+
 	}
 
 public:
-	/* 电压为毫伏，0路为高电压；1路为低电压，电压大小代表油门踩下多少 */
+	//电压为毫伏	0路为高电压；1路为低电压
 	void InputVoltage(int iVoltage)
 	{
 		uchar uchBuf[13] = { 0x03, 0x10, 0x00, 0x60, 0x00, 0x02, 0x04, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
@@ -56,7 +58,6 @@ public:
 			printf("Voltage setting is too large，the value must < 1.5v");
 			return;
 		}
-		/* ？ 油门的数据形式*/
 		//iVoltage = iVoltage*4095/10000;
 		//cout << "after compute iVoltage = " << iVoltage << endl;
 		uchVoltage = iVoltage >> 8 & 0xFF;
@@ -66,6 +67,7 @@ public:
 		uchBuf[8] = uchVoltage;
 		//printf("first = %02x ", uchVoltage);
 		//printf("first = %d ", (int)uchVoltage);
+
 		iVoltage /= 2;
 		uchVoltage = iVoltage >> 8 & 0xFF;
 		uchBuf[9] = uchVoltage;
@@ -74,14 +76,13 @@ public:
 		uchBuf[10] = uchVoltage;
 		//printf("second = %02x ", uchVoltage);
 		//printf("second = %d\n", (int)uchVoltage);
+
 		uchar uchResult[2];
 		unsigned short ushResult;
-		/* CRC校验 */
 		ushResult = CRC16(uchBuf, 11, uchResult);
 		uchBuf[11] = uchResult[0];
 		uchBuf[12] = uchResult[1];
 
-		/* 串口写入 */
 		Write(uchBuf, 13);
 		uchar ucBuffer[256];
 		DWORD len;
@@ -99,13 +100,14 @@ public:
 		}
 	}
 
-
-	/* 继电器开关，远程控制油门用到 参数：ON/OFF */
+	//继电器开关 参数：ON/OFF
 	bool ShiftRelay(int iOnOrOff)
 	{
 		uchar uchResult[2];
 		unsigned short ushResult;
 		uchar uchBuf[10] = { 0x02, 0x0f, 0x02, 0x00, 0x00, 0x03, 0x01, 0x07, 0x8F, 0x62 };
+		//uchar uchBuf[10] = { 0x02, 0x0f, 0x02, 0x00, 0x00, 0x03, 0x01, 0x07, 0x8F, 0x62 };
+
 		if (!iOnOrOff)
 		{
 			uchBuf[7] = 0;
@@ -142,7 +144,7 @@ public:
 		}
 	}
 
-	/* 没有用到 */
+	//转向开关 参数：ON/OFF
 	bool ShiftSteeringRelay(int iOnOrOff)
 	{
 		uchar uchResult[2];
@@ -183,7 +185,7 @@ public:
 	}
 
 
-	/* 采集电压，返回当前的油门电压值（毫伏） */
+	//采集电压 
 	unsigned short CollectingVoltage()
 	{
 		uchar uchBuf[8] = { 0x01, 0x04, 0x00, 0x40, 0x00, 0x01, 0x30, 0x1E };	//0路
@@ -218,7 +220,9 @@ public:
 			{
 				iResult = (shValue - 0x8000) * 10000 / 0x7FFF;
 			}
+
 			return iResult;
+
 		}
 		return -1;
 	}

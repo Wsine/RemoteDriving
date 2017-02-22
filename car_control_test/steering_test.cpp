@@ -33,10 +33,14 @@ using namespace std;
 #define MANUAL_MODE 2
 #define REMOTE_MODE 3
 #define AUTO_MODE 4
+#define PEDAL_MAX 460
 
-obu_lcm::accelerate_feedback_info g_accelerate_feedback_info;
+#define ARDUINO_COM 11
+#define MOTO_COM_READ 9
+#define MOTO_COM_WRITE 8
+#define PEDAL_COM 10
+
 lcm::LCM xyz_lcm("udpm://239.255.76.68:7667?ttl=2&recv_buf_size=40860000");//监听INS信息
-
 
 /****************控制参数***************************/
 bool control_force = false;
@@ -195,12 +199,9 @@ public:
 		pedal_remote = atoi(pedal.c_str());
 		//当控制端发来角速度小于10时，这里赋值为一个固定角速度，保持方向盘固定不变。
 		steerWheelSpd_remote = STRINGtoBYTE(steering_angle_speed_str);
-
-
-
-
-		//printf("Received message on channel \"%s\":\n", chan.c_str());
-	std::cout << "wheel: " << steerWheelAngle_remote << ", pedal: " << pedal << ", brake: " << brake << ", gear" << gear << std::endl;
+		if (control_mode != MANUAL_MODE) {
+			std::cout << "wheel: " << steerWheelAngle_remote << ", pedal: " << pedal << ", brake: " << brake << ", gear" << gear << std::endl;
+		}
 	}
 };
 
@@ -210,13 +211,6 @@ int Thread_ins_Function(void* param) {
 	int i = 0;
 	while (0 == xyz_lcm.handle())
 	{
-		//cout << "NO." << i << endl;
-		//cout << "trying angle: " << steerWheelAngle_remote;
-		//cout << "  current angle: " << steering_feedback.steering_angle;
-		//printf("  speed: %x ", steerWheelSpd_remote);
-		//cout << "  trying brake: " << brake_remote;
-		//cout << "  current brake: " << current_brake << endl;
-		//i++;
 	}
 	return 0;
 }
@@ -231,14 +225,10 @@ int Thread_steering_feedback_Function(void* param) {
 		control_force = (GetKeyState(VK_CAPITAL) & 0x0001);
 		if (control_force) {
 			control_mode = MANUAL_MODE;
-			cout << "manaul mode" << endl;
 		}
 		else {
 			control_mode = REMOTE_MODE;
-			//cout << "AUTO mode" << endl;
-
 		}
-		//cout << "1" << endl;
 		exitcode = pStreeing->ReceiveStreeingAngle();
 		//steering_lcm.publish("steering_feedback_info", &steering_feedback);
 		Sleep(10);
@@ -261,27 +251,20 @@ int Thread_CANCar_Function(void* param) {
 }
 
 
-/**
-* 向底层电机写入刹车命令，调用参数为write_brake，即通过PID计算，实际应该给电机输入的值write_brake
-*
-**/
 void Thread_Brake_Function(void* param) {
-
 	// 打开设备，参数一是设备管理器的端口COM8
 	short oldValue = -1;
 	while (true) {
 		short diff = brake_remote - oldValue;
-		if ((!motorComm.isTurning && (diff > 100 || diff < -100)||brake_remote ==3500) && control_mode != MANUAL_MODE) 
-		//if (control_mode != MANUAL_MODE){
+		if ((!motorComm.isTurning) && control_mode != MANUAL_MODE)
+			{
 			oldValue = brake_remote;
-			unsigned short value = (unsigned short)(brake_remote * -1 * 160.0 / 5000 + 720);
-			//printf("value = %d\n", value);
+			unsigned short value = (unsigned short)(brake_remote * -1 * 357.0 / 5000 + 900);
 			motorComm.setAim(value);
-			//motorComm.isNeedtoStop = false;
+			}
 		}
 		Sleep(100);
 	}
-}
 
 /**
 * 得到此时刹车电机工作程度，给current_brake赋值
@@ -289,21 +272,18 @@ void Thread_Brake_Function(void* param) {
 **/
 void Thread_Brake_feedback_Function(void* param) {
 	Encoder_Comm encoderComm;
-	// 打开设备，参数一是设备管理器的端口COM8
+	// 打开设备，参数一是设备管理器的端口COM9
 	encoderComm.Open(9, 38400);
 	// 持续打开访问设备
-	int counter = 0;
 	while (true) {
 		encoderComm.OnReceive();
 		if (encoderComm.ushEncoderValue != 0)
+			cout << "encoder comm ush encoder value: " << encoderComm.ushEncoderValue << endl;
 			motorComm.setCurrent(encoderComm.ushEncoderValue);
-		//Sleep(2);
 	}
 }
 
-/**
-*  输入current_brake和brake_remote，即目标值和当前值，通过调用PID算法，得到当前应该输入的write_brake
-**/
+
 int Thread_Brake_calculate_Function(void* param) {
 	short last_control_mode = control_mode;
 	while (true) {
@@ -332,21 +312,34 @@ int Thread_Pedal_Function(void* param) {
 	throttleComm.ShiftRelay(OFF);
 	while (true) {
 		if (control_mode == MANUAL_MODE && throttleComm.isShiftRelayON) {
-			throttleComm.InputVoltage(400);
 			throttleComm.ShiftRelay(OFF);
 			throttleComm.isShiftRelayON = false;
+			printf("turn off...\n");
 		}
 		else if (control_mode == REMOTE_MODE) {
 			if (!throttleComm.isShiftRelayON) {
 				throttleComm.InputVoltage(400);
 				throttleComm.ShiftRelay(ON);
+				throttleComm.isShiftRelayON = true;
+				printf("turn on...\n");
 			}
 			// 400 ~ 600
 			short value = (short)(pedal_remote / 12.5 + 400);
-			//printf("vlaue = %d\n", value);
-			throttleComm.InputVoltage(value);
+			// 低值不写入底层油门
+			if (value > PEDAL_MAX) {
+				value = PEDAL_MAX;
+				throttleComm.InputVoltage(value);
+			}
+			else if (value >= 400 && value <= PEDAL_MAX)
+			{
+				
+				throttleComm.InputVoltage(value);
+			}
+			else
+			{
+				printf("invalid pedal value\n\n");
+			}
 		}
-		// AUTO_MODE implement here
 		Sleep(10);
 	}
 	throttleComm.ShiftRelay(OFF);
@@ -359,14 +352,13 @@ int Thread_Pedal_Function(void* param) {
 **/
 int Thread_Pedal_feedback_Function(void* param) {
 	//To be continued
-	//current_pedal = throttleComm.CollectingVoltage();
 	return 0;
 }
 
 int main(int argc, char* argv[]) {
 
 	if (!xyz_lcm.good()) {
-		cout << "steering_lcm is bad...." << endl;
+		printf("remote driving lcm is bad...\n");
 		return -1;
 	}
 
@@ -374,45 +366,33 @@ int main(int argc, char* argv[]) {
 	xyz_lcm.subscribe("COMMAND", &Handler::handleMessage, &handlerObject);
 
 	if (AX7_Streeing.StartDevice() == -1) {
-		cout << "StartDevic failed......" << endl;
+		printf("can start failed...\n");
 	}
+	
 	motorComm.Open(8, 9600);
 
-
-	cout << "system begin" << endl;
+	printf("remote driving systen start...\n");
 
 	CreateThread(NULL, 0,
 		(LPTHREAD_START_ROUTINE)Thread_ins_Function,
 		NULL, 0, 0);
-	//开启向底层方向盘写数据
 	CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)Thread_CANCar_Function,
 		(LPVOID)(&AX7_Streeing), 0, 0);
-	//开启监听方向盘返回数据
 	CreateThread(NULL, 0,
 		(LPTHREAD_START_ROUTINE)Thread_steering_feedback_Function,
 		(LPVOID)(&AX7_Streeing), 0, 0);
-
-	////开启向底层刹车驱动写数据
 	CreateThread(NULL, 0,
 		(LPTHREAD_START_ROUTINE)Thread_Brake_Function,
 		NULL, 0, 0);
-	//开启监听此时刹车电机状态
 	CreateThread(NULL, 0,
 		(LPTHREAD_START_ROUTINE)Thread_Brake_feedback_Function,
 		NULL, 0, 0);
-	//开启利用PID计算下一个刹车的参数
 	CreateThread(NULL, 0,
 		(LPTHREAD_START_ROUTINE)Thread_Brake_calculate_Function,
 		NULL, 0, 0);
-
-	//开启向底层油门驱动写数据
-	/*CreateThread(NULL, 0,
+	CreateThread(NULL, 0,
 		(LPTHREAD_START_ROUTINE)Thread_Pedal_Function,
 		NULL, 0, 0);
-	//开启监听此时油门状态
-	CreateThread(NULL, 0,
-		(LPTHREAD_START_ROUTINE)Thread_Pedal_feedback_Function,
-		NULL, 0, 0);*/
 
 
 	while (1) {
@@ -420,4 +400,3 @@ int main(int argc, char* argv[]) {
 	}
 	return 0;
 }
-

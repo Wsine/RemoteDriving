@@ -9,9 +9,11 @@
 #define STANDARD_ENCODER_VALUE 0
 #define STANDARD_OFFSET_VALUE 20
 
-#define STAMP_BRAKE 560
-#define LOOSE_BRAKE 720
+
+#define STAMP_BRAKE 530
+#define LOOSE_BRAKE 900
 #define BARKE_MARGIN 15
+
 
 using namespace std;
 int count_flag = 0;
@@ -51,10 +53,10 @@ public:
 		isTurning = false;
 	}
 	~Motor_Comm() {
-		/*setAim(600);
+		setAim(LOOSE_BRAKE);
 		TurningToAim();
 		Sleep(1000);
-		stop();*/
+		stop();
 	}
 	void TurningDirection(int left_right, int speed)
 	{
@@ -95,7 +97,6 @@ public:
 			if (isTurning) {
 				stop();
 				//printf("Stop now......\n");
-
 			}
 			//printf("stopping......\n");
 			isTurning = false;
@@ -121,6 +122,7 @@ public:
 	}
 
 	bool resetToInit() {
+		std::cout << "reset the brake......" << std::endl;
 		aim = LOOSE_BRAKE;
 		return TurningToAim();
 	}

@@ -1,7 +1,8 @@
+// calculateCRC.cpp : 定义控制台应用程序的入口点。
+//
 
-/* 本代码是CRC校验，油门发送的数据中需要用到CRC校验，通过串口读写
- * 2016.10.14
- */
+//#include "stdafx.h"
+// #include <conio.h> //getch函数头文件
 #include "calculateCRC.h"
 
 unsigned short CRC16(unsigned char *puchMsg, unsigned short usDataLen);
