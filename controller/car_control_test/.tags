@@ -1,0 +1,1277 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+A60_Streeing	.\main_prj.cpp	/^class Streeing  A60_Streeing;$/;"	v	typeref:class:Streeing
+ALIGNMENT	.\lcm\ringbuffer.c	11;"	d	file:
+ARBITRARY_START_PORT	.\lcm\windows\WinPorting.cpp	9;"	d	file:
+AccCode	.\ControlCAN.h	/^	DWORD	AccCode;$/;"	m	struct:_VCI_INIT_CONFIG
+AccMask	.\ControlCAN.h	/^	DWORD	AccMask;$/;"	m	struct:_VCI_INIT_CONFIG
+Accelerator_Comm	.\accelerator.h	/^class Accelerator_Comm : public CnComm$/;"	c
+Assert	.\CnComm.h	/^	static bool Assert(LPCTSTR szMessage)$/;"	f	class:CnComm
+B_	.\CnComm.h	/^			Block*			B_;		\/\/!< ��ǰ��ָ��$/;"	m	struct:CnComm::BlockBuffer::Iterator
+B_	.\CnComm.h	/^			DWORD			B_;		\/\/!< ��ʼƫ��$/;"	m	struct:CnComm::BlockBuffer::Block
+Begin	.\CnComm.h	/^			BYTE* Begin()			{	return P_ + B_;		}$/;"	f	struct:CnComm::BlockBuffer::Block
+Begin	.\CnComm.h	/^		Iterator Begin()$/;"	f	class:CnComm::BlockBuffer
+BeginThread	.\CnComm.h	/^	bool BeginThread(DWORD dwThreadOption = 0)$/;"	f	class:CnComm
+BindPort	.\CnComm.h	/^	void BindPort(DWORD dwPort)$/;"	f	class:CnComm
+Block	.\CnComm.h	/^		struct Block$/;"	s	class:CnComm::BlockBuffer
+BlockBuffer	.\CnComm.h	/^		BlockBuffer()$/;"	f	class:CnComm::BlockBuffer
+BlockBuffer	.\CnComm.h	/^	class BlockBuffer$/;"	c	class:CnComm
+BufferToPort	.\CnComm.h	/^	DWORD BufferToPort(DWORD dwMaxSize = 1024)$/;"	f	class:CnComm
+CAN_status	.\obu_lcm\CAN_status.hpp	/^class CAN_status$/;"	c	namespace:obu_lcm
+CAN_value	.\obu_lcm\CAN_value.hpp	/^class CAN_value$/;"	c	namespace:obu_lcm
+CHANNEL_TO_PORT_MAP_REQUEST_CHANNEL	.\lcm\lcm_mpudpm.c	48;"	d	file:
+CHANNEL_TO_PORT_MAP_UPDATE_CHANNEL	.\lcm\lcm_mpudpm.c	46;"	d	file:
+CHANNEL_TO_PORT_MAP_UPDATE_NOMINAL_PERIOD	.\lcm\lcm_mpudpm.c	55;"	d	file:
+CN_2STR	.\CnComm.h	59;"	d
+CN_ASSERT	.\CnComm.h	62;"	d
+CN_COMM_BUFFER_MIN_BLOCK_SIZE	.\CnComm.h	51;"	d
+CN_COMM_FOR_CE	.\CnComm.h	13;"	d
+CN_COMM_WAIT_EVENT	.\CnComm.h	44;"	d
+CN_COMM_WAIT_EVENT	.\CnComm.h	46;"	d
+CN_LINE	.\CnComm.h	60;"	d
+CONTROLCAN_H	.\ControlCAN.h	2;"	d
+CO_	.\CnComm.h	/^	COMMTIMEOUTS		CO_;				\/\/!< ��ʱ�ṹ$/;"	m	class:CnComm
+CRC16	.\calculateCRC.cpp	/^unsigned short CRC16(uchar *puchMsg, unsigned short usDataLen, uchar *puchResult)$/;"	f
+CREATE_READ_THREAD_PKEY	.\lcm\lcm_mpudpm.c	/^static GStaticPrivate CREATE_READ_THREAD_PKEY = G_STATIC_PRIVATE_INIT;$/;"	v	file:
+CREATE_READ_THREAD_PKEY	.\lcm\lcm_udpm.c	/^static GStaticPrivate CREATE_READ_THREAD_PKEY = G_STATIC_PRIVATE_INIT;$/;"	v	file:
+CS_	.\CnComm.h	/^	CRITICAL_SECTION	CS_;				\/\/!< �ٽ绥����$/;"	m	class:CnComm
+C_	.\CnComm.h	/^		CRITICAL_SECTION	C_;\/\/!< ���ṹ$/;"	m	class:CnComm::BlockBuffer
+CanWrite	.\CnComm.h	/^			bool CanWrite()$/;"	f	struct:CnComm::BlockBuffer::Iterator
+Capacity	.\CnComm.h	/^			DWORD Capacity()		{	return S_;			}$/;"	f	struct:CnComm::BlockBuffer::Block
+CheckCTS	.\CnComm.h	/^	bool CheckCTS()$/;"	f	class:CnComm
+CheckDSR	.\CnComm.h	/^	bool CheckDSR()$/;"	f	class:CnComm
+CheckRING	.\CnComm.h	/^	bool CheckRING()$/;"	f	class:CnComm
+CheckRLSD	.\CnComm.h	/^	bool CheckRLSD()$/;"	f	class:CnComm
+Clear	.\CnComm.h	/^		void Clear(bool bDeleteAll = false)$/;"	f	class:CnComm::BlockBuffer
+ClearError	.\CnComm.h	/^	DWORD ClearError()$/;"	f	class:CnComm
+Close	.\CnComm.h	/^	virtual void Close(DWORD dwWaitTime = 500)$/;"	f	class:CnComm
+CloseDevice	.\Streeing_CAN.cpp	/^int Streeing::CloseDevice()$/;"	f	class:Streeing
+CnComm	.\CnComm.h	/^	CnComm(DWORD dwOption = EN_THREAD )$/;"	f	class:CnComm
+CnComm	.\CnComm.h	/^	CnComm(bool bThread, bool bOverlapped)$/;"	f	class:CnComm
+CnComm	.\CnComm.h	/^class CnComm$/;"	c
+CollectingVoltage	.\accelerator.h	/^	void CollectingVoltage(int *accpede0,int *accpede1)$/;"	f	class:Accelerator_Comm
+Com_acc	.\main_prj.cpp	/^Accelerator_Comm Com_acc;$/;"	v
+Copy	.\CnComm.h	/^		DWORD Copy(LPVOID lpBuf, DWORD dwSize, DWORD dwStart = 0)$/;"	f	class:CnComm::BlockBuffer
+DBG_10	.\lcm\dbg.h	48;"	d
+DBG_11	.\lcm\dbg.h	49;"	d
+DBG_12	.\lcm\dbg.h	50;"	d
+DBG_13	.\lcm\dbg.h	51;"	d
+DBG_14	.\lcm\dbg.h	52;"	d
+DBG_15	.\lcm\dbg.h	53;"	d
+DBG_16	.\lcm\dbg.h	54;"	d
+DBG_6	.\lcm\dbg.h	44;"	d
+DBG_7	.\lcm\dbg.h	45;"	d
+DBG_8	.\lcm\dbg.h	46;"	d
+DBG_9	.\lcm\dbg.h	47;"	d
+DBG_ALL	.\lcm\dbg.h	33;"	d
+DBG_COLORTAB	.\lcm\dbg.h	79;"	d
+DBG_DEFAULT	.\lcm\dbg.h	35;"	d
+DBG_ENV	.\lcm\dbg.h	97;"	d
+DBG_ERROR	.\lcm\dbg.h	34;"	d
+DBG_H	.\lcm\dbg.h	2;"	d
+DBG_LCM	.\lcm\dbg.h	40;"	d
+DBG_LCM_MSG	.\lcm\dbg.h	41;"	d
+DBG_MAIN	.\lcm\dbg.h	42;"	d
+DBG_MODE	.\lcm\dbg.h	31;"	d
+DBG_NAMETAB	.\lcm\dbg.h	58;"	d
+DBG_PYTHON	.\lcm\dbg.h	43;"	d
+DBG_TEST	.\lcm\dbg.h	39;"	d
+DCB_	.\CnComm.h	/^	DCB					DCB_;				\/\/!< �����ʣ�ֹͣλ����$/;"	m	class:CnComm
+DCOLOR	.\lcm\dbg.h	/^const char* DCOLOR(unsigned long long d_mode)$/;"	f
+Data	.\ControlCAN.h	/^	BYTE	Data[8];$/;"	m	struct:_VCI_CAN_OBJ
+DataLen	.\ControlCAN.h	/^	BYTE	DataLen;$/;"	m	struct:_VCI_CAN_OBJ
+Destroy	.\CnComm.h	/^	virtual void Destroy()$/;"	f	class:CnComm
+DllMain	.\lcm\windows\WinLCM.cpp	/^BOOL APIENTRY DllMain( HMODULE hModule,$/;"	f
+EN_ABOVE_NORMAL	.\CnComm.h	/^		EN_ABOVE_NORMAL	= 0x00000080,	\/\/!< �����߳����ȼ���һ������$/;"	e	enum:CnComm::OptionEnum
+EN_FLUSH	.\CnComm.h	/^		EN_FLUSH		= 0x00000100,	\/\/!< ���رմ���ʱ��������δ������������(�˿ڻ�����) �������ȴ�$/;"	e	enum:CnComm::OptionEnum
+EN_FLUSH_ALL	.\CnComm.h	/^		EN_FLUSH_ALL	= 0x00000200	\/\/!< ͬ��(����д���弰�˿ڶ���) ������������дģ������û��д�� ���ܵ����̹߳����޷������ر�$/;"	e	enum:CnComm::OptionEnum
+EN_OVERLAPPED	.\CnComm.h	/^		EN_OVERLAPPED	= 0x00000002,	\/\/!< �����첽�ص�IO��ʽ$/;"	e	enum:CnComm::OptionEnum
+EN_RX_BUFFER	.\CnComm.h	/^		EN_RX_BUFFER	= 0x00000004,	\/\/!< ���ö�����$/;"	e	enum:CnComm::OptionEnum
+EN_RX_THREAD	.\CnComm.h	/^		EN_RX_THREAD	= 0x00000010,	\/\/!< �������߳� ��ʱδ�� ReadThread$/;"	e	enum:CnComm::OptionEnum
+EN_SUSPEND	.\CnComm.h	/^		EN_SUSPEND		= 0x00000040,	\/\/!< �����߳�ʱ��ͣ$/;"	e	enum:CnComm::OptionEnum
+EN_THREAD	.\CnComm.h	/^		EN_THREAD		= 0x00000001,	\/\/!< ���ü����߳� ���洮�ڴ������� WatchThread$/;"	e	enum:CnComm::OptionEnum
+EN_TX_BUFFER	.\CnComm.h	/^		EN_TX_BUFFER	= 0x00000008,	\/\/!< ����д����$/;"	e	enum:CnComm::OptionEnum
+EN_TX_THREAD	.\CnComm.h	/^		EN_TX_THREAD	= 0x00000020,	\/\/!< ����д�߳� ����WINCE��˫������ Ӧͬʱ����д���� ���洮�ڴ������� WriteThread$/;"	e	enum:CnComm::OptionEnum
+EO_	.\CnComm.h	/^	OVERLAPPED			EO_;				\/\/!< �ص�I\/O WaitCommEvent$/;"	m	class:CnComm
+EXTERNC	.\ControlCAN.h	116;"	d
+EXTERNC	.\ControlCAN.h	65;"	d
+EXTRA_RETENTIVE	.\lcm\ringbuffer.c	16;"	d	file:
+E_	.\CnComm.h	/^			DWORD			E_;		\/\/!< ����ƫ��$/;"	m	struct:CnComm::BlockBuffer::Block
+EmbeddedModel	.\CnComm.h	/^	virtual DWORD EmbeddedModel()$/;"	f	class:CnComm
+End	.\CnComm.h	/^			BYTE* End()				{	return P_ + E_;		}$/;"	f	struct:CnComm::BlockBuffer::Block
+End	.\ControlCAN.h	/^	DWORD End;$/;"	m	struct:_VCI_FILTER_RECORD
+EndThread	.\CnComm.h	/^	bool EndThread(DWORD dwWaitTime = 500)$/;"	f	class:CnComm
+Escape	.\CnComm.h	/^	bool Escape(DWORD dwType)$/;"	f	class:CnComm
+ExtFrame	.\ControlCAN.h	/^	DWORD ExtFrame;	\/\/�Ƿ�Ϊ��չ֡$/;"	m	struct:_VCI_FILTER_RECORD
+ExternFlag	.\ControlCAN.h	/^	BYTE	ExternFlag;\/\/�Ƿ�����չ֡$/;"	m	struct:_VCI_CAN_OBJ
+F_	.\CnComm.h	/^		Block*				F_;\/\/!< ͷָ��$/;"	m	class:CnComm::BlockBuffer
+F_GETFL	.\lcm\windows\WinPorting.h	17;"	d
+F_SETFL	.\lcm\windows\WinPorting.h	18;"	d
+Filter	.\ControlCAN.h	/^	UCHAR	Filter;$/;"	m	struct:_VCI_INIT_CONFIG
+Flush	.\CnComm.h	/^	void Flush()$/;"	f	class:CnComm
+FlushPort	.\CnComm.h	/^	void FlushPort()$/;"	f	class:CnComm
+FreeSize	.\CnComm.h	/^			DWORD FreeSize()		{	return S_ - E_;		}$/;"	f	struct:CnComm::BlockBuffer::Block
+FreeSize	.\CnComm.h	/^		DWORD FreeSize()$/;"	f	class:CnComm::BlockBuffer
+GET_PERIOD	.\main_prj.cpp	39;"	d	file:
+GetBlockPtr	.\CnComm.h	/^		Block* GetBlockPtr(bool bFirst = true)$/;"	f	class:CnComm::BlockBuffer
+GetCounter	.\CnComm.h	/^	DWORD GetCounter(bool bInput = true)$/;"	f	class:CnComm
+GetErrorMessage	.\CnComm.h	/^		BOOL GetErrorMessage( LPTSTR lpszError, UINT nMaxError, PUINT pnHelpContext = NULL )$/;"	f	class:CnComm::MfcException
+GetFreePtr	.\CnComm.h	/^		LPVOID GetFreePtr(DWORD dwSize = 0)$/;"	f	class:CnComm::BlockBuffer
+GetHandle	.\CnComm.h	/^	HANDLE GetHandle()$/;"	f	class:CnComm
+GetMask	.\CnComm.h	/^	DWORD GetMask()$/;"	f	class:CnComm
+GetMinBlockSize	.\CnComm.h	/^		DWORD GetMinBlockSize()$/;"	f	class:CnComm::BlockBuffer
+GetModemStatus	.\CnComm.h	/^	DWORD GetModemStatus()$/;"	f	class:CnComm
+GetNotifyThreadId	.\CnComm.h	/^	DWORD GetNotifyThreadId()$/;"	f	class:CnComm
+GetOption	.\CnComm.h	/^	DWORD GetOption()$/;"	f	class:CnComm
+GetPort	.\CnComm.h	/^	DWORD GetPort()$/;"	f	class:CnComm
+GetPortName	.\CnComm.h	/^	LPCTSTR GetPortName()$/;"	f	class:CnComm
+GetProperties	.\CnComm.h	/^	LPCOMMPROP GetProperties(LPCOMMPROP pCP = NULL)$/;"	f	class:CnComm
+GetPtr	.\CnComm.h	/^		LPVOID GetPtr()$/;"	f	class:CnComm::BlockBuffer
+GetPtrSize	.\CnComm.h	/^		DWORD GetPtrSize()$/;"	f	class:CnComm::BlockBuffer
+GetQueueCount	.\CnComm.h	/^	DWORD GetQueueCount(bool bInput = true)$/;"	f	class:CnComm
+GetState	.\CnComm.h	/^	DCB *GetState(DCB *pDcb = NULL)$/;"	f	class:CnComm
+GetThread	.\CnComm.h	/^	HANDLE GetThread(int iOption = EN_THREAD)$/;"	f	class:CnComm
+GetTimeouts	.\CnComm.h	/^	LPCOMMTIMEOUTS GetTimeouts(LPCOMMTIMEOUTS lpCO = NULL)$/;"	f	class:CnComm
+GetWnd	.\CnComm.h	/^	HWND GetWnd()$/;"	f	class:CnComm
+HUGE	.\lcm\udpm_util.h	51;"	d
+HUGE	.\lcm\windows\WinPorting.h	15;"	d
+HandleEvent	.\CnComm.h	/^	virtual void HandleEvent(DWORD dwMask)$/;"	f	class:CnComm
+Handle_ins_Message	.\main_prj.cpp	/^	void Handle_ins_Message(const lcm::ReceiveBuffer* rbuf,$/;"	f	class:Handler_Ins
+Handler_Ins	.\main_prj.cpp	/^class Handler_Ins$/;"	c	file:
+ID	.\ControlCAN.h	/^	UINT	ID;$/;"	m	struct:_VCI_CAN_OBJ
+I_	.\CnComm.h	/^			DWORD			I_;		\/\/!< ��ǰ��ƫ��$/;"	m	struct:CnComm::BlockBuffer::Iterator
+I_	.\CnComm.h	/^	BlockBuffer			I_;					\/\/!< ��������$/;"	m	class:CnComm
+Init	.\CnComm.h	/^	virtual void Init()$/;"	f	class:CnComm
+InnerLock	.\CnComm.h	/^			InnerLock(BlockBuffer* p) : ptr(p)$/;"	f	struct:CnComm::BlockBuffer::InnerLock
+InnerLock	.\CnComm.h	/^		InnerLock(CnComm* p) : ptr(p)$/;"	f	struct:CnComm::InnerLock
+InnerLock	.\CnComm.h	/^		struct InnerLock$/;"	s	class:CnComm::BlockBuffer
+InnerLock	.\CnComm.h	/^	struct InnerLock$/;"	s	class:CnComm
+Input	.\CnComm.h	/^	BlockBuffer& Input()$/;"	f	class:CnComm
+InputVoltage	.\accelerator.h	/^	void InputVoltage(int iVoltage)$/;"	f	class:Accelerator_Comm
+IsEmpty	.\CnComm.h	/^			bool IsEmpty()			{	return B_ == E_;	}$/;"	f	struct:CnComm::BlockBuffer::Block
+IsOpen	.\CnComm.h	/^	bool IsOpen()$/;"	f	class:CnComm
+IsOverlappedMode	.\CnComm.h	/^	bool IsOverlappedMode()$/;"	f	class:CnComm
+IsRxBufferMode	.\CnComm.h	/^	bool IsRxBufferMode()$/;"	f	class:CnComm
+IsTxBufferMode	.\CnComm.h	/^	bool IsTxBufferMode()$/;"	f	class:CnComm
+Iterator	.\CnComm.h	/^			Iterator(BlockBuffer *P = NULL, Block* B = NULL, DWORD I = 0, DWORD O = 0)$/;"	f	struct:CnComm::BlockBuffer::Iterator
+Iterator	.\CnComm.h	/^		struct Iterator$/;"	s	class:CnComm::BlockBuffer
+LCM	.\lcm\lcm-cpp-impl.hpp	/^LCM::LCM(lcm_t * lcm_in):$/;"	f	class:LCM
+LCM	.\lcm\lcm-cpp-impl.hpp	/^LCM::LCM(std::string lcm_url):$/;"	f	class:LCM
+LCM	.\lcm\lcm-cpp.hpp	/^class LCM {$/;"	c	namespace:lcm
+LCM2_MAGIC_LONG	.\lcm\udpm_util.h	37;"	d
+LCM2_MAGIC_SHORT	.\lcm\udpm_util.h	36;"	d
+LCMMHSubscription	.\lcm\lcm-cpp-impl.hpp	/^class LCMMHSubscription : public Subscription {$/;"	c
+LCMMHUntypedSubscription	.\lcm\lcm-cpp-impl.hpp	/^class LCMMHUntypedSubscription : public Subscription {$/;"	c
+LCMTypedSubscription	.\lcm\lcm-cpp-impl.hpp	/^class LCMTypedSubscription : public Subscription {$/;"	c
+LCMUntypedSubscription	.\lcm\lcm-cpp-impl.hpp	/^class LCMUntypedSubscription : public Subscription {$/;"	c
+LCM_API_FUNCTION	.\lcm\eventlog.h	13;"	d
+LCM_API_FUNCTION	.\lcm\eventlog.h	15;"	d
+LCM_API_FUNCTION	.\lcm\lcm.h	17;"	d
+LCM_API_FUNCTION	.\lcm\lcm.h	19;"	d
+LCM_DEFAULT_RECV_BUFS	.\lcm\udpm_util.h	44;"	d
+LCM_DEFAULT_URL	.\lcm\lcm.c	22;"	d	file:
+LCM_FIELD_BOOLEAN	.\lcm\lcm_coretypes.h	/^    LCM_FIELD_BOOLEAN,$/;"	e	enum:__anon1
+LCM_FIELD_BYTE	.\lcm\lcm_coretypes.h	/^    LCM_FIELD_BYTE,$/;"	e	enum:__anon1
+LCM_FIELD_DOUBLE	.\lcm\lcm_coretypes.h	/^    LCM_FIELD_DOUBLE,$/;"	e	enum:__anon1
+LCM_FIELD_FLOAT	.\lcm\lcm_coretypes.h	/^    LCM_FIELD_FLOAT,$/;"	e	enum:__anon1
+LCM_FIELD_INT16_T	.\lcm\lcm_coretypes.h	/^    LCM_FIELD_INT16_T,$/;"	e	enum:__anon1
+LCM_FIELD_INT32_T	.\lcm\lcm_coretypes.h	/^    LCM_FIELD_INT32_T,$/;"	e	enum:__anon1
+LCM_FIELD_INT64_T	.\lcm\lcm_coretypes.h	/^    LCM_FIELD_INT64_T,$/;"	e	enum:__anon1
+LCM_FIELD_INT8_T	.\lcm\lcm_coretypes.h	/^    LCM_FIELD_INT8_T,$/;"	e	enum:__anon1
+LCM_FIELD_STRING	.\lcm\lcm_coretypes.h	/^    LCM_FIELD_STRING,$/;"	e	enum:__anon1
+LCM_FIELD_USER_TYPE	.\lcm\lcm_coretypes.h	/^    LCM_FIELD_USER_TYPE$/;"	e	enum:__anon1
+LCM_FRAGMENT_MAX_PAYLOAD	.\lcm\udpm_util.h	40;"	d
+LCM_MAJOR_VERSION	.\lcm\lcm.h	348;"	d
+LCM_MAX_CHANNEL_NAME_LENGTH	.\lcm\lcm.h	14;"	d
+LCM_MAX_MESSAGE_SIZE	.\lcm\lcm.h	12;"	d
+LCM_MAX_UNFRAGMENTED_PACKET_SIZE	.\lcm\udpm_util.c	10;"	d	file:
+LCM_MICRO_VERSION	.\lcm\lcm.h	354;"	d
+LCM_MINOR_VERSION	.\lcm\lcm.h	351;"	d
+LCM_RINGBUF_SIZE	.\lcm\udpm_util.h	42;"	d
+LCM_SHORT_MESSAGE_MAX_SIZE	.\lcm\udpm_util.h	39;"	d
+LCM_TYPE_FIELD_MAX_DIM	.\lcm\lcm_coretypes.h	462;"	d
+L_	.\CnComm.h	/^		Block*				L_;\/\/!< βָ��$/;"	m	class:CnComm::BlockBuffer
+LastSocket	.\lcm\windows\WinPorting.cpp	/^volatile LONG	LastSocket = ARBITRARY_START_PORT;$/;"	v
+Lock	.\CnComm.h	/^		void Lock()$/;"	f	class:CnComm::BlockBuffer
+Lock	.\CnComm.h	/^	void Lock()$/;"	f	class:CnComm
+LogEvent	.\lcm\lcm-cpp.hpp	/^struct LogEvent {$/;"	s	namespace:lcm
+LogFile	.\lcm\lcm-cpp-impl.hpp	/^LogFile::LogFile(const std::string & path, const std::string & mode) :$/;"	f	class:LogFile
+LogFile	.\lcm\lcm-cpp.hpp	/^class LogFile {$/;"	c	namespace:lcm
+MAGIC	.\lcm\eventlog.c	18;"	d	file:
+MAGIC	.\lcm\ringbuffer.c	13;"	d	file:
+MAGIC_CLIENT	.\lcm\lcm_tcpq.c	25;"	d	file:
+MAGIC_SERVER	.\lcm\lcm_tcpq.c	24;"	d	file:
+MAX_FRAG_BUF_TOTAL_SIZE	.\lcm\udpm_util.h	46;"	d
+MAX_NUM_FRAG_BUFS	.\lcm\udpm_util.h	47;"	d
+MESSAGE_TYPE_PUBLISH	.\lcm\lcm_tcpq.c	27;"	d	file:
+MESSAGE_TYPE_SUBSCRIBE	.\lcm\lcm_tcpq.c	28;"	d	file:
+MESSAGE_TYPE_UNSUBSCRIBE	.\lcm\lcm_tcpq.c	29;"	d	file:
+MSG_EXT_HDR	.\lcm\lcm_udpm.c	22;"	d	file:
+MSG_EXT_HDR	.\lcm\lcm_udpm.c	30;"	d	file:
+MSG_EXT_HDR	.\lcm\udpm_util.h	20;"	d
+MSG_EXT_HDR	.\lcm\udpm_util.h	27;"	d
+M_	.\CnComm.h	/^		DWORD				M_;\/\/!< ����С����$/;"	m	class:CnComm::BlockBuffer
+MfcException	.\CnComm.h	/^		MfcException(LPCTSTR szMsg) : CException(TRUE)$/;"	f	class:CnComm::MfcException
+MfcException	.\CnComm.h	/^	class MfcException : public CException$/;"	c	class:CnComm
+Mode	.\ControlCAN.h	/^	UCHAR	Mode;$/;"	m	struct:_VCI_INIT_CONFIG
+ModifyOption	.\CnComm.h	/^	void ModifyOption(DWORD dwRemove, DWORD dwAdd)$/;"	f	class:CnComm
+NUM_INTERNAL_CHANNELS	.\lcm\lcm_mpudpm.c	44;"	d	file:
+N_	.\CnComm.h	/^			Block*			N_;		\/\/!< ��һ����ָ��$/;"	m	struct:CnComm::BlockBuffer::Block
+NewBlock	.\CnComm.h	/^		Block* NewBlock(DWORD dwSize)$/;"	f	class:CnComm::BlockBuffer
+Next	.\CnComm.h	/^			Block* Next()			{	return N_;			}$/;"	f	struct:CnComm::BlockBuffer::Block
+NonoverlappedModel	.\CnComm.h	/^	virtual DWORD NonoverlappedModel()$/;"	f	class:CnComm
+Notify	.\CnComm.h	/^	virtual void Notify(UINT uMsg, LPARAM lParam = 0, bool bPostMode = true)$/;"	f	class:CnComm
+OFF	.\accelerator.h	13;"	d
+ON	.\accelerator.h	12;"	d
+ON_COM_BREAK	.\CnComm.h	32;"	d
+ON_COM_CTS	.\CnComm.h	28;"	d
+ON_COM_DSR	.\CnComm.h	29;"	d
+ON_COM_ERROR	.\CnComm.h	34;"	d
+ON_COM_EVENT1	.\CnComm.h	37;"	d
+ON_COM_EVENT2	.\CnComm.h	38;"	d
+ON_COM_MSG_BASE	.\CnComm.h	22;"	d
+ON_COM_PERR	.\CnComm.h	40;"	d
+ON_COM_POWER	.\CnComm.h	36;"	d
+ON_COM_RECEIVE	.\CnComm.h	26;"	d
+ON_COM_RING	.\CnComm.h	30;"	d
+ON_COM_RLSD	.\CnComm.h	31;"	d
+ON_COM_RX80FULL	.\CnComm.h	39;"	d
+ON_COM_RXCHAR	.\CnComm.h	27;"	d
+ON_COM_RXFLAG	.\CnComm.h	35;"	d
+ON_COM_TXEMPTY	.\CnComm.h	33;"	d
+O_	.\CnComm.h	/^			DWORD			O_;		\/\/!< ȫ������ƫ��$/;"	m	struct:CnComm::BlockBuffer::Iterator
+O_	.\CnComm.h	/^	BlockBuffer			O_;					\/\/!< д������$/;"	m	class:CnComm
+O_NONBLOCK	.\lcm\windows\WinPorting.h	16;"	d
+OnBreak	.\CnComm.h	/^	virtual void OnBreak()$/;"	f	class:CnComm
+OnCTS	.\CnComm.h	/^	virtual void OnCTS()$/;"	f	class:CnComm
+OnDSR	.\CnComm.h	/^	virtual void OnDSR()$/;"	f	class:CnComm
+OnError	.\CnComm.h	/^	virtual void OnError()$/;"	f	class:CnComm
+OnEvent1	.\CnComm.h	/^	virtual void OnEvent1()$/;"	f	class:CnComm
+OnEvent2	.\CnComm.h	/^	virtual void OnEvent2()$/;"	f	class:CnComm
+OnPower	.\CnComm.h	/^	virtual void OnPower()$/;"	f	class:CnComm
+OnPrintErr	.\CnComm.h	/^	virtual void OnPrintErr()$/;"	f	class:CnComm
+OnRLSD	.\CnComm.h	/^	virtual void OnRLSD()$/;"	f	class:CnComm
+OnReceive	.\CnComm.h	/^	virtual void OnReceive()$/;"	f	class:CnComm
+OnReceive	.\accelerator.h	/^	void OnReceive()$/;"	f	class:Accelerator_Comm
+OnRing	.\CnComm.h	/^	virtual void OnRing()$/;"	f	class:CnComm
+OnRx80Full	.\CnComm.h	/^	virtual void OnRx80Full()$/;"	f	class:CnComm
+OnRxFlag	.\CnComm.h	/^	virtual void OnRxFlag()$/;"	f	class:CnComm
+OnTxEmpty	.\CnComm.h	/^	virtual void OnTxEmpty()$/;"	f	class:CnComm
+Open	.\CnComm.h	/^	bool Open(DWORD dwPort)$/;"	f	class:CnComm
+Open	.\CnComm.h	/^	bool Open(DWORD dwPort, DWORD dwBaudRate, BYTE btParity = NOPARITY, BYTE btByteSize = 8, BYTE btStopBits = ONESTOPBIT)$/;"	f	class:CnComm
+Open	.\CnComm.h	/^	bool Open(DWORD dwPort, LPCTSTR szPortName, DWORD dwBaudRate, BYTE btParity = NOPARITY, BYTE btByteSize = 8, BYTE btStopBits = ONESTOPBIT)$/;"	f	class:CnComm
+Open	.\CnComm.h	/^	bool Open(DWORD dwPort, LPCTSTR szSetStr)$/;"	f	class:CnComm
+OpenPort	.\CnComm.h	/^	virtual bool OpenPort()$/;"	f	class:CnComm
+OptionEnum	.\CnComm.h	/^	enum OptionEnum$/;"	g	class:CnComm
+Output	.\CnComm.h	/^	BlockBuffer& Output()$/;"	f	class:CnComm
+OverlappedModel	.\CnComm.h	/^	virtual DWORD OverlappedModel()$/;"	f	class:CnComm
+PATH_MAX	.\lcm\windows\WinPorting.h	9;"	d
+PROTOCOL_VERSION	.\lcm\lcm_tcpq.c	26;"	d	file:
+PVCI_BOARD_INFO	.\ControlCAN.h	/^} VCI_BOARD_INFO,*PVCI_BOARD_INFO; $/;"	t	typeref:struct:_VCI_BOARD_INFO
+PVCI_BOARD_INFO1	.\ControlCAN.h	/^} VCI_BOARD_INFO1,*PVCI_BOARD_INFO1;$/;"	t	typeref:struct:_VCI_BOARD_INFO1
+PVCI_BOARD_INFO2	.\ControlCAN.h	/^} VCI_BOARD_INFO2,*PVCI_BOARD_INFO2;$/;"	t	typeref:struct:_VCI_BOARD_INFO2
+PVCI_CAN_OBJ	.\ControlCAN.h	/^}VCI_CAN_OBJ,*PVCI_CAN_OBJ;$/;"	t	typeref:struct:_VCI_CAN_OBJ
+PVCI_FILTER_RECORD	.\ControlCAN.h	/^}VCI_FILTER_RECORD,*PVCI_FILTER_RECORD;$/;"	t	typeref:struct:_VCI_FILTER_RECORD
+PVCI_INIT_CONFIG	.\ControlCAN.h	/^}VCI_INIT_CONFIG,*PVCI_INIT_CONFIG;$/;"	t	typeref:struct:_VCI_INIT_CONFIG
+P_	.\CnComm.h	/^			BYTE			P_[4];	\/\/!< ������ָ�� ʵ�ʴ�С��S_����$/;"	m	struct:CnComm::BlockBuffer::Block
+P_	.\CnComm.h	/^			BlockBuffer*	P_;		\/\/!< ����ָ��$/;"	m	struct:CnComm::BlockBuffer::Iterator
+PortToBuffer	.\CnComm.h	/^	DWORD PortToBuffer(DWORD dwPortByteNum)$/;"	f	class:CnComm
+Purge	.\CnComm.h	/^	bool Purge(DWORD dwPara = PURGE_TXABORT | PURGE_TXCLEAR | PURGE_RXABORT | PURGE_RXCLEAR)$/;"	f	class:CnComm
+REGEX_FINDER_RE	.\lcm\lcm_mpudpm.c	52;"	d	file:
+RESERVED_CHANNEL_PREFIX	.\lcm\lcm_mpudpm.c	40;"	d	file:
+RO_	.\CnComm.h	/^	OVERLAPPED			RO_;				\/\/!< �ص�I\/O ReadFile$/;"	m	class:CnComm
+Read	.\CnComm.h	/^		DWORD Read(LPVOID lpBuf, DWORD dwSize)$/;"	f	class:CnComm::BlockBuffer
+Read	.\CnComm.h	/^	DWORD Read(LPVOID pBuffer, DWORD dwLength, DWORD dwWaitTime = INFINITE)$/;"	f	class:CnComm
+ReadModel	.\CnComm.h	/^	virtual DWORD ReadModel()$/;"	f	class:CnComm
+ReadPort	.\CnComm.h	/^	DWORD ReadPort(LPVOID pBuffer, DWORD dwLength, DWORD dwWaitTime = INFINITE)$/;"	f	class:CnComm
+ReadString	.\CnComm.h	/^		char* ReadString(char* lpBuf, DWORD dMaxSize)$/;"	f	class:CnComm::BlockBuffer
+ReadString	.\CnComm.h	/^		wchar_t* ReadString(wchar_t* lpBuf, DWORD dMaxSize)$/;"	f	class:CnComm::BlockBuffer
+ReadString	.\CnComm.h	/^	char * ReadString(char *szBuffer, DWORD dwLength, DWORD dwWaitTime = INFINITE)$/;"	f	class:CnComm
+ReadString	.\CnComm.h	/^	wchar_t * ReadString(wchar_t *szBuffer, DWORD dwLength, DWORD dwWaitTime = INFINITE)$/;"	f	class:CnComm
+ReadThreadProc	.\CnComm.h	/^	static UINT APIENTRY ReadThreadProc(LPVOID lpPara)$/;"	f	class:CnComm
+ReceiveBuffer	.\lcm\lcm-cpp.hpp	/^struct ReceiveBuffer {$/;"	s	namespace:lcm
+ReceiveStreeingAngle	.\Streeing_CAN.cpp	/^int Streeing::ReceiveStreeingAngle(void)$/;"	f	class:Streeing
+ReceiveVehicleSpeed	.\Streeing_CAN.cpp	/^int Streeing::ReceiveVehicleSpeed(void)$/;"	f	class:Streeing
+Release	.\CnComm.h	/^		DWORD Release(DWORD dwSize)$/;"	f	class:CnComm::BlockBuffer
+RemoteFlag	.\ControlCAN.h	/^	BYTE	RemoteFlag;\/\/�Ƿ���Զ��֡$/;"	m	struct:_VCI_CAN_OBJ
+Reserved	.\ControlCAN.h	/^		USHORT	Reserved[4];$/;"	m	struct:_VCI_BOARD_INFO
+Reserved	.\ControlCAN.h	/^	BYTE	Reserved;$/;"	m	struct:_VCI_BOARD_INFO1
+Reserved	.\ControlCAN.h	/^	BYTE	Reserved;$/;"	m	struct:_VCI_BOARD_INFO2
+Reserved	.\ControlCAN.h	/^	BYTE	Reserved[3];$/;"	m	struct:_VCI_CAN_OBJ
+Reserved	.\ControlCAN.h	/^	DWORD	Reserved;$/;"	m	struct:_VCI_INIT_CONFIG
+ResetCounter	.\CnComm.h	/^	void ResetCounter()$/;"	f	class:CnComm
+ResumeThread	.\CnComm.h	/^	bool ResumeThread(int iOption = EN_THREAD)$/;"	f	class:CnComm
+SELF_TEST_CHANNEL	.\lcm\lcm_mpudpm.c	45;"	d	file:
+SELF_TEST_CHANNEL	.\lcm\lcm_udpm.c	42;"	d	file:
+SHUT_RDWR	.\lcm\windows\WinPorting.h	14;"	d
+SOCKET	.\lcm\lcm.c	/^typedef int SOCKET;$/;"	t	file:
+SOCKET	.\lcm\udpm_util.h	/^typedef int SOCKET;$/;"	t
+STATUS_ERR	.\ControlCAN.h	18;"	d
+STATUS_OK	.\ControlCAN.h	17;"	d
+S_	.\CnComm.h	/^			DWORD			S_;		\/\/!< ����С �ڴ�������ֵ���� �ڴ�����Сֵ��CN_COMM_BUFFER_MIN_BLOCK_SIZE����$/;"	m	struct:CnComm::BlockBuffer::Block
+S_	.\CnComm.h	/^		DWORD				S_;\/\/!< ��С$/;"	m	class:CnComm::BlockBuffer
+SafeClear	.\CnComm.h	/^		void SafeClear(bool bDeleteAll = false)$/;"	f	class:CnComm::BlockBuffer
+SafeCopy	.\CnComm.h	/^		DWORD SafeCopy(LPVOID lpBuf, DWORD dwSize, DWORD dwStart = 0)$/;"	f	class:CnComm::BlockBuffer
+SafeRead	.\CnComm.h	/^		DWORD SafeRead(LPVOID lpBuf, DWORD dwSize)$/;"	f	class:CnComm::BlockBuffer
+SafeReadString	.\CnComm.h	/^		char* SafeReadString(char* lpBuf, DWORD dMaxSize)$/;"	f	class:CnComm::BlockBuffer
+SafeReadString	.\CnComm.h	/^		wchar_t* SafeReadString(wchar_t* lpBuf, DWORD dMaxSize)$/;"	f	class:CnComm::BlockBuffer
+SafeSize	.\CnComm.h	/^		DWORD SafeSize()$/;"	f	class:CnComm::BlockBuffer
+SafeWrite	.\CnComm.h	/^		DWORD SafeWrite(LPCVOID lpBuf, DWORD dwSize)$/;"	f	class:CnComm::BlockBuffer
+SafeWrite	.\CnComm.h	/^		DWORD SafeWrite(const char* lpBuf)$/;"	f	class:CnComm::BlockBuffer
+SafeWrite	.\CnComm.h	/^		DWORD SafeWrite(const wchar_t* lpBuf)$/;"	f	class:CnComm::BlockBuffer
+SendStreeingCommand	.\Streeing_CAN.cpp	/^int Streeing::SendStreeingCommand(BYTE command, unsigned short int steeringangle)$/;"	f	class:Streeing
+SendType	.\ControlCAN.h	/^	BYTE	SendType;$/;"	m	struct:_VCI_CAN_OBJ
+SetBreak	.\CnComm.h	/^	bool SetBreak(bool bSetOrClr = true)$/;"	f	class:CnComm
+SetDTR	.\CnComm.h	/^	bool SetDTR(bool bSetOrClr = true)$/;"	f	class:CnComm
+SetIR	.\CnComm.h	/^	bool SetIR(bool bSetOrClr)$/;"	f	class:CnComm
+SetMinBlockSize	.\CnComm.h	/^		void SetMinBlockSize(DWORD dwMinSize)$/;"	f	class:CnComm::BlockBuffer
+SetNotifyNum	.\CnComm.h	/^	void SetNotifyNum(DWORD dwNum)$/;"	f	class:CnComm
+SetNotifyThreadId	.\CnComm.h	/^	void SetNotifyThreadId(DWORD dwId)$/;"	f	class:CnComm
+SetOption	.\CnComm.h	/^	void SetOption(DWORD dwOption)$/;"	f	class:CnComm
+SetRTS	.\CnComm.h	/^	bool SetRTS(bool bSetOrClr = true)$/;"	f	class:CnComm
+SetState	.\CnComm.h	/^	bool SetState(DCB *pDcb = NULL)$/;"	f	class:CnComm
+SetState	.\CnComm.h	/^	bool SetState(DWORD dwBaudRate, BYTE btParity = NOPARITY, BYTE btByteSize = 8, BYTE btStopBits = ONESTOPBIT)$/;"	f	class:CnComm
+SetState	.\CnComm.h	/^	bool SetState(LPCTSTR szSetStr)$/;"	f	class:CnComm
+SetTimeouts	.\CnComm.h	/^	bool SetTimeouts(LPCOMMTIMEOUTS lpCO = NULL)$/;"	f	class:CnComm
+SetWaitEvent	.\CnComm.h	/^	void SetWaitEvent(DWORD dwEvent = CN_COMM_WAIT_EVENT)$/;"	f	class:CnComm
+SetWnd	.\CnComm.h	/^	void SetWnd(HWND hWnd)$/;"	f	class:CnComm
+SetX	.\CnComm.h	/^	bool SetX(bool bOnOrOff)$/;"	f	class:CnComm
+Setup	.\CnComm.h	/^	bool Setup(DWORD dwInputSize = 4096, DWORD dwOutputSize = 4096)$/;"	f	class:CnComm
+SetupPort	.\CnComm.h	/^	virtual bool SetupPort()$/;"	f	class:CnComm
+ShiftRelay	.\accelerator.h	/^	bool ShiftRelay(int iOnOrOff)$/;"	f	class:Accelerator_Comm
+Size	.\CnComm.h	/^			DWORD Size()			{	return E_ - B_;		}$/;"	f	struct:CnComm::BlockBuffer::Block
+Size	.\CnComm.h	/^		DWORD Size()$/;"	f	class:CnComm::BlockBuffer
+Start	.\ControlCAN.h	/^	DWORD Start;$/;"	m	struct:_VCI_FILTER_RECORD
+StartDevice	.\Streeing_CAN.cpp	/^int Streeing::StartDevice(void)$/;"	f	class:Streeing
+StartHuman_Driving	.\Streeing_CAN.cpp	/^int Streeing::StartHuman_Driving(unsigned short int steeringangle)$/;"	f	class:Streeing
+StartSelf_Driving	.\Streeing_CAN.cpp	/^int Streeing::StartSelf_Driving(unsigned short int steeringangle)$/;"	f	class:Streeing
+StopDSP	.\Streeing_CAN.cpp	/^int Streeing::StopDSP(unsigned short int steeringangle)$/;"	f	class:Streeing
+Streeing	.\Streeing_CAN.h	/^	Streeing()$/;"	f	class:Streeing
+Streeing	.\Streeing_CAN.h	/^class Streeing$/;"	c
+Subscription	.\lcm\lcm-cpp.hpp	/^        Subscription() {};$/;"	f	class:lcm::Subscription
+Subscription	.\lcm\lcm-cpp.hpp	/^class Subscription {$/;"	c	namespace:lcm
+SuspendThread	.\CnComm.h	/^	bool SuspendThread(int iOption = EN_THREAD)$/;"	f	class:CnComm
+Thread_CANCar_Function	.\main_prj.cpp	/^int Thread_CANCar_Function(void* param)$/;"	f
+Thread_ins_Function	.\main_prj.cpp	/^int Thread_ins_Function(void* param)$/;"	f
+Thread_steering_feedback_Function	.\main_prj.cpp	/^int Thread_steering_feedback_Function(void* param)$/;"	f
+TimeFlag	.\ControlCAN.h	/^	BYTE	TimeFlag;$/;"	m	struct:_VCI_CAN_OBJ
+TimeStamp	.\ControlCAN.h	/^	UINT	TimeStamp;$/;"	m	struct:_VCI_CAN_OBJ
+TimerLogSendRSDS	.\main_prj.cpp	/^VOID CALLBACK TimerLogSendRSDS(PVOID lpParam, BOOLEAN TimerOrWaitFired)$/;"	f
+Timing0	.\ControlCAN.h	/^	UCHAR	Timing0;	$/;"	m	struct:_VCI_INIT_CONFIG
+Timing1	.\ControlCAN.h	/^	UCHAR	Timing1;	$/;"	m	struct:_VCI_INIT_CONFIG
+TransmitChar	.\CnComm.h	/^	bool TransmitChar(char c)$/;"	f	class:CnComm
+USE_REUSEPORT	.\lcm\udpm_util.h	55;"	d
+USE_REUSEPORT	.\lcm\udpm_util.h	58;"	d
+Unlock	.\CnComm.h	/^		void Unlock()$/;"	f	class:CnComm::BlockBuffer
+Unlock	.\CnComm.h	/^	void Unlock()$/;"	f	class:CnComm
+VCI_BOARD_INFO	.\ControlCAN.h	/^} VCI_BOARD_INFO,*PVCI_BOARD_INFO; $/;"	t	typeref:struct:_VCI_BOARD_INFO
+VCI_BOARD_INFO1	.\ControlCAN.h	/^} VCI_BOARD_INFO1,*PVCI_BOARD_INFO1;$/;"	t	typeref:struct:_VCI_BOARD_INFO1
+VCI_BOARD_INFO2	.\ControlCAN.h	/^} VCI_BOARD_INFO2,*PVCI_BOARD_INFO2;$/;"	t	typeref:struct:_VCI_BOARD_INFO2
+VCI_CAN_OBJ	.\ControlCAN.h	/^}VCI_CAN_OBJ,*PVCI_CAN_OBJ;$/;"	t	typeref:struct:_VCI_CAN_OBJ
+VCI_FILTER_RECORD	.\ControlCAN.h	/^}VCI_FILTER_RECORD,*PVCI_FILTER_RECORD;$/;"	t	typeref:struct:_VCI_FILTER_RECORD
+VCI_INIT_CONFIG	.\ControlCAN.h	/^}VCI_INIT_CONFIG,*PVCI_INIT_CONFIG;$/;"	t	typeref:struct:_VCI_INIT_CONFIG
+VCI_USBCAN1	.\ControlCAN.h	9;"	d
+VCI_USBCAN2	.\ControlCAN.h	10;"	d
+VCI_USBCAN2A	.\ControlCAN.h	11;"	d
+VCI_USBCAN_2E_U	.\ControlCAN.h	14;"	d
+VCI_USBCAN_E_U	.\ControlCAN.h	13;"	d
+WO_	.\CnComm.h	/^	OVERLAPPED			WO_;				\/\/!< �ص�I\/O WriteFile$/;"	m	class:CnComm
+WSARecvMsg	.\lcm\windows\WinPorting.cpp	/^LPFN_WSARECVMSG WSARecvMsg = NULL;$/;"	v
+WSARecvMsg_GUID	.\lcm\windows\WinPorting.cpp	/^GUID WSARecvMsg_GUID = WSAID_WSARECVMSG;$/;"	v
+WatchThreadProc	.\CnComm.h	/^	static UINT APIENTRY WatchThreadProc(LPVOID lpPara)$/;"	f	class:CnComm
+Write	.\CnComm.h	/^		DWORD Write(LPCVOID lpBuf, DWORD dwSize)$/;"	f	class:CnComm::BlockBuffer
+Write	.\CnComm.h	/^		DWORD Write(const char* lpBuf)$/;"	f	class:CnComm::BlockBuffer
+Write	.\CnComm.h	/^		DWORD Write(const wchar_t* lpBuf)$/;"	f	class:CnComm::BlockBuffer
+Write	.\CnComm.h	/^	DWORD Write(LPCVOID pBuffer, DWORD dwLength)$/;"	f	class:CnComm
+Write	.\CnComm.h	/^	DWORD Write(char *szBuffer, DWORD dwLength, char * szFormat, ...)$/;"	f	class:CnComm
+Write	.\CnComm.h	/^	DWORD Write(char *szBuffer, char * szFormat, ...)$/;"	f	class:CnComm
+Write	.\CnComm.h	/^	DWORD Write(const char *szBuffer)$/;"	f	class:CnComm
+Write	.\CnComm.h	/^	DWORD Write(const wchar_t *szBuffer)$/;"	f	class:CnComm
+Write	.\CnComm.h	/^	DWORD Write(wchar_t *szBuffer, DWORD dwLength, wchar_t * szFormat, ...)$/;"	f	class:CnComm
+Write	.\CnComm.h	/^	DWORD Write(wchar_t *szBuffer, wchar_t * szFormat, ...)$/;"	f	class:CnComm
+WriteModel	.\CnComm.h	/^	virtual DWORD WriteModel()$/;"	f	class:CnComm
+WritePort	.\CnComm.h	/^	DWORD WritePort(LPCVOID pBuffer, DWORD dwLength)$/;"	f	class:CnComm
+WriteThreadProc	.\CnComm.h	/^	static UINT APIENTRY WriteThreadProc(LPVOID lpPara)$/;"	f	class:CnComm
+_BBLUE_	.\lcm\dbg.h	26;"	d
+_BCYAN_	.\lcm\dbg.h	28;"	d
+_BGREEN_	.\lcm\dbg.h	24;"	d
+_BLACK_	.\lcm\dbg.h	14;"	d
+_BLUE_	.\lcm\dbg.h	18;"	d
+_BMAGENTA_	.\lcm\dbg.h	27;"	d
+_BRED_	.\lcm\dbg.h	23;"	d
+_BWHITE_	.\lcm\dbg.h	29;"	d
+_BYELLOW_	.\lcm\dbg.h	25;"	d
+_CN_COMM_H_	.\CnComm.h	3;"	d
+_CYAN_	.\lcm\dbg.h	20;"	d
+_GREEN_	.\lcm\dbg.h	16;"	d
+_LCM_EVENTLOG_H_	.\lcm\eventlog.h	2;"	d
+_LCM_LIB_INLINE_H	.\lcm\lcm_coretypes.h	2;"	d
+_MAGENTA_	.\lcm\dbg.h	19;"	d
+_NORMAL_	.\lcm\dbg.h	13;"	d
+_RED_	.\lcm\dbg.h	15;"	d
+_VCI_BOARD_INFO	.\ControlCAN.h	/^typedef  struct  _VCI_BOARD_INFO{$/;"	s
+_VCI_BOARD_INFO1	.\ControlCAN.h	/^typedef  struct  _VCI_BOARD_INFO1{$/;"	s
+_VCI_BOARD_INFO2	.\ControlCAN.h	/^typedef  struct  _VCI_BOARD_INFO2{$/;"	s
+_VCI_CAN_OBJ	.\ControlCAN.h	/^typedef  struct  _VCI_CAN_OBJ{$/;"	s
+_VCI_FILTER_RECORD	.\ControlCAN.h	/^typedef struct _VCI_FILTER_RECORD{$/;"	s
+_VCI_INIT_CONFIG	.\ControlCAN.h	/^typedef struct _VCI_INIT_CONFIG{$/;"	s
+_WHITE_	.\lcm\dbg.h	21;"	d
+_WIN32_WINNT	.\lcm\windows\WinPorting.cpp	2;"	d	file:
+_WINPORTING_H_	.\lcm\windows\WinPorting.h	2;"	d
+_YELLOW_	.\lcm\dbg.h	17;"	d
+__LCM_INTERNAL_H__	.\lcm\lcm_internal.h	2;"	d
+__LCM_IOUTILS_H__	.\lcm\ioutils.h	2;"	d
+__STDC_FORMAT_MACROS	.\lcm\eventlog.c	7;"	d	file:
+___lcm_hash_ptr	.\lcm\lcm_coretypes.h	/^struct ___lcm_hash_ptr$/;"	s
+__boolean_clone_array	.\lcm\lcm_coretypes.h	40;"	d
+__boolean_decode_array	.\lcm\lcm_coretypes.h	39;"	d
+__boolean_decode_array_cleanup	.\lcm\lcm_coretypes.h	36;"	d
+__boolean_encode_array	.\lcm\lcm_coretypes.h	38;"	d
+__boolean_encoded_array_size	.\lcm\lcm_coretypes.h	37;"	d
+__boolean_hash_recursive	.\lcm\lcm_coretypes.h	35;"	d
+__byte_clone_array	.\lcm\lcm_coretypes.h	/^static inline int __byte_clone_array(const uint8_t *p, uint8_t *q, int elements)$/;"	f
+__byte_decode_array	.\lcm\lcm_coretypes.h	/^static inline int __byte_decode_array(const void *_buf, int offset, int maxlen, uint8_t *p, int elements)$/;"	f
+__byte_decode_array_cleanup	.\lcm\lcm_coretypes.h	47;"	d
+__byte_encode_array	.\lcm\lcm_coretypes.h	/^static inline int __byte_encode_array(void *_buf, int offset, int maxlen, const uint8_t *p, int elements)$/;"	f
+__byte_encoded_array_size	.\lcm\lcm_coretypes.h	/^static inline int __byte_encoded_array_size(const uint8_t *p, int elements)$/;"	f
+__byte_hash_recursive	.\lcm\lcm_coretypes.h	46;"	d
+__channel_port_map_update_t_clone_array	.\lcm\lcmtypes\channel_port_map_update_t.c	/^int __channel_port_map_update_t_clone_array(const channel_port_map_update_t *p, channel_port_map_update_t *q, int elements)$/;"	f
+__channel_port_map_update_t_decode_array	.\lcm\lcmtypes\channel_port_map_update_t.c	/^int __channel_port_map_update_t_decode_array(const void *buf, int offset, int maxlen, channel_port_map_update_t *p, int elements)$/;"	f
+__channel_port_map_update_t_decode_array_cleanup	.\lcm\lcmtypes\channel_port_map_update_t.c	/^int __channel_port_map_update_t_decode_array_cleanup(channel_port_map_update_t *p, int elements)$/;"	f
+__channel_port_map_update_t_encode_array	.\lcm\lcmtypes\channel_port_map_update_t.c	/^int __channel_port_map_update_t_encode_array(void *buf, int offset, int maxlen, const channel_port_map_update_t *p, int elements)$/;"	f
+__channel_port_map_update_t_encoded_array_size	.\lcm\lcmtypes\channel_port_map_update_t.c	/^int __channel_port_map_update_t_encoded_array_size(const channel_port_map_update_t *p, int elements)$/;"	f
+__channel_port_map_update_t_get_hash	.\lcm\lcmtypes\channel_port_map_update_t.c	/^int64_t __channel_port_map_update_t_get_hash(void)$/;"	f
+__channel_port_map_update_t_hash	.\lcm\lcmtypes\channel_port_map_update_t.c	/^static int64_t __channel_port_map_update_t_hash;$/;"	v	file:
+__channel_port_map_update_t_hash_computed	.\lcm\lcmtypes\channel_port_map_update_t.c	/^static int __channel_port_map_update_t_hash_computed;$/;"	v	file:
+__channel_port_map_update_t_hash_recursive	.\lcm\lcmtypes\channel_port_map_update_t.c	/^int64_t __channel_port_map_update_t_hash_recursive(const __lcm_hash_ptr *p)$/;"	f
+__channel_to_port_t_clone_array	.\lcm\lcmtypes\channel_to_port_t.c	/^int __channel_to_port_t_clone_array(const channel_to_port_t *p, channel_to_port_t *q, int elements)$/;"	f
+__channel_to_port_t_decode_array	.\lcm\lcmtypes\channel_to_port_t.c	/^int __channel_to_port_t_decode_array(const void *buf, int offset, int maxlen, channel_to_port_t *p, int elements)$/;"	f
+__channel_to_port_t_decode_array_cleanup	.\lcm\lcmtypes\channel_to_port_t.c	/^int __channel_to_port_t_decode_array_cleanup(channel_to_port_t *p, int elements)$/;"	f
+__channel_to_port_t_encode_array	.\lcm\lcmtypes\channel_to_port_t.c	/^int __channel_to_port_t_encode_array(void *buf, int offset, int maxlen, const channel_to_port_t *p, int elements)$/;"	f
+__channel_to_port_t_encoded_array_size	.\lcm\lcmtypes\channel_to_port_t.c	/^int __channel_to_port_t_encoded_array_size(const channel_to_port_t *p, int elements)$/;"	f
+__channel_to_port_t_get_hash	.\lcm\lcmtypes\channel_to_port_t.c	/^int64_t __channel_to_port_t_get_hash(void)$/;"	f
+__channel_to_port_t_hash	.\lcm\lcmtypes\channel_to_port_t.c	/^static int64_t __channel_to_port_t_hash;$/;"	v	file:
+__channel_to_port_t_hash_computed	.\lcm\lcmtypes\channel_to_port_t.c	/^static int __channel_to_port_t_hash_computed;$/;"	v	file:
+__channel_to_port_t_hash_recursive	.\lcm\lcmtypes\channel_to_port_t.c	/^int64_t __channel_to_port_t_hash_recursive(const __lcm_hash_ptr *p)$/;"	f
+__double_clone_array	.\lcm\lcm_coretypes.h	/^static inline int __double_clone_array(const double *p, double *q, int elements)$/;"	f
+__double_decode_array	.\lcm\lcm_coretypes.h	/^static inline int __double_decode_array(const void *_buf, int offset, int maxlen, double *p, int elements)$/;"	f
+__double_decode_array_cleanup	.\lcm\lcm_coretypes.h	336;"	d
+__double_encode_array	.\lcm\lcm_coretypes.h	/^static inline int __double_encode_array(void *_buf, int offset, int maxlen, const double *p, int elements)$/;"	f
+__double_encoded_array_size	.\lcm\lcm_coretypes.h	/^static inline int __double_encoded_array_size(const double *p, int elements)$/;"	f
+__double_hash_recursive	.\lcm\lcm_coretypes.h	335;"	d
+__float_clone_array	.\lcm\lcm_coretypes.h	/^static inline int __float_clone_array(const float *p, float *q, int elements)$/;"	f
+__float_decode_array	.\lcm\lcm_coretypes.h	/^static inline int __float_decode_array(const void *_buf, int offset, int maxlen, float *p, int elements)$/;"	f
+__float_decode_array_cleanup	.\lcm\lcm_coretypes.h	307;"	d
+__float_encode_array	.\lcm\lcm_coretypes.h	/^static inline int __float_encode_array(void *_buf, int offset, int maxlen, const float *p, int elements)$/;"	f
+__float_encoded_array_size	.\lcm\lcm_coretypes.h	/^static inline int __float_encoded_array_size(const float *p, int elements)$/;"	f
+__float_hash_recursive	.\lcm\lcm_coretypes.h	306;"	d
+__int16_t_clone_array	.\lcm\lcm_coretypes.h	/^static inline int __int16_t_clone_array(const int16_t *p, int16_t *q, int elements)$/;"	f
+__int16_t_decode_array	.\lcm\lcm_coretypes.h	/^static inline int __int16_t_decode_array(const void *_buf, int offset, int maxlen, int16_t *p, int elements)$/;"	f
+__int16_t_decode_array_cleanup	.\lcm\lcm_coretypes.h	128;"	d
+__int16_t_encode_array	.\lcm\lcm_coretypes.h	/^static inline int __int16_t_encode_array(void *_buf, int offset, int maxlen, const int16_t *p, int elements)$/;"	f
+__int16_t_encoded_array_size	.\lcm\lcm_coretypes.h	/^static inline int __int16_t_encoded_array_size(const int16_t *p, int elements)$/;"	f
+__int16_t_hash_recursive	.\lcm\lcm_coretypes.h	127;"	d
+__int32_t_clone_array	.\lcm\lcm_coretypes.h	/^static inline int __int32_t_clone_array(const int32_t *p, int32_t *q, int elements)$/;"	f
+__int32_t_decode_array	.\lcm\lcm_coretypes.h	/^static inline int __int32_t_decode_array(const void *_buf, int offset, int maxlen, int32_t *p, int elements)$/;"	f
+__int32_t_decode_array_cleanup	.\lcm\lcm_coretypes.h	184;"	d
+__int32_t_encode_array	.\lcm\lcm_coretypes.h	/^static inline int __int32_t_encode_array(void *_buf, int offset, int maxlen, const int32_t *p, int elements)$/;"	f
+__int32_t_encoded_array_size	.\lcm\lcm_coretypes.h	/^static inline int __int32_t_encoded_array_size(const int32_t *p, int elements)$/;"	f
+__int32_t_hash_recursive	.\lcm\lcm_coretypes.h	183;"	d
+__int64_t_clone_array	.\lcm\lcm_coretypes.h	/^static inline int __int64_t_clone_array(const int64_t *p, int64_t *q, int elements)$/;"	f
+__int64_t_decode_array	.\lcm\lcm_coretypes.h	/^static inline int __int64_t_decode_array(const void *_buf, int offset, int maxlen, int64_t *p, int elements)$/;"	f
+__int64_t_decode_array_cleanup	.\lcm\lcm_coretypes.h	242;"	d
+__int64_t_encode_array	.\lcm\lcm_coretypes.h	/^static inline int __int64_t_encode_array(void *_buf, int offset, int maxlen, const int64_t *p, int elements)$/;"	f
+__int64_t_encoded_array_size	.\lcm\lcm_coretypes.h	/^static inline int __int64_t_encoded_array_size(const int64_t *p, int elements)$/;"	f
+__int64_t_hash_recursive	.\lcm\lcm_coretypes.h	241;"	d
+__int8_t_clone_array	.\lcm\lcm_coretypes.h	/^static inline int __int8_t_clone_array(const int8_t *p, int8_t *q, int elements)$/;"	f
+__int8_t_decode_array	.\lcm\lcm_coretypes.h	/^static inline int __int8_t_decode_array(const void *_buf, int offset, int maxlen, int8_t *p, int elements)$/;"	f
+__int8_t_decode_array_cleanup	.\lcm\lcm_coretypes.h	87;"	d
+__int8_t_encode_array	.\lcm\lcm_coretypes.h	/^static inline int __int8_t_encode_array(void *_buf, int offset, int maxlen, const int8_t *p, int elements)$/;"	f
+__int8_t_encoded_array_size	.\lcm\lcm_coretypes.h	/^static inline int __int8_t_encoded_array_size(const int8_t *p, int elements)$/;"	f
+__int8_t_hash_recursive	.\lcm\lcm_coretypes.h	86;"	d
+__lcm_cpp_hpp__	.\lcm\lcm-cpp.hpp	2;"	d
+__lcm_cpp_impl_ok__	.\lcm\lcm-cpp.hpp	562;"	d
+__lcm_cpp_impl_ok__	.\lcm\lcm-cpp.hpp	564;"	d
+__lcm_hash_ptr	.\lcm\lcm_coretypes.h	/^typedef struct ___lcm_hash_ptr __lcm_hash_ptr;$/;"	t	typeref:struct:___lcm_hash_ptr
+__lcm_ringbuffer_h__	.\lcm\ringbuffer.h	2;"	d
+__lcm_udpm_util_h__	.\lcm\udpm_util.h	2;"	d
+__lightweight_comunications_h__	.\lcm\lcm.h	2;"	d
+__obu_lcm_CAN_status_hpp__	.\obu_lcm\CAN_status.hpp	10;"	d
+__obu_lcm_CAN_value_hpp__	.\obu_lcm\CAN_value.hpp	10;"	d
+__obu_lcm_accelerate_feedback_info_hpp__	.\obu_lcm\accelerate_feedback_info.hpp	10;"	d
+__obu_lcm_ins_info_hpp__	.\obu_lcm\ins_info.hpp	10;"	d
+__obu_lcm_steering_control_info_hpp__	.\obu_lcm\steering_control_info.hpp	10;"	d
+__obu_lcm_steering_feedback_info_hpp__	.\obu_lcm\steering_feedback_info.hpp	10;"	d
+__string_clone_array	.\lcm\lcm_coretypes.h	/^static inline int __string_clone_array(char * const *p, char **q, int elements)$/;"	f
+__string_decode_array	.\lcm\lcm_coretypes.h	/^static inline int __string_decode_array(const void *_buf, int offset, int maxlen, char **p, int elements)$/;"	f
+__string_decode_array_cleanup	.\lcm\lcm_coretypes.h	/^static inline int __string_decode_array_cleanup(char **s, int elements)$/;"	f
+__string_encode_array	.\lcm\lcm_coretypes.h	/^static inline int __string_encode_array(void *_buf, int offset, int maxlen, char * const *p, int elements)$/;"	f
+__string_encoded_array_size	.\lcm\lcm_coretypes.h	/^static inline int __string_encoded_array_size(char * const *s, int elements)$/;"	f
+__string_encoded_size	.\lcm\lcm_coretypes.h	/^static inline int __string_encoded_size(char * const *s)$/;"	f
+__string_hash_recursive	.\lcm\lcm_coretypes.h	364;"	d
+_channel_port_map_update_t	.\lcm\lcmtypes\channel_port_map_update_t.h	/^struct _channel_port_map_update_t$/;"	s
+_channel_port_map_update_t_h	.\lcm\lcmtypes\channel_port_map_update_t.h	15;"	d
+_channel_to_port_t	.\lcm\lcmtypes\channel_to_port_t.h	/^struct _channel_to_port_t$/;"	s
+_channel_to_port_t_h	.\lcm\lcmtypes\channel_to_port_t.h	15;"	d
+_close_socket	.\lcm\lcm_tcpq.c	/^_close_socket(int fd)$/;"	f	file:
+_computeHash	.\obu_lcm\CAN_status.hpp	/^int64_t CAN_status::_computeHash(const __lcm_hash_ptr *)$/;"	f	class:obu_lcm::CAN_status
+_computeHash	.\obu_lcm\CAN_value.hpp	/^int64_t CAN_value::_computeHash(const __lcm_hash_ptr *)$/;"	f	class:obu_lcm::CAN_value
+_computeHash	.\obu_lcm\accelerate_feedback_info.hpp	/^int64_t accelerate_feedback_info::_computeHash(const __lcm_hash_ptr *)$/;"	f	class:obu_lcm::accelerate_feedback_info
+_computeHash	.\obu_lcm\ins_info.hpp	/^/;"	f	class:obu_lcm::ins_info
+_computeHash	.\obu_lcm\steering_control_info.hpp	/^int64_t steering_control_info::_computeHash(const __lcm_hash_ptr *)$/;"	f	class:obu_lcm::steering_control_info
+_computeHash	.\obu_lcm\steering_feedback_info.hpp	/^int64_t steering_feedback_info::_computeHash(const __lcm_hash_ptr *)$/;"	f	class:obu_lcm::steering_feedback_info
+_connect_to_server	.\lcm\lcm_tcpq.c	/^_connect_to_server(lcm_tcpq_t *self)$/;"	f	file:
+_decodeNoHash	.\obu_lcm\CAN_status.hpp	/^int CAN_status::_decodeNoHash(const void *buf, int offset, int maxlen)$/;"	f	class:obu_lcm::CAN_status
+_decodeNoHash	.\obu_lcm\CAN_value.hpp	/^int CAN_value::_decodeNoHash(const void *buf, int offset, int maxlen)$/;"	f	class:obu_lcm::CAN_value
+_decodeNoHash	.\obu_lcm\accelerate_feedback_info.hpp	/^int accelerate_feedback_info::_decodeNoHash(const void *buf, int offset, int maxlen)$/;"	f	class:obu_lcm::accelerate_feedback_info
+_decodeNoHash	.\obu_lcm\ins_info.hpp	/^/;"	f	class:obu_lcm::ins_info
+_decodeNoHash	.\obu_lcm\steering_control_info.hpp	/^int steering_control_info::_decodeNoHash(const void *buf, int offset, int maxlen)$/;"	f	class:obu_lcm::steering_control_info
+_decodeNoHash	.\obu_lcm\steering_feedback_info.hpp	/^int steering_feedback_info::_decodeNoHash(const void *buf, int offset, int maxlen)$/;"	f	class:obu_lcm::steering_feedback_info
+_destroy_recv_parts	.\lcm\lcm_udpm.c	/^_destroy_recv_parts (lcm_udpm_t *lcm)$/;"	f	file:
+_encodeNoHash	.\obu_lcm\CAN_status.hpp	/^int CAN_status::_encodeNoHash(void *buf, int offset, int maxlen) const$/;"	f	class:obu_lcm::CAN_status
+_encodeNoHash	.\obu_lcm\CAN_value.hpp	/^int CAN_value::_encodeNoHash(void *buf, int offset, int maxlen) const$/;"	f	class:obu_lcm::CAN_value
+_encodeNoHash	.\obu_lcm\accelerate_feedback_info.hpp	/^int accelerate_feedback_info::_encodeNoHash(void *buf, int offset, int maxlen) const$/;"	f	class:obu_lcm::accelerate_feedback_info
+_encodeNoHash	.\obu_lcm\ins_info.hpp	/^/;"	f	class:obu_lcm::ins_info
+_encodeNoHash	.\obu_lcm\steering_control_info.hpp	/^int steering_control_info::_encodeNoHash(void *buf, int offset, int maxlen) const$/;"	f	class:obu_lcm::steering_control_info
+_encodeNoHash	.\obu_lcm\steering_feedback_info.hpp	/^int steering_feedback_info::_encodeNoHash(void *buf, int offset, int maxlen) const$/;"	f	class:obu_lcm::steering_feedback_info
+_ensure_buf_capacity	.\lcm\lcm_tcpq.c	/^_ensure_buf_capacity(void **buf, uint32_t *cur_size, int req_size)$/;"	f	file:
+_find_lru_frag_buf	.\lcm\udpm_util.c	/^_find_lru_frag_buf (gpointer key, gpointer value, void *user_data)$/;"	f	file:
+_getEncodedSizeNoHash	.\obu_lcm\CAN_status.hpp	/^int CAN_status::_getEncodedSizeNoHash() const$/;"	f	class:obu_lcm::CAN_status
+_getEncodedSizeNoHash	.\obu_lcm\CAN_value.hpp	/^int CAN_value::_getEncodedSizeNoHash() const$/;"	f	class:obu_lcm::CAN_value
+_getEncodedSizeNoHash	.\obu_lcm\accelerate_feedback_info.hpp	/^int accelerate_feedback_info::_getEncodedSizeNoHash() const$/;"	f	class:obu_lcm::accelerate_feedback_info
+_getEncodedSizeNoHash	.\obu_lcm\ins_info.hpp	/^/;"	f	class:obu_lcm::ins_info
+_getEncodedSizeNoHash	.\obu_lcm\steering_control_info.hpp	/^int steering_control_info::_getEncodedSizeNoHash() const$/;"	f	class:obu_lcm::steering_control_info
+_getEncodedSizeNoHash	.\obu_lcm\steering_feedback_info.hpp	/^int steering_feedback_info::_getEncodedSizeNoHash() const$/;"	f	class:obu_lcm::steering_feedback_info
+_lcm2_header_long	.\lcm\udpm_util.h	/^typedef struct _lcm2_header_long {$/;"	s
+_lcm2_header_short	.\lcm\udpm_util.h	/^typedef struct _lcm2_header_short {$/;"	s
+_lcm_buf	.\lcm\udpm_util.h	/^typedef struct _lcm_buf {$/;"	s
+_lcm_buf_queue	.\lcm\udpm_util.h	/^typedef struct _lcm_buf_queue {$/;"	s
+_lcm_eventlog_event_t	.\lcm\eventlog.h	/^struct _lcm_eventlog_event_t {$/;"	s
+_lcm_eventlog_t	.\lcm\eventlog.h	/^struct _lcm_eventlog_t$/;"	s
+_lcm_field_t	.\lcm\lcm_coretypes.h	/^struct _lcm_field_t$/;"	s
+_lcm_frag_buf	.\lcm\udpm_util.h	/^typedef struct _lcm_frag_buf {$/;"	s
+_lcm_frag_buf_store	.\lcm\udpm_util.h	/^typedef struct _lcm_frag_buf_store {$/;"	s
+_lcm_provider_info_t	.\lcm\lcm_internal.h	/^struct _lcm_provider_info_t {$/;"	s
+_lcm_provider_t	.\lcm\lcm_file.c	/^struct _lcm_provider_t {$/;"	s	file:
+_lcm_provider_t	.\lcm\lcm_memq.c	/^struct _lcm_provider_t {$/;"	s	file:
+_lcm_provider_t	.\lcm\lcm_mpudpm.c	/^struct _lcm_provider_t {$/;"	s	file:
+_lcm_provider_t	.\lcm\lcm_tcpq.c	/^struct _lcm_provider_t {$/;"	s	file:
+_lcm_provider_t	.\lcm\lcm_udpm.c	/^struct _lcm_provider_t {$/;"	s	file:
+_lcm_provider_vtable_t	.\lcm\lcm_internal.h	/^struct _lcm_provider_vtable_t {$/;"	s
+_lcm_recv_buf_t	.\lcm\lcm.h	/^struct _lcm_recv_buf_t$/;"	s
+_lcm_ringbuf	.\lcm\ringbuffer.c	/^struct _lcm_ringbuf {$/;"	s	file:
+_lcm_ringbuf_rec	.\lcm\ringbuffer.c	/^struct _lcm_ringbuf_rec$/;"	s	file:
+_lcm_subscription_t	.\lcm\lcm.c	/^struct _lcm_subscription_t {$/;"	s	file:
+_lcm_t	.\lcm\lcm.c	/^struct _lcm_t {$/;"	s	file:
+_lcm_type_info_t	.\lcm\lcm_coretypes.h	/^struct _lcm_type_info_t$/;"	s
+_memq_msg	.\lcm\lcm_memq.c	/^struct _memq_msg {$/;"	s	file:
+_mpudpm_params_t	.\lcm\lcm_mpudpm.c	/^struct _mpudpm_params_t {$/;"	s	file:
+_mpudpm_socket_t	.\lcm\lcm_mpudpm.c	/^typedef struct _mpudpm_socket_t {$/;"	s	file:
+_mpudpm_subscriber_t	.\lcm\lcm_mpudpm.c	/^typedef struct _mpudpm_subscriber_t {$/;"	s	file:
+_parse_inaddr	.\lcm\udpm_util.c	/^static inline int _parse_inaddr(const char *addr_str, struct in_addr *addr)$/;"	f	file:
+_recv_fully	.\lcm\lcm_tcpq.c	/^_recv_fully(int fd, void *b, int len)$/;"	f	file:
+_recv_message_fragment	.\lcm\lcm_udpm.c	/^_recv_message_fragment (lcm_udpm_t *lcm, lcm_buf_t *lcmb, uint32_t sz)$/;"	f	file:
+_recv_short_message	.\lcm\lcm_udpm.c	/^_recv_short_message (lcm_udpm_t *lcm, lcm_buf_t *lcmb, int sz)$/;"	f	file:
+_recv_uint32	.\lcm\lcm_tcpq.c	/^_recv_uint32(int fd, uint32_t *result)$/;"	f	file:
+_send_fully	.\lcm\lcm_tcpq.c	/^_send_fully(int fd, const void *b, int len)$/;"	f	file:
+_send_uint32	.\lcm\lcm_tcpq.c	/^_send_uint32(int fd, uint32_t v)$/;"	f	file:
+_setup_recv_parts	.\lcm\lcm_udpm.c	/^_setup_recv_parts (lcm_udpm_t *lcm)$/;"	f	file:
+_sockaddr_in_equal	.\lcm\udpm_util.c	/^_sockaddr_in_equal (const void * a, const void *b)$/;"	f	file:
+_sockaddr_in_hash	.\lcm\udpm_util.c	/^_sockaddr_in_hash (const void * key)$/;"	f	file:
+_sub_unsub_helper	.\lcm\lcm_tcpq.c	/^_sub_unsub_helper(lcm_tcpq_t *self, const char *channel, uint32_t msg_type)$/;"	f	file:
+_udpm_params_t	.\lcm\lcm_udpm.c	/^struct _udpm_params_t {$/;"	s	file:
+accelerate_feedback_info	.\obu_lcm\accelerate_feedback_info.hpp	/^class accelerate_feedback_info$/;"	c	namespace:obu_lcm
+add_channel_to_subscriber	.\lcm\lcm_mpudpm.c	/^add_channel_to_subscriber(lcm_mpudpm_t* lcm, mpudpm_subscriber_t * sub,$/;"	f	file:
+add_recv_socket	.\lcm\lcm_mpudpm.c	/^add_recv_socket(lcm_mpudpm_t *lcm, uint16_t port){$/;"	f	file:
+at_status	.\obu_lcm\CAN_status.hpp	/^        int32_t    at_status;\/\/档杆位置$/;"	m	class:obu_lcm::CAN_status
+auchCRCHi	.\calculateCRC.cpp	/^static uchar auchCRCHi[]={$/;"	v	file:
+auchCRCLo	.\calculateCRC.cpp	/^static uchar auchCRCLo[]={$/;"	v	file:
+auto_gear	.\obu_lcm\CAN_status.hpp	/^		int32_t    auto_gear;$/;"	m	class:obu_lcm::CAN_status
+bContinue_	.\CnComm.h	/^	bool				bContinue_;			\/\/!< �̼߳�������ѭ����־$/;"	m	class:CnComm
+boolean_encoded_size	.\lcm\lcm_coretypes.h	41;"	d
+brake_status	.\obu_lcm\CAN_status.hpp	/^        int32_t    brake_status;\/\/刹车状态$/;"	m	class:obu_lcm::CAN_status
+buf	.\lcm\ringbuffer.c	/^    char          buf[];$/;"	m	struct:_lcm_ringbuf_rec	file:
+buf	.\lcm\udpm_util.h	/^    char *buf;               \/\/ pointer to beginning of message.  This includes$/;"	m	struct:_lcm_buf
+buf_size	.\lcm\udpm_util.h	/^    int   buf_size;          \/\/ bytes allocated$/;"	m	struct:_lcm_buf
+byte_encoded_size	.\lcm\lcm_coretypes.h	48;"	d
+c_subs	.\lcm\lcm-cpp.hpp	/^        lcm_subscription_t *c_subs;$/;"	m	class:lcm::Subscription
+callback_scheduled	.\lcm\lcm.c	/^    int callback_scheduled;$/;"	m	struct:_lcm_subscription_t	file:
+canStatusdata	.\Streeing_CAN.cpp	/^obu_lcm::CAN_status canStatusdata;$/;"	v
+can_Num	.\ControlCAN.h	/^		BYTE	can_Num;$/;"	m	struct:_VCI_BOARD_INFO
+can_Num	.\ControlCAN.h	/^	BYTE	can_Num;$/;"	m	struct:_VCI_BOARD_INFO1
+can_Num	.\ControlCAN.h	/^	BYTE	can_Num;$/;"	m	struct:_VCI_BOARD_INFO2
+car_speed	.\obu_lcm\CAN_value.hpp	/^        double     car_speed;$/;"	m	class:obu_lcm::CAN_value
+cb_func	.\lcm\lcm-cpp-impl.hpp	/^        static void cb_func(const lcm_recv_buf_t *rbuf, const char *channel, void *user_data)$/;"	f	class:LCMMHUntypedSubscription
+cb_func	.\lcm\lcm-cpp-impl.hpp	/^        static void cb_func(const lcm_recv_buf_t *rbuf, const char *channel,$/;"	f	class:LCMMHSubscription
+cb_func	.\lcm\lcm-cpp-impl.hpp	/^        static void cb_func(const lcm_recv_buf_t *rbuf, const char *channel,$/;"	f	class:LCMTypedSubscription
+cb_func	.\lcm\lcm-cpp-impl.hpp	/^        static void cb_func(const lcm_recv_buf_t *rbuf, const char *channel,$/;"	f	class:LCMUntypedSubscription
+cdbg	.\lcm\dbg.h	203;"	d
+channel	.\lcm\eventlog.h	/^    char     *channel;$/;"	m	struct:_lcm_eventlog_event_t
+channel	.\lcm\lcm-cpp.hpp	/^    std::string channel;$/;"	m	struct:lcm::LogEvent
+channel	.\lcm\lcm.c	/^    char             *channel;$/;"	m	struct:_lcm_subscription_t	file:
+channel	.\lcm\lcm_memq.c	/^    char* channel;$/;"	m	struct:_memq_msg	file:
+channel	.\lcm\lcmtypes\channel_to_port_t.h	/^    char*      channel;$/;"	m	struct:_channel_to_port_t
+channel	.\lcm\udpm_util.h	/^    char      channel[LCM_MAX_CHANNEL_NAME_LENGTH+1];$/;"	m	struct:_lcm_frag_buf
+channel_name	.\lcm\udpm_util.h	/^    char  channel_name[LCM_MAX_CHANNEL_NAME_LENGTH+1];$/;"	m	struct:_lcm_buf
+channel_port_map_update_t	.\lcm\lcmtypes\channel_port_map_update_t.h	/^typedef struct _channel_port_map_update_t channel_port_map_update_t;$/;"	t	typeref:struct:_channel_port_map_update_t
+channel_port_map_update_t_copy	.\lcm\lcmtypes\channel_port_map_update_t.c	/^channel_port_map_update_t *channel_port_map_update_t_copy(const channel_port_map_update_t *p)$/;"	f
+channel_port_map_update_t_decode	.\lcm\lcmtypes\channel_port_map_update_t.c	/^int channel_port_map_update_t_decode(const void *buf, int offset, int maxlen, channel_port_map_update_t *p)$/;"	f
+channel_port_map_update_t_decode_cleanup	.\lcm\lcmtypes\channel_port_map_update_t.c	/^int channel_port_map_update_t_decode_cleanup(channel_port_map_update_t *p)$/;"	f
+channel_port_map_update_t_destroy	.\lcm\lcmtypes\channel_port_map_update_t.c	/^void channel_port_map_update_t_destroy(channel_port_map_update_t *p)$/;"	f
+channel_port_map_update_t_encode	.\lcm\lcmtypes\channel_port_map_update_t.c	/^int channel_port_map_update_t_encode(void *buf, int offset, int maxlen, const channel_port_map_update_t *p)$/;"	f
+channel_port_map_update_t_encoded_size	.\lcm\lcmtypes\channel_port_map_update_t.c	/^int channel_port_map_update_t_encoded_size(const channel_port_map_update_t *p)$/;"	f
+channel_port_mapping_update_handler	.\lcm\lcm_mpudpm.c	/^channel_port_mapping_update_handler(lcm_mpudpm_t *lcm,$/;"	f	file:
+channel_set	.\lcm\lcm_mpudpm.c	/^    GHashTable* channel_set; \/\/GHashTable used as a set (value points to key)$/;"	m	struct:_mpudpm_subscriber_t	file:
+channel_size	.\lcm\udpm_util.h	/^    int   channel_size;      \/\/ length of channel name$/;"	m	struct:_lcm_buf
+channel_string	.\lcm\lcm_mpudpm.c	/^    char * channel_string;$/;"	m	struct:_mpudpm_subscriber_t	file:
+channel_to_port_map	.\lcm\lcm_mpudpm.c	/^    GHashTable* channel_to_port_map;$/;"	m	struct:_lcm_provider_t	file:
+channel_to_port_map_update_period	.\lcm\lcm_mpudpm.c	/^    int64_t channel_to_port_map_update_period;$/;"	m	struct:_lcm_provider_t	file:
+channel_to_port_t	.\lcm\lcmtypes\channel_to_port_t.h	/^typedef struct _channel_to_port_t channel_to_port_t;$/;"	t	typeref:struct:_channel_to_port_t
+channel_to_port_t_copy	.\lcm\lcmtypes\channel_to_port_t.c	/^channel_to_port_t *channel_to_port_t_copy(const channel_to_port_t *p)$/;"	f
+channel_to_port_t_decode	.\lcm\lcmtypes\channel_to_port_t.c	/^int channel_to_port_t_decode(const void *buf, int offset, int maxlen, channel_to_port_t *p)$/;"	f
+channel_to_port_t_decode_cleanup	.\lcm\lcmtypes\channel_to_port_t.c	/^int channel_to_port_t_decode_cleanup(channel_to_port_t *p)$/;"	f
+channel_to_port_t_destroy	.\lcm\lcmtypes\channel_to_port_t.c	/^void channel_to_port_t_destroy(channel_to_port_t *p)$/;"	f
+channel_to_port_t_encode	.\lcm\lcmtypes\channel_to_port_t.c	/^int channel_to_port_t_encode(void *buf, int offset, int maxlen, const channel_to_port_t *p)$/;"	f
+channel_to_port_t_encoded_size	.\lcm\lcmtypes\channel_to_port_t.c	/^int channel_to_port_t_encoded_size(const channel_to_port_t *p)$/;"	f
+channellen	.\lcm\eventlog.h	/^    int32_t channellen;$/;"	m	struct:_lcm_eventlog_event_t
+cleanup_pollers	.\lcm\lcm_mpudpm.c	/^static void cleanup_pollers(lcm_mpudpm_t * lcm) {$/;"	f	file:
+color	.\lcm\dbg.h	/^    const char *color;$/;"	m	struct:dbg_mode_color
+context	.\lcm\lcm-cpp-impl.hpp	/^        ContextClass context;$/;"	m	class:LCMTypedSubscription
+context	.\lcm\lcm-cpp-impl.hpp	/^        ContextClass context;$/;"	m	class:LCMUntypedSubscription
+count	.\lcm\udpm_util.h	/^    int count;$/;"	m	struct:_lcm_buf_queue
+cprintf	.\lcm\dbg.h	207;"	d
+create	.\lcm\lcm_internal.h	/^    lcm_provider_t * (*create)(lcm_t *, const char *target,$/;"	m	struct:_lcm_provider_vtable_t
+create_read_thread_cond	.\lcm\lcm_mpudpm.c	/^    GCond* create_read_thread_cond;$/;"	m	struct:_lcm_provider_t	file:
+create_read_thread_cond	.\lcm\lcm_udpm.c	/^    GCond* create_read_thread_cond;$/;"	m	struct:_lcm_provider_t	file:
+create_read_thread_mutex	.\lcm\lcm_mpudpm.c	/^    GMutex* create_read_thread_mutex;$/;"	m	struct:_lcm_provider_t	file:
+create_read_thread_mutex	.\lcm\lcm_udpm.c	/^    GMutex* create_read_thread_mutex;$/;"	m	struct:_lcm_provider_t	file:
+creating_read_thread	.\lcm\lcm_mpudpm.c	/^    int8_t creating_read_thread;$/;"	m	struct:_lcm_provider_t	file:
+creating_read_thread	.\lcm\lcm_udpm.c	/^    int creating_read_thread;$/;"	m	struct:_lcm_provider_t	file:
+curEvent	.\lcm\lcm-cpp.hpp	/^        LogEvent curEvent;$/;"	m	class:lcm::LogFile
+current_steeringangle	.\Streeing_CAN.h	/^	short int current_steeringangle;$/;"	m	class:Streeing
+d_mode	.\lcm\dbg.h	/^    unsigned long long d_mode;$/;"	m	struct:dbg_mode
+d_mode	.\lcm\dbg.h	/^    unsigned long long d_mode;$/;"	m	struct:dbg_mode_color
+d_name	.\lcm\dbg.h	/^    const char *d_name;$/;"	m	struct:dbg_mode
+data	.\lcm\eventlog.h	/^    void     *data;$/;"	m	struct:_lcm_eventlog_event_t
+data	.\lcm\lcm-cpp.hpp	/^    void *data;$/;"	m	struct:lcm::ReceiveBuffer
+data	.\lcm\lcm-cpp.hpp	/^    void* data;$/;"	m	struct:lcm::LogEvent
+data	.\lcm\lcm.h	/^    void *data;$/;"	m	struct:_lcm_recv_buf_t
+data	.\lcm\lcm_coretypes.h	/^    void *data;$/;"	m	struct:_lcm_field_t
+data	.\lcm\ringbuffer.c	/^    char *data;$/;"	m	struct:_lcm_ringbuf	file:
+data	.\lcm\udpm_util.h	/^    char      *data;$/;"	m	struct:_lcm_frag_buf
+data_buf	.\lcm\lcm_tcpq.c	/^    void *data_buf;$/;"	m	struct:_lcm_provider_t	file:
+data_buf_len	.\lcm\lcm_tcpq.c	/^    uint32_t data_buf_len;$/;"	m	struct:_lcm_provider_t	file:
+data_offset	.\lcm\udpm_util.h	/^    int   data_offset;       \/\/ offset to payload$/;"	m	struct:_lcm_buf
+data_size	.\lcm\lcm-cpp.hpp	/^    uint32_t data_size;$/;"	m	struct:lcm::ReceiveBuffer
+data_size	.\lcm\lcm.h	/^    uint32_t data_size;$/;"	m	struct:_lcm_recv_buf_t
+data_size	.\lcm\udpm_util.h	/^    int   data_size;         \/\/ size of payload$/;"	m	struct:_lcm_buf
+data_size	.\lcm\udpm_util.h	/^    uint32_t  data_size;$/;"	m	struct:_lcm_frag_buf
+datalen	.\lcm\eventlog.h	/^    int32_t datalen;$/;"	m	struct:_lcm_eventlog_event_t
+datalen	.\lcm\lcm-cpp.hpp	/^    int32_t datalen;$/;"	m	struct:lcm::LogEvent
+dbg	.\lcm\dbg.h	189;"	d
+dbg	.\lcm\dbg.h	201;"	d
+dbg_active	.\lcm\dbg.h	197;"	d
+dbg_active	.\lcm\dbg.h	202;"	d
+dbg_colortab	.\lcm\dbg.h	/^static dbg_mode_color_t dbg_colortab[] = {$/;"	v
+dbg_init	.\lcm\dbg.h	/^static void dbg_init()$/;"	f
+dbg_initiated	.\lcm\dbg.h	/^static short dbg_initiated = 0;$/;"	v
+dbg_mode	.\lcm\dbg.h	/^typedef struct dbg_mode {$/;"	s
+dbg_mode_color	.\lcm\dbg.h	/^typedef struct dbg_mode_color {$/;"	s
+dbg_mode_color_t	.\lcm\dbg.h	/^} dbg_mode_color_t;$/;"	t	typeref:struct:dbg_mode_color
+dbg_mode_t	.\lcm\dbg.h	/^} dbg_mode_t;$/;"	t	typeref:struct:dbg_mode
+dbg_modes	.\lcm\dbg.h	/^static long long dbg_modes = 0;$/;"	v
+dbg_nametab	.\lcm\dbg.h	/^static dbg_mode_t dbg_nametab[] = {$/;"	v
+decode	.\lcm\lcm_coretypes.h	/^    lcm_decode_t          decode;$/;"	m	struct:_lcm_type_info_t
+decode	.\obu_lcm\CAN_status.hpp	/^int CAN_status::decode(const void *buf, int offset, int maxlen)$/;"	f	class:obu_lcm::CAN_status
+decode	.\obu_lcm\CAN_value.hpp	/^int CAN_value::decode(const void *buf, int offset, int maxlen)$/;"	f	class:obu_lcm::CAN_value
+decode	.\obu_lcm\accelerate_feedback_info.hpp	/^int accelerate_feedback_info::decode(const void *buf, int offset, int maxlen)$/;"	f	class:obu_lcm::accelerate_feedback_info
+decode	.\obu_lcm\ins_info.hpp	/^/;"	f	class:obu_lcm::ins_info
+decode	.\obu_lcm\steering_control_info.hpp	/^int steering_control_info::decode(const void *buf, int offset, int maxlen)$/;"	f	class:obu_lcm::steering_control_info
+decode	.\obu_lcm\steering_feedback_info.hpp	/^int steering_feedback_info::decode(const void *buf, int offset, int maxlen)$/;"	f	class:obu_lcm::steering_feedback_info
+decode_cleanup	.\lcm\lcm_coretypes.h	/^    lcm_decode_cleanup_t  decode_cleanup;$/;"	m	struct:_lcm_type_info_t
+default_max_num_queued_messages	.\lcm\lcm.c	/^    int default_max_num_queued_messages;$/;"	m	struct:_lcm_t	file:
+dest_addr	.\lcm\lcm_mpudpm.c	/^    struct sockaddr_in dest_addr;$/;"	m	struct:_lcm_provider_t	typeref:struct:_lcm_provider_t::sockaddr_in	file:
+dest_addr	.\lcm\lcm_udpm.c	/^    struct sockaddr_in dest_addr;$/;"	m	struct:_lcm_provider_t	typeref:struct:_lcm_provider_t::sockaddr_in	file:
+destroy	.\lcm\lcm_internal.h	/^    void (*destroy)(lcm_provider_t *);$/;"	m	struct:_lcm_provider_vtable_t
+destroy_recv_parts	.\lcm\lcm_mpudpm.c	/^destroy_recv_parts (lcm_mpudpm_t *lcm)$/;"	f	file:
+dim_is_variable	.\lcm\lcm_coretypes.h	/^    int8_t  dim_is_variable[LCM_TYPE_FIELD_MAX_DIM];$/;"	m	struct:_lcm_field_t
+dim_size	.\lcm\lcm_coretypes.h	/^    int32_t dim_size[LCM_TYPE_FIELD_MAX_DIM];$/;"	m	struct:_lcm_field_t
+dispatch_complete_message	.\lcm\lcm_mpudpm.c	/^static void dispatch_complete_message(lcm_mpudpm_t * lcm, lcm_buf_t * lcmb,$/;"	f	file:
+double_encoded_size	.\lcm\lcm_coretypes.h	337;"	d
+double_uint64	.\lcm\lcm_coretypes.h	/^union double_uint64$/;"	u
+down_accelerate	.\obu_lcm\ins_info.hpp	/^/;"	m	class:obu_lcm::ins_info
+down_speed	.\obu_lcm\ins_info.hpp	/^/;"	m	class:obu_lcm::ins_info
+dr_Version	.\ControlCAN.h	/^		USHORT	dr_Version;$/;"	m	struct:_VCI_BOARD_INFO
+dr_Version	.\ControlCAN.h	/^	USHORT	dr_Version;$/;"	m	struct:_VCI_BOARD_INFO1
+dr_Version	.\ControlCAN.h	/^	USHORT	dr_Version;$/;"	m	struct:_VCI_BOARD_INFO2
+dwInCount_	.\CnComm.h	/^	DWORD				dwInCount_;			\/\/!< ������$/;"	m	class:CnComm
+dwNotifyNum_	.\CnComm.h	/^	DWORD				dwNotifyNum_;		\/\/!< ���ܶ����ֽ�(>=dwNotifyNum_)����֪ͨ��Ϣ$/;"	m	class:CnComm
+dwOption_	.\CnComm.h	/^	DWORD				dwOption_;			\/\/!< �ؼ�ģʽ���� �ڹ��캯�����趨$/;"	m	class:CnComm
+dwOutCount_	.\CnComm.h	/^	DWORD				dwOutCount_;		\/\/!< д����$/;"	m	class:CnComm
+dwPort_	.\CnComm.h	/^	DWORD				dwPort_;			\/\/!< ���ں� 0Ϊ���⴮�� -1Ϊ��Ч ��Ҫ������Ϣ֪ͨ����$/;"	m	class:CnComm
+dwWaitEvent_	.\CnComm.h	/^	DWORD				dwWaitEvent_;		\/\/!< WaitCommEvent �ļ����¼�$/;"	m	class:CnComm
+encode	.\lcm\lcm_coretypes.h	/^    lcm_encode_t          encode;$/;"	m	struct:_lcm_type_info_t
+encode	.\obu_lcm\CAN_status.hpp	/^int CAN_status::encode(void *buf, int offset, int maxlen) const$/;"	f	class:obu_lcm::CAN_status
+encode	.\obu_lcm\CAN_value.hpp	/^int CAN_value::encode(void *buf, int offset, int maxlen) const$/;"	f	class:obu_lcm::CAN_value
+encode	.\obu_lcm\accelerate_feedback_info.hpp	/^int accelerate_feedback_info::encode(void *buf, int offset, int maxlen) const$/;"	f	class:obu_lcm::accelerate_feedback_info
+encode	.\obu_lcm\ins_info.hpp	/^/;"	f	class:obu_lcm::ins_info
+encode	.\obu_lcm\steering_control_info.hpp	/^int steering_control_info::encode(void *buf, int offset, int maxlen) const$/;"	f	class:obu_lcm::steering_control_info
+encode	.\obu_lcm\steering_feedback_info.hpp	/^int steering_feedback_info::encode(void *buf, int offset, int maxlen) const$/;"	f	class:obu_lcm::steering_feedback_info
+encoded_size	.\lcm\lcm_coretypes.h	/^    lcm_encoded_size_t    encoded_size;$/;"	m	struct:_lcm_type_info_t
+engine_RPM	.\obu_lcm\CAN_value.hpp	/^        double     engine_RPM;\/\/发动机速度$/;"	m	class:obu_lcm::CAN_value
+engine_status	.\obu_lcm\CAN_status.hpp	/^        int32_t    engine_status;$/;"	m	class:obu_lcm::CAN_status
+event	.\lcm\lcm_file.c	/^    lcm_eventlog_event_t * event;$/;"	m	struct:_lcm_provider_t	file:
+eventcount	.\lcm\eventlog.h	/^    int64_t eventcount;$/;"	m	struct:_lcm_eventlog_t
+eventlog	.\lcm\lcm-cpp.hpp	/^        lcm_eventlog_t* eventlog;$/;"	m	class:lcm::LogFile
+eventnum	.\lcm\eventlog.h	/^    int64_t eventnum;$/;"	m	struct:_lcm_eventlog_event_t
+eventnum	.\lcm\lcm-cpp.hpp	/^    int64_t eventnum;$/;"	m	struct:lcm::LogEvent
+f	.\lcm\eventlog.h	/^    FILE *f;$/;"	m	struct:_lcm_eventlog_t
+f	.\lcm\lcm_coretypes.h	/^    double    f;$/;"	m	union:double_uint64
+f	.\lcm\lcm_coretypes.h	/^    float     f;$/;"	m	union:float_uint32
+fcntl	.\lcm\windows\WinPorting.cpp	/^int fcntl (int fd, int flag1, ... )			\/\/ Fake out F_GETFL, set socket to block or not on F_SETFL$/;"	f
+fd	.\lcm\lcm_mpudpm.c	/^    SOCKET fd;$/;"	m	struct:_mpudpm_socket_t	file:
+filename	.\lcm\lcm_file.c	/^    char * filename;$/;"	m	struct:_lcm_provider_t	file:
+first_packet_utime	.\lcm\udpm_util.h	/^    int64_t   first_packet_utime;$/;"	m	struct:_lcm_frag_buf
+flag	.\obu_lcm\ins_info.hpp	/^/;"	m	class:obu_lcm::ins_info
+flashing_status	.\obu_lcm\CAN_status.hpp	/^        int32_t    flashing_status;$/;"	m	class:obu_lcm::CAN_status
+float_encoded_size	.\lcm\lcm_coretypes.h	308;"	d
+float_uint32	.\lcm\lcm_coretypes.h	/^union float_uint32$/;"	u
+frag_bufs	.\lcm\lcm_mpudpm.c	/^    lcm_frag_buf_store  *frag_bufs;$/;"	m	struct:_lcm_provider_t	file:
+frag_bufs	.\lcm\lcm_udpm.c	/^    lcm_frag_buf_store * frag_bufs;$/;"	m	struct:_lcm_provider_t	file:
+frag_bufs	.\lcm\udpm_util.h	/^    GHashTable *frag_bufs;$/;"	m	struct:_lcm_frag_buf_store
+fragment_no	.\lcm\udpm_util.h	/^    uint16_t fragment_no;$/;"	m	struct:_lcm2_header_long
+fragment_offset	.\lcm\udpm_util.h	/^    uint32_t fragment_offset;$/;"	m	struct:_lcm2_header_long
+fragments_in_msg	.\lcm\udpm_util.h	/^    uint16_t fragments_in_msg;$/;"	m	struct:_lcm2_header_long
+fragments_remaining	.\lcm\udpm_util.h	/^    uint16_t  fragments_remaining;$/;"	m	struct:_lcm_frag_buf
+fread32	.\lcm\ioutils.h	/^static inline int fread32(FILE *f, int32_t *v32)$/;"	f
+fread64	.\lcm\ioutils.h	/^static inline int fread64(FILE *f, int64_t *v64)$/;"	f
+from	.\lcm\udpm_util.h	/^    struct    sockaddr_in from;$/;"	m	struct:_lcm_frag_buf	typeref:struct:_lcm_frag_buf::sockaddr_in
+from	.\lcm\udpm_util.h	/^    struct sockaddr from;    \/\/ sender$/;"	m	struct:_lcm_buf	typeref:struct:_lcm_buf::sockaddr
+fromlen	.\lcm\udpm_util.h	/^    socklen_t fromlen;$/;"	m	struct:_lcm_buf
+fseeko	.\lcm\windows\WinPorting.h	10;"	d
+ftello	.\lcm\windows\WinPorting.h	11;"	d
+fw_Version	.\ControlCAN.h	/^		USHORT	fw_Version;$/;"	m	struct:_VCI_BOARD_INFO
+fw_Version	.\ControlCAN.h	/^	USHORT	fw_Version;$/;"	m	struct:_VCI_BOARD_INFO1
+fw_Version	.\ControlCAN.h	/^	USHORT	fw_Version;$/;"	m	struct:_VCI_BOARD_INFO2
+fwrite32	.\lcm\ioutils.h	/^static inline int fwrite32(FILE *f, int32_t v)$/;"	f
+fwrite64	.\lcm\ioutils.h	/^static inline int fwrite64(FILE *f, int64_t v64)$/;"	f
+g_accelerate_feedback_info	.\main_prj.cpp	/^obu_lcm::accelerate_feedback_info g_accelerate_feedback_info;$/;"	v
+g_ins_info	.\main_prj.cpp	/^obu_lcm::ins_info g_ins_info;$/;"	v
+getEncodedSize	.\obu_lcm\CAN_status.hpp	/^int CAN_status::getEncodedSize() const$/;"	f	class:obu_lcm::CAN_status
+getEncodedSize	.\obu_lcm\CAN_value.hpp	/^int CAN_value::getEncodedSize() const$/;"	f	class:obu_lcm::CAN_value
+getEncodedSize	.\obu_lcm\accelerate_feedback_info.hpp	/^int accelerate_feedback_info::getEncodedSize() const$/;"	f	class:obu_lcm::accelerate_feedback_info
+getEncodedSize	.\obu_lcm\ins_info.hpp	/^/;"	f	class:obu_lcm::ins_info
+getEncodedSize	.\obu_lcm\steering_control_info.hpp	/^int steering_control_info::getEncodedSize() const$/;"	f	class:obu_lcm::steering_control_info
+getEncodedSize	.\obu_lcm\steering_feedback_info.hpp	/^int steering_feedback_info::getEncodedSize() const$/;"	f	class:obu_lcm::steering_feedback_info
+getFileno	.\lcm\lcm-cpp-impl.hpp	/^LCM::getFileno() {$/;"	f	class:LCM
+getHash	.\obu_lcm\CAN_status.hpp	/^int64_t CAN_status::getHash()$/;"	f	class:obu_lcm::CAN_status
+getHash	.\obu_lcm\CAN_value.hpp	/^int64_t CAN_value::getHash()$/;"	f	class:obu_lcm::CAN_value
+getHash	.\obu_lcm\accelerate_feedback_info.hpp	/^int64_t accelerate_feedback_info::getHash()$/;"	f	class:obu_lcm::accelerate_feedback_info
+getHash	.\obu_lcm\ins_info.hpp	/^/;"	f	class:obu_lcm::ins_info
+getHash	.\obu_lcm\steering_control_info.hpp	/^int64_t steering_control_info::getHash()$/;"	f	class:obu_lcm::steering_control_info
+getHash	.\obu_lcm\steering_feedback_info.hpp	/^int64_t steering_feedback_info::getHash()$/;"	f	class:obu_lcm::steering_feedback_info
+getTypeName	.\obu_lcm\CAN_status.hpp	/^const char* CAN_status::getTypeName()$/;"	f	class:obu_lcm::CAN_status
+getTypeName	.\obu_lcm\CAN_value.hpp	/^const char* CAN_value::getTypeName()$/;"	f	class:obu_lcm::CAN_value
+getTypeName	.\obu_lcm\accelerate_feedback_info.hpp	/^const char* accelerate_feedback_info::getTypeName()$/;"	f	class:obu_lcm::accelerate_feedback_info
+getTypeName	.\obu_lcm\ins_info.hpp	/^/;"	f	class:obu_lcm::ins_info
+getTypeName	.\obu_lcm\steering_control_info.hpp	/^const char* steering_control_info::getTypeName()$/;"	f	class:obu_lcm::steering_control_info
+getTypeName	.\obu_lcm\steering_feedback_info.hpp	/^const char* steering_feedback_info::getTypeName()$/;"	f	class:obu_lcm::steering_feedback_info
+getUnderlyingLCM	.\lcm\lcm-cpp-impl.hpp	/^LCM::getUnderlyingLCM()$/;"	f	class:LCM
+get_event_time	.\lcm\eventlog.c	/^static int64_t get_event_time(lcm_eventlog_t *l)$/;"	f	file:
+get_field	.\lcm\lcm_coretypes.h	/^    lcm_get_field_t       get_field;$/;"	m	struct:_lcm_type_info_t
+get_fileno	.\lcm\lcm_internal.h	/^    int (*get_fileno)(lcm_provider_t *);$/;"	m	struct:_lcm_provider_vtable_t
+get_hash	.\lcm\lcm_coretypes.h	/^    lcm_get_hash_t        get_hash;$/;"	m	struct:_lcm_type_info_t
+gettimeofday	.\lcm\windows\WinPorting.cpp	/^int gettimeofday(struct timeval *tv, struct timezone *tz)		\/\/ tz is not used in any lcm code$/;"	f
+good	.\lcm\lcm-cpp-impl.hpp	/^LCM::good() const$/;"	f	class:LCM
+good	.\lcm\lcm-cpp-impl.hpp	/^LogFile::good() const$/;"	f	class:LogFile
+gps_time	.\obu_lcm\ins_info.hpp	/^/;"	m	class:obu_lcm::ins_info
+hComm_	.\CnComm.h	/^	HANDLE				hComm_;				\/\/!< ���ھ���$/;"	m	class:CnComm
+hNotifyThreadId_	.\CnComm.h	/^	DWORD				hNotifyThreadId_;	\/\/!< ֪ͨ�߳�$/;"	m	class:CnComm
+hNotifyWnd_	.\CnComm.h	/^	HWND				hNotifyWnd_;		\/\/!< ֪ͨ����$/;"	m	class:CnComm
+hReadEvent_	.\CnComm.h	/^	HANDLE				hReadEvent_;		\/\/!< ֪ͨ�����߳�$/;"	m	class:CnComm
+hReadThreadId_	.\CnComm.h	/^	DWORD				hReadThreadId_;		\/\/!< ���ո����߳� ID$/;"	m	class:CnComm
+hReadThread_	.\CnComm.h	/^	HANDLE				hReadThread_;		\/\/!< ���ո����߳� ʵ��˫������Ч��$/;"	m	class:CnComm
+hWatchEvent_	.\CnComm.h	/^	HANDLE				hWatchEvent_;		\/\/!< ֪ͨ�����߳�$/;"	m	class:CnComm
+hWatchThreadId_	.\CnComm.h	/^	DWORD				hWatchThreadId_;	\/\/!< ���Ӹ����߳� ID$/;"	m	class:CnComm
+hWatchThread_	.\CnComm.h	/^	HANDLE				hWatchThread_;		\/\/!< ���Ӹ����߳�$/;"	m	class:CnComm
+hWriteEvent_	.\CnComm.h	/^	HANDLE				hWriteEvent_;		\/\/!< ֪ͨ�����߳�$/;"	m	class:CnComm
+hWriteThreadId_	.\CnComm.h	/^	DWORD				hWriteThreadId_;	\/\/!< ���͸����߳� ID$/;"	m	class:CnComm
+hWriteThread_	.\CnComm.h	/^	HANDLE				hWriteThread_;		\/\/!< ���͸����߳� ʵ��˫������Ч��$/;"	m	class:CnComm
+hand_brake_status	.\obu_lcm\CAN_status.hpp	/^        int32_t    hand_brake_status;$/;"	m	class:obu_lcm::CAN_status
+handle	.\lcm\lcm-cpp-impl.hpp	/^LCM::handle() {$/;"	f	class:LCM
+handle	.\lcm\lcm_internal.h	/^    int (*handle)(lcm_provider_t *);$/;"	m	struct:_lcm_provider_vtable_t
+handleTimeout	.\lcm\lcm-cpp-impl.hpp	/^LCM::handleTimeout(int timeout_millis) {$/;"	f	class:LCM
+handle_mutex	.\lcm\lcm.c	/^    GStaticRecMutex handle_mutex;  \/\/ only one thread allowed in lcm_handle at a time$/;"	m	struct:_lcm_t	file:
+handler	.\lcm\lcm-cpp-impl.hpp	/^        MessageHandlerClass* handler;$/;"	m	class:LCMMHSubscription
+handler	.\lcm\lcm-cpp-impl.hpp	/^        MessageHandlerClass* handler;$/;"	m	class:LCMMHUntypedSubscription
+handler	.\lcm\lcm-cpp-impl.hpp	/^        void (*handler)(const ReceiveBuffer *rbuf, const std::string& channel,$/;"	m	class:LCMTypedSubscription
+handler	.\lcm\lcm-cpp-impl.hpp	/^        void (*handler)(const ReceiveBuffer *rbuf, const std::string& channel,$/;"	m	class:LCMUntypedSubscription
+handler	.\lcm\lcm.c	/^    lcm_msg_handler_t  handler;$/;"	m	struct:_lcm_subscription_t	file:
+handlerMethod	.\lcm\lcm-cpp-impl.hpp	/^        void (MessageHandlerClass::*handlerMethod)(const ReceiveBuffer* rbuf, const std::string& channel);$/;"	m	class:LCMMHUntypedSubscription
+handlerMethod	.\lcm\lcm-cpp-impl.hpp	/^        void (MessageHandlerClass::*handlerMethod)(const ReceiveBuffer* rbuf, const std::string& channel, const MessageType* msg);$/;"	m	class:LCMMHSubscription
+handlers_all	.\lcm\lcm.c	/^    GPtrArray   *handlers_all;  \/\/ list containing *all* handlers$/;"	m	struct:_lcm_t	file:
+handlers_map	.\lcm\lcm.c	/^    GHashTable  *handlers_map;  \/\/ map of channel name (string) to GPtrArray $/;"	m	struct:_lcm_t	file:
+head	.\lcm\ringbuffer.c	/^    lcm_ringbuf_rec_t *head;$/;"	m	struct:_lcm_ringbuf	file:
+head	.\lcm\udpm_util.h	/^    lcm_buf_t * head;$/;"	m	struct:_lcm_buf_queue
+heading	.\obu_lcm\ins_info.hpp	/^/;"	m	class:obu_lcm::ins_info
+heading_speed	.\obu_lcm\ins_info.hpp	/^/;"	m	class:obu_lcm::ins_info
+height	.\obu_lcm\ins_info.hpp	/^/;"	m	class:obu_lcm::ins_info
+high_beam_status	.\obu_lcm\CAN_status.hpp	/^        int32_t    high_beam_status;$/;"	m	class:obu_lcm::CAN_status
+high_sensor_v	.\obu_lcm\accelerate_feedback_info.hpp	/^        double     high_sensor_v;$/;"	m	class:obu_lcm::accelerate_feedback_info
+hw_Version	.\ControlCAN.h	/^		USHORT	hw_Version;$/;"	m	struct:_VCI_BOARD_INFO
+hw_Version	.\ControlCAN.h	/^	USHORT	hw_Version;$/;"	m	struct:_VCI_BOARD_INFO1
+hw_Version	.\ControlCAN.h	/^	USHORT	hw_Version;$/;"	m	struct:_VCI_BOARD_INFO2
+i	.\lcm\lcm_coretypes.h	/^    uint32_t  i;$/;"	m	union:float_uint32
+i	.\lcm\lcm_coretypes.h	/^    uint64_t  i;$/;"	m	union:double_uint64
+in_Version	.\ControlCAN.h	/^		USHORT	in_Version;$/;"	m	struct:_VCI_BOARD_INFO
+in_Version	.\ControlCAN.h	/^	USHORT	in_Version;$/;"	m	struct:_VCI_BOARD_INFO1
+in_Version	.\ControlCAN.h	/^	USHORT	in_Version;$/;"	m	struct:_VCI_BOARD_INFO2
+in_addr_t	.\lcm\windows\WinPorting.h	13;"	d
+in_handle	.\lcm\lcm.c	/^    int in_handle;$/;"	m	struct:_lcm_t	file:
+inbufs_empty	.\lcm\lcm_mpudpm.c	/^    lcm_buf_queue_t * inbufs_empty;$/;"	m	struct:_lcm_provider_t	file:
+inbufs_empty	.\lcm\lcm_udpm.c	/^    lcm_buf_queue_t * inbufs_empty;$/;"	m	struct:_lcm_provider_t	file:
+inbufs_filled	.\lcm\lcm_mpudpm.c	/^    lcm_buf_queue_t * inbufs_filled;$/;"	m	struct:_lcm_provider_t	file:
+inbufs_filled	.\lcm\lcm_udpm.c	/^    lcm_buf_queue_t * inbufs_filled;$/;"	m	struct:_lcm_provider_t	file:
+inet_aton	.\lcm\windows\WinPorting.cpp	/^int inet_aton(const char *cp, struct in_addr *inp)$/;"	f
+input_dir	.\main_prj.cpp	/^int input_dir = 1;\/\/1 �� 0 ��$/;"	v
+input_mv	.\main_prj.cpp	/^int input_mv = 700;$/;"	v
+ins_info	.\obu_lcm\ins_info.hpp	/^/;"	c	namespace:obu_lcm
+int16_t_encoded_size	.\lcm\lcm_coretypes.h	129;"	d
+int32_t_encoded_size	.\lcm\lcm_coretypes.h	185;"	d
+int64_t_encoded_size	.\lcm\lcm_coretypes.h	243;"	d
+int8_t_encoded_size	.\lcm\lcm_coretypes.h	88;"	d
+iov_base	.\lcm\windows\WinPorting.h	/^    char        *iov_base;$/;"	m	struct:iovec
+iov_len	.\lcm\windows\WinPorting.h	/^    ULONG       iov_len;$/;"	m	struct:iovec
+iovec	.\lcm\windows\WinPorting.h	/^typedef struct iovec$/;"	s
+iovec	.\lcm\windows\WinPorting.h	/^} iovec;$/;"	t	typeref:struct:iovec
+irq_Num	.\ControlCAN.h	/^		USHORT	irq_Num;$/;"	m	struct:_VCI_BOARD_INFO
+irq_Num	.\ControlCAN.h	/^	USHORT	irq_Num;$/;"	m	struct:_VCI_BOARD_INFO1
+irq_Num	.\ControlCAN.h	/^	USHORT	irq_Num;$/;"	m	struct:_VCI_BOARD_INFO2
+is_handler_subscriber	.\lcm\lcm.c	/^is_handler_subscriber(lcm_subscription_t *h, const char *channel_name)$/;"	f	file:
+is_reserved_channel	.\lcm\lcm_mpudpm.c	/^is_reserved_channel(const char * channel){$/;"	f	file:
+kernel_rbuf_sz	.\lcm\lcm_mpudpm.c	/^    int kernel_rbuf_sz;$/;"	m	struct:_lcm_provider_t	file:
+kernel_rbuf_sz	.\lcm\lcm_udpm.c	/^    int kernel_rbuf_sz;$/;"	m	struct:_lcm_provider_t	file:
+last_event	.\lcm\lcm-cpp.hpp	/^        lcm_eventlog_event_t* last_event;$/;"	m	class:lcm::LogFile
+last_mapping_update_utime	.\lcm\lcm_mpudpm.c	/^    int64_t last_mapping_update_utime;$/;"	m	struct:_lcm_provider_t	file:
+last_packet_time	.\lcm\udpm_util.h	/^    GTimeVal last_packet_time;$/;"	m	struct:_lcm_frag_buf
+lat	.\obu_lcm\ins_info.hpp	/^/;"	m	class:obu_lcm::ins_info
+lateral_accelerate	.\obu_lcm\ins_info.hpp	/^/;"	m	class:obu_lcm::ins_info
+lateral_speed	.\obu_lcm\ins_info.hpp	/^/;"	m	class:obu_lcm::ins_info
+lcm	.\lcm\lcm-cpp.hpp	/^        lcm_t *lcm;$/;"	m	class:lcm::LCM
+lcm	.\lcm\lcm-cpp.hpp	/^namespace lcm {$/;"	n
+lcm	.\lcm\lcm.c	/^    lcm_t* lcm;$/;"	m	struct:_lcm_subscription_t	file:
+lcm	.\lcm\lcm.h	/^    lcm_t *lcm;$/;"	m	struct:_lcm_recv_buf_t
+lcm	.\lcm\lcm_file.c	/^    lcm_t * lcm;$/;"	m	struct:_lcm_provider_t	file:
+lcm	.\lcm\lcm_memq.c	/^    lcm_t* lcm;$/;"	m	struct:_lcm_provider_t	file:
+lcm	.\lcm\lcm_mpudpm.c	/^    lcm_t * lcm;$/;"	m	struct:_lcm_provider_t	file:
+lcm	.\lcm\lcm_tcpq.c	/^    lcm_t * lcm;$/;"	m	struct:_lcm_provider_t	file:
+lcm	.\lcm\lcm_udpm.c	/^    lcm_t * lcm;$/;"	m	struct:_lcm_provider_t	file:
+lcm2_header_long_t	.\lcm\udpm_util.h	/^} lcm2_header_long_t;$/;"	t	typeref:struct:_lcm2_header_long
+lcm2_header_short_t	.\lcm\udpm_util.h	/^}lcm2_header_short_t;$/;"	t	typeref:struct:_lcm2_header_short
+lcm_buf_allocate_data	.\lcm\udpm_util.c	/^lcm_buf_allocate_data(lcm_buf_queue_t * inbufs_empty, lcm_ringbuf_t **ringbuf) {$/;"	f
+lcm_buf_dequeue	.\lcm\udpm_util.c	/^lcm_buf_dequeue (lcm_buf_queue_t * q)$/;"	f
+lcm_buf_enqueue	.\lcm\udpm_util.c	/^lcm_buf_enqueue (lcm_buf_queue_t * q, lcm_buf_t * el)$/;"	f
+lcm_buf_free_data	.\lcm\udpm_util.c	/^lcm_buf_free_data(lcm_buf_t *lcmb, lcm_ringbuf_t *ringbuf)$/;"	f
+lcm_buf_queue_free	.\lcm\udpm_util.c	/^lcm_buf_queue_free (lcm_buf_queue_t * q, lcm_ringbuf_t *ringbuf)$/;"	f
+lcm_buf_queue_is_empty	.\lcm\udpm_util.c	/^lcm_buf_queue_is_empty (lcm_buf_queue_t * q)$/;"	f
+lcm_buf_queue_new	.\lcm\udpm_util.c	/^lcm_buf_queue_new (void)$/;"	f
+lcm_buf_queue_t	.\lcm\udpm_util.h	/^} lcm_buf_queue_t;$/;"	t	typeref:struct:_lcm_buf_queue
+lcm_buf_t	.\lcm\udpm_util.h	/^} lcm_buf_t;$/;"	t	typeref:struct:_lcm_buf
+lcm_close_socket	.\lcm\udpm_util.h	/^lcm_close_socket(SOCKET fd)$/;"	f
+lcm_create	.\lcm\lcm.c	/^lcm_create (const char *url)$/;"	f
+lcm_decode_cleanup_t	.\lcm\lcm_coretypes.h	/^typedef int (*lcm_decode_cleanup_t)(void *p);$/;"	t
+lcm_decode_t	.\lcm\lcm_coretypes.h	/^typedef int (*lcm_decode_t)(const void *buf, int offset, int maxlen, void *p);$/;"	t
+lcm_destroy	.\lcm\lcm.c	/^lcm_destroy (lcm_t * lcm)$/;"	f
+lcm_dispatch_handlers	.\lcm\lcm.c	/^lcm_dispatch_handlers (lcm_t * lcm, lcm_recv_buf_t * buf, const char *channel)$/;"	f
+lcm_encode_t	.\lcm\lcm_coretypes.h	/^typedef int (*lcm_encode_t)(void *buf, int offset, int maxlen, const void *p);$/;"	t
+lcm_encoded_size_t	.\lcm\lcm_coretypes.h	/^typedef int (*lcm_encoded_size_t)(const void *p);$/;"	t
+lcm_eventlog_create	.\lcm\eventlog.c	/^lcm_eventlog_t *lcm_eventlog_create(const char *path, const char *mode)$/;"	f
+lcm_eventlog_destroy	.\lcm\eventlog.c	/^void lcm_eventlog_destroy(lcm_eventlog_t *l)$/;"	f
+lcm_eventlog_event_t	.\lcm\eventlog.h	/^typedef struct _lcm_eventlog_event_t lcm_eventlog_event_t;$/;"	t	typeref:struct:_lcm_eventlog_event_t
+lcm_eventlog_free_event	.\lcm\eventlog.c	/^void lcm_eventlog_free_event(lcm_eventlog_event_t *le)$/;"	f
+lcm_eventlog_read_next_event	.\lcm\eventlog.c	/^lcm_eventlog_event_t *lcm_eventlog_read_next_event(lcm_eventlog_t *l)$/;"	f
+lcm_eventlog_seek_to_timestamp	.\lcm\eventlog.c	/^int lcm_eventlog_seek_to_timestamp(lcm_eventlog_t *l, int64_t timestamp)$/;"	f
+lcm_eventlog_t	.\lcm\eventlog.h	/^typedef struct _lcm_eventlog_t lcm_eventlog_t;$/;"	t	typeref:struct:_lcm_eventlog_t
+lcm_eventlog_write_event	.\lcm\eventlog.c	/^int lcm_eventlog_write_event(lcm_eventlog_t *l, lcm_eventlog_event_t *le)$/;"	f
+lcm_field_t	.\lcm\lcm_coretypes.h	/^typedef struct _lcm_field_t lcm_field_t;$/;"	t	typeref:struct:_lcm_field_t
+lcm_field_type_t	.\lcm\lcm_coretypes.h	/^} lcm_field_type_t;$/;"	t	typeref:enum:__anon1
+lcm_frag_buf_destroy	.\lcm\udpm_util.c	/^lcm_frag_buf_destroy (lcm_frag_buf_t *fbuf)$/;"	f
+lcm_frag_buf_new	.\lcm\udpm_util.c	/^lcm_frag_buf_new (struct sockaddr_in from, const char *channel, $/;"	f
+lcm_frag_buf_store	.\lcm\udpm_util.h	/^} lcm_frag_buf_store;$/;"	t	typeref:struct:_lcm_frag_buf_store
+lcm_frag_buf_store_add	.\lcm\udpm_util.c	/^lcm_frag_buf_store_add (lcm_frag_buf_store *store, lcm_frag_buf_t *fbuf)$/;"	f
+lcm_frag_buf_store_destroy	.\lcm\udpm_util.c	/^void lcm_frag_buf_store_destroy(lcm_frag_buf_store * store){$/;"	f
+lcm_frag_buf_store_lookup	.\lcm\udpm_util.c	/^lcm_frag_buf_t * lcm_frag_buf_store_lookup(lcm_frag_buf_store * store,$/;"	f
+lcm_frag_buf_store_new	.\lcm\udpm_util.c	/^lcm_frag_buf_store * lcm_frag_buf_store_new(uint32_t max_total_size,$/;"	f
+lcm_frag_buf_store_remove	.\lcm\udpm_util.c	/^lcm_frag_buf_store_remove (lcm_frag_buf_store *store, lcm_frag_buf_t *fbuf)$/;"	f
+lcm_frag_buf_t	.\lcm\udpm_util.h	/^} lcm_frag_buf_t;$/;"	t	typeref:struct:_lcm_frag_buf
+lcm_get_field_t	.\lcm\lcm_coretypes.h	/^typedef int (*lcm_get_field_t)(const void *p, int i, lcm_field_t *f);$/;"	t
+lcm_get_fileno	.\lcm\lcm.c	/^lcm_get_fileno (lcm_t * lcm)$/;"	f
+lcm_get_handlers	.\lcm\lcm.c	/^lcm_get_handlers (lcm_t * lcm, const char * channel)$/;"	f
+lcm_get_hash_t	.\lcm\lcm_coretypes.h	/^typedef int64_t (*lcm_get_hash_t)(void);$/;"	t
+lcm_handle	.\lcm\lcm.c	/^lcm_handle (lcm_t * lcm)$/;"	f
+lcm_handle_timeout	.\lcm\lcm.c	/^lcm_handle_timeout (lcm_t *lcm, int timeout_milis)$/;"	f
+lcm_handler_free	.\lcm\lcm.c	/^lcm_handler_free (lcm_subscription_t *h) $/;"	f	file:
+lcm_has_handlers	.\lcm\lcm.c	/^lcm_has_handlers (lcm_t * lcm, const char * channel)$/;"	f
+lcm_internal_pipe_close	.\lcm\lcm_internal.h	22;"	d
+lcm_internal_pipe_close	.\lcm\windows\WinPorting.cpp	/^int	lcm_internal_pipe_close ( int fd )$/;"	f
+lcm_internal_pipe_create	.\lcm\lcm_internal.h	23;"	d
+lcm_internal_pipe_create	.\lcm\windows\WinPorting.cpp	/^int lcm_internal_pipe_create ( int filedes[2] )$/;"	f
+lcm_internal_pipe_read	.\lcm\lcm_internal.h	21;"	d
+lcm_internal_pipe_read	.\lcm\windows\WinPorting.cpp	/^size_t lcm_internal_pipe_read ( int fd, void *buf, size_t count )$/;"	f
+lcm_internal_pipe_write	.\lcm\lcm_internal.h	20;"	d
+lcm_internal_pipe_write	.\lcm\windows\WinPorting.cpp	/^size_t lcm_internal_pipe_write ( int fd, const void *buf, size_t count )$/;"	f
+lcm_logprov_create	.\lcm\lcm_file.c	/^lcm_logprov_create (lcm_t * parent, const char *target, const GHashTable *args)$/;"	f	file:
+lcm_logprov_destroy	.\lcm\lcm_file.c	/^lcm_logprov_destroy (lcm_logprov_t *lr)$/;"	f	file:
+lcm_logprov_get_fileno	.\lcm\lcm_file.c	/^lcm_logprov_get_fileno (lcm_logprov_t *lr)$/;"	f	file:
+lcm_logprov_handle	.\lcm\lcm_file.c	/^lcm_logprov_handle (lcm_logprov_t * lr)$/;"	f	file:
+lcm_logprov_provider_init	.\lcm\lcm_file.c	/^lcm_logprov_provider_init (GPtrArray * providers)$/;"	f
+lcm_logprov_publish	.\lcm\lcm_file.c	/^lcm_logprov_publish (lcm_logprov_t *lcm, const char *channel, const void *data,$/;"	f	file:
+lcm_logprov_t	.\lcm\lcm_file.c	/^typedef struct _lcm_provider_t lcm_logprov_t;$/;"	t	typeref:struct:_lcm_provider_t	file:
+lcm_malloc	.\lcm\lcm_coretypes.h	/^static inline void *lcm_malloc(size_t sz)$/;"	f
+lcm_memq_create	.\lcm\lcm_memq.c	/^lcm_memq_create (lcm_t* parent, const char* target, const GHashTable* args)$/;"	f	file:
+lcm_memq_destroy	.\lcm\lcm_memq.c	/^lcm_memq_destroy (lcm_memq_t *self)$/;"	f	file:
+lcm_memq_get_fileno	.\lcm\lcm_memq.c	/^lcm_memq_get_fileno(lcm_memq_t* self)$/;"	f	file:
+lcm_memq_handle	.\lcm\lcm_memq.c	/^lcm_memq_handle(lcm_memq_t* self)$/;"	f	file:
+lcm_memq_provider_init	.\lcm\lcm_memq.c	/^lcm_memq_provider_init (GPtrArray * providers)$/;"	f
+lcm_memq_publish	.\lcm\lcm_memq.c	/^lcm_memq_publish (lcm_memq_t *self, const char *channel, const void *data,$/;"	f	file:
+lcm_memq_t	.\lcm\lcm_memq.c	/^typedef struct _lcm_provider_t lcm_memq_t;$/;"	t	typeref:struct:_lcm_provider_t	file:
+lcm_mpudpm_create	.\lcm\lcm_mpudpm.c	/^lcm_mpudpm_create (lcm_t * parent, const char *network, const GHashTable *args)$/;"	f
+lcm_mpudpm_destroy	.\lcm\lcm_mpudpm.c	/^lcm_mpudpm_destroy (lcm_mpudpm_t *lcm)$/;"	f
+lcm_mpudpm_get_fileno	.\lcm\lcm_mpudpm.c	/^lcm_mpudpm_get_fileno (lcm_mpudpm_t *lcm)$/;"	f
+lcm_mpudpm_handle	.\lcm\lcm_mpudpm.c	/^lcm_mpudpm_handle (lcm_mpudpm_t *lcm)$/;"	f
+lcm_mpudpm_provider_init	.\lcm\lcm_mpudpm.c	/^lcm_mpudpm_provider_init (GPtrArray * providers)$/;"	f
+lcm_mpudpm_publish	.\lcm\lcm_mpudpm.c	/^lcm_mpudpm_publish(lcm_mpudpm_t *lcm, const char *channel,$/;"	f
+lcm_mpudpm_subscribe	.\lcm\lcm_mpudpm.c	/^lcm_mpudpm_subscribe (lcm_mpudpm_t *lcm, const char *channel)$/;"	f
+lcm_mpudpm_t	.\lcm\lcm_mpudpm.c	/^typedef struct _lcm_provider_t lcm_mpudpm_t;$/;"	t	typeref:struct:_lcm_provider_t	file:
+lcm_mpudpm_unsubscribe	.\lcm\lcm_mpudpm.c	/^lcm_mpudpm_unsubscribe (lcm_mpudpm_t *lcm, const char *channel)$/;"	f
+lcm_msg_handler_t	.\lcm\lcm.h	/^typedef void (*lcm_msg_handler_t) (const lcm_recv_buf_t *rbuf,$/;"	t
+lcm_num_fields_t	.\lcm\lcm_coretypes.h	/^typedef int (*lcm_num_fields_t)(void);$/;"	t
+lcm_parse_url	.\lcm\lcm.c	/^lcm_parse_url (const char * url, char ** provider, char ** network,$/;"	f
+lcm_provider_info_t	.\lcm\lcm_internal.h	/^typedef struct _lcm_provider_info_t lcm_provider_info_t;$/;"	t	typeref:struct:_lcm_provider_info_t
+lcm_provider_t	.\lcm\lcm_internal.h	/^typedef struct _lcm_provider_t lcm_provider_t;$/;"	t	typeref:struct:_lcm_provider_t
+lcm_provider_vtable_t	.\lcm\lcm_internal.h	/^typedef struct _lcm_provider_vtable_t lcm_provider_vtable_t;$/;"	t	typeref:struct:_lcm_provider_vtable_t
+lcm_publish	.\lcm\lcm.c	/^lcm_publish (lcm_t *lcm, const char *channel, const void *data,$/;"	f
+lcm_recv_buf_t	.\lcm\lcm.h	/^typedef struct _lcm_recv_buf_t lcm_recv_buf_t;$/;"	t	typeref:struct:_lcm_recv_buf_t
+lcm_ringbuf_alloc	.\lcm\ringbuffer.c	/^char * lcm_ringbuf_alloc (lcm_ringbuf_t *ring, unsigned int len)$/;"	f
+lcm_ringbuf_capacity	.\lcm\ringbuffer.c	/^lcm_ringbuf_capacity(lcm_ringbuf_t *ring)$/;"	f
+lcm_ringbuf_dealloc	.\lcm\ringbuffer.c	/^void lcm_ringbuf_dealloc (lcm_ringbuf_t * ring, char * buf)$/;"	f
+lcm_ringbuf_free	.\lcm\ringbuffer.c	/^lcm_ringbuf_free (lcm_ringbuf_t * ring)$/;"	f
+lcm_ringbuf_new	.\lcm\ringbuffer.c	/^lcm_ringbuf_new (unsigned int ring_size)$/;"	f
+lcm_ringbuf_rec_t	.\lcm\ringbuffer.c	/^typedef struct _lcm_ringbuf_rec lcm_ringbuf_rec_t;$/;"	t	typeref:struct:_lcm_ringbuf_rec	file:
+lcm_ringbuf_shrink_last	.\lcm\ringbuffer.c	/^lcm_ringbuf_shrink_last(lcm_ringbuf_t *ring, const char *buf, $/;"	f
+lcm_ringbuf_t	.\lcm\ringbuffer.h	/^typedef struct _lcm_ringbuf lcm_ringbuf_t;$/;"	t	typeref:struct:_lcm_ringbuf
+lcm_ringbuf_used	.\lcm\ringbuffer.c	/^lcm_ringbuf_used(lcm_ringbuf_t *ring)$/;"	f
+lcm_struct_size_t	.\lcm\lcm_coretypes.h	/^typedef int (*lcm_struct_size_t)(void);$/;"	t
+lcm_subscribe	.\lcm\lcm.c	/^*lcm_subscribe (lcm_t *lcm, const char *channel, $/;"	f
+lcm_subscription_set_queue_capacity	.\lcm\lcm.c	/^lcm_subscription_set_queue_capacity(lcm_subscription_t* subs, int num_messages)$/;"	f
+lcm_subscription_t	.\lcm\lcm.h	/^typedef struct _lcm_subscription_t lcm_subscription_t;$/;"	t	typeref:struct:_lcm_subscription_t
+lcm_t	.\lcm\lcm.h	/^typedef struct _lcm_t lcm_t;$/;"	t	typeref:struct:_lcm_t
+lcm_tcpq_create	.\lcm\lcm_tcpq.c	/^lcm_tcpq_create(lcm_t * parent, const char *network, const GHashTable *args)$/;"	f	file:
+lcm_tcpq_destroy	.\lcm\lcm_tcpq.c	/^lcm_tcpq_destroy (lcm_tcpq_t *self)$/;"	f	file:
+lcm_tcpq_get_fileno	.\lcm\lcm_tcpq.c	/^lcm_tcpq_get_fileno(lcm_tcpq_t *self)$/;"	f	file:
+lcm_tcpq_handle	.\lcm\lcm_tcpq.c	/^lcm_tcpq_handle(lcm_tcpq_t * self)$/;"	f	file:
+lcm_tcpq_provider_init	.\lcm\lcm_tcpq.c	/^lcm_tcpq_provider_init (GPtrArray * providers)$/;"	f
+lcm_tcpq_publish	.\lcm\lcm_tcpq.c	/^lcm_tcpq_publish(lcm_tcpq_t *self, const char *channel, const void *data,$/;"	f	file:
+lcm_tcpq_subscribe	.\lcm\lcm_tcpq.c	/^lcm_tcpq_subscribe(lcm_tcpq_t *self, const char *channel)$/;"	f	file:
+lcm_tcpq_t	.\lcm\lcm_tcpq.c	/^typedef struct _lcm_provider_t lcm_tcpq_t;$/;"	t	typeref:struct:_lcm_provider_t	file:
+lcm_tcpq_unsubscribe	.\lcm\lcm_tcpq.c	/^lcm_tcpq_unsubscribe(lcm_tcpq_t *self, const char *channel)$/;"	f	file:
+lcm_timestamp_now	.\lcm\udpm_util.h	/^lcm_timestamp_now()$/;"	f
+lcm_timeval_add	.\lcm\udpm_util.h	/^lcm_timeval_add (const GTimeVal *a, const GTimeVal *b, GTimeVal *dest)$/;"	f
+lcm_timeval_compare	.\lcm\udpm_util.h	/^lcm_timeval_compare (const GTimeVal *a, const GTimeVal *b) {$/;"	f
+lcm_timeval_subtract	.\lcm\udpm_util.h	/^lcm_timeval_subtract (const GTimeVal *a, const GTimeVal *b, GTimeVal *dest)$/;"	f
+lcm_try_enqueue_message	.\lcm\lcm.c	/^lcm_try_enqueue_message(lcm_t* lcm, const char* channel)$/;"	f
+lcm_type_info_t	.\lcm\lcm_coretypes.h	/^typedef struct _lcm_type_info_t lcm_type_info_t;$/;"	t	typeref:struct:_lcm_type_info_t
+lcm_udpm_create	.\lcm\lcm_udpm.c	/^lcm_udpm_create (lcm_t * parent, const char *network, const GHashTable *args)$/;"	f
+lcm_udpm_destroy	.\lcm\lcm_udpm.c	/^lcm_udpm_destroy (lcm_udpm_t *lcm) $/;"	f
+lcm_udpm_get_fileno	.\lcm\lcm_udpm.c	/^lcm_udpm_get_fileno (lcm_udpm_t *lcm)$/;"	f	file:
+lcm_udpm_handle	.\lcm\lcm_udpm.c	/^lcm_udpm_handle (lcm_udpm_t *lcm)$/;"	f	file:
+lcm_udpm_provider_init	.\lcm\lcm_udpm.c	/^lcm_udpm_provider_init (GPtrArray * providers)$/;"	f
+lcm_udpm_publish	.\lcm\lcm_udpm.c	/^lcm_udpm_publish (lcm_udpm_t *lcm, const char *channel, const void *data,$/;"	f	file:
+lcm_udpm_subscribe	.\lcm\lcm_udpm.c	/^lcm_udpm_subscribe (lcm_udpm_t *lcm, const char *channel)$/;"	f	file:
+lcm_udpm_t	.\lcm\lcm_udpm.c	/^typedef struct _lcm_provider_t lcm_udpm_t;$/;"	t	typeref:struct:_lcm_provider_t	file:
+lcm_unsubscribe	.\lcm\lcm.c	/^lcm_unsubscribe (lcm_t *lcm, lcm_subscription_t *h)$/;"	f
+length	.\lcm\ringbuffer.c	/^    unsigned int  length;$/;"	m	struct:_lcm_ringbuf_rec	file:
+linux_check_routing_table	.\lcm\udpm_util.c	/^linux_check_routing_table(struct in_addr lcm_mcaddr)$/;"	f
+load_next_event	.\lcm\lcm_file.c	/^load_next_event (lcm_logprov_t * lr)$/;"	f	file:
+log	.\lcm\lcm_file.c	/^    lcm_eventlog_t * log;$/;"	m	struct:_lcm_provider_t	file:
+log_period	.\main_prj.cpp	/^DWORD log_period = 20;\/\/log��¼���� 50ms$/;"	v
+logger	.\main_prj.cpp	/^int logger(void)$/;"	f
+logprov_info	.\lcm\lcm_file.c	/^static lcm_provider_info_t logprov_info;$/;"	v	file:
+logprov_vtable	.\lcm\lcm_file.c	/^static lcm_provider_vtable_t logprov_vtable;$/;"	v	file:
+lon	.\obu_lcm\ins_info.hpp	/^/;"	m	class:obu_lcm::ins_info
+longitudinal_accelerate	.\obu_lcm\ins_info.hpp	/^/;"	m	class:obu_lcm::ins_info
+longitudinal_speed	.\obu_lcm\ins_info.hpp	/^/;"	m	class:obu_lcm::ins_info
+low_beam_status	.\obu_lcm\CAN_status.hpp	/^        int32_t    low_beam_status;$/;"	m	class:obu_lcm::CAN_status
+low_sensor_v	.\obu_lcm\accelerate_feedback_info.hpp	/^        double     low_sensor_v;$/;"	m	class:obu_lcm::accelerate_feedback_info
+magic	.\lcm\ringbuffer.c	/^    int32_t           magic;$/;"	m	struct:_lcm_ringbuf_rec	file:
+magic	.\lcm\udpm_util.h	/^    uint32_t magic;$/;"	m	struct:_lcm2_header_long
+magic	.\lcm\udpm_util.h	/^    uint32_t magic;$/;"	m	struct:_lcm2_header_short
+main	.\main_prj.cpp	/^int main(int argc, char* argv[])$/;"	f
+map_add_handler_callback	.\lcm\lcm.c	/^map_add_handler_callback(gpointer _key, gpointer _value, gpointer _data)$/;"	f	file:
+map_channel_to_port	.\lcm\lcm_mpudpm.c	/^map_channel_to_port(lcm_mpudpm_t* lcm, const char * channel) {$/;"	f	file:
+map_free_handlers_callback	.\lcm\lcm.c	/^map_free_handlers_callback(gpointer _key, gpointer _value, gpointer _data)$/;"	f	file:
+map_remove_handler_callback	.\lcm\lcm.c	/^map_remove_handler_callback(gpointer _key, gpointer _value, $/;"	f	file:
+mapping	.\lcm\lcmtypes\channel_port_map_update_t.h	/^    channel_to_port_t *mapping;$/;"	m	struct:_channel_port_map_update_t
+marked_for_deletion	.\lcm\lcm.c	/^    int marked_for_deletion;$/;"	m	struct:_lcm_subscription_t	file:
+max_n_frag_bufs	.\lcm\udpm_util.h	/^    uint32_t max_n_frag_bufs;$/;"	m	struct:_lcm_frag_buf_store
+max_num_queued_messages	.\lcm\lcm.c	/^    int max_num_queued_messages;$/;"	m	struct:_lcm_subscription_t	file:
+max_total_size	.\lcm\udpm_util.h	/^    uint32_t max_total_size;$/;"	m	struct:_lcm_frag_buf_store
+mc_addr	.\lcm\lcm_mpudpm.c	/^    struct in_addr mc_addr;$/;"	m	struct:_mpudpm_params_t	typeref:struct:_mpudpm_params_t::in_addr	file:
+mc_addr	.\lcm\lcm_udpm.c	/^    struct in_addr mc_addr;$/;"	m	struct:_udpm_params_t	typeref:struct:_udpm_params_t::in_addr	file:
+mc_port	.\lcm\lcm_udpm.c	/^    uint16_t mc_port;$/;"	m	struct:_udpm_params_t	file:
+mc_port_range_start	.\lcm\lcm_mpudpm.c	/^    uint16_t mc_port_range_start;$/;"	m	struct:_mpudpm_params_t	file:
+mc_ttl	.\lcm\lcm_mpudpm.c	/^    uint8_t mc_ttl; $/;"	m	struct:_mpudpm_params_t	file:
+mc_ttl	.\lcm\lcm_udpm.c	/^    uint8_t mc_ttl; $/;"	m	struct:_udpm_params_t	file:
+memq_info	.\lcm\lcm_memq.c	/^static lcm_provider_info_t memq_info;$/;"	v	file:
+memq_msg_destroy	.\lcm\lcm_memq.c	/^memq_msg_destroy(memq_msg_t* msg) {$/;"	f	file:
+memq_msg_new	.\lcm\lcm_memq.c	/^memq_msg_new(lcm_t* lcm, const char* channel, const void* data, int data_size, int64_t utime) {$/;"	f	file:
+memq_msg_t	.\lcm\lcm_memq.c	/^typedef struct _memq_msg memq_msg_t;$/;"	t	typeref:struct:_memq_msg	file:
+memq_vtable	.\lcm\lcm_memq.c	/^static lcm_provider_vtable_t memq_vtable;$/;"	v	file:
+mode_t	.\lcm\windows\WinPorting.h	7;"	d
+mpudpm_info	.\lcm\lcm_mpudpm.c	/^static lcm_provider_info_t mpudpm_info;$/;"	v	file:
+mpudpm_params_t	.\lcm\lcm_mpudpm.c	/^typedef struct _mpudpm_params_t mpudpm_params_t;$/;"	t	typeref:struct:_mpudpm_params_t	file:
+mpudpm_self_test	.\lcm\lcm_mpudpm.c	/^mpudpm_self_test (lcm_mpudpm_t *lcm)$/;"	f	file:
+mpudpm_socket_t	.\lcm\lcm_mpudpm.c	/^} mpudpm_socket_t;$/;"	t	typeref:struct:_mpudpm_socket_t	file:
+mpudpm_socket_t_destroy	.\lcm\lcm_mpudpm.c	/^mpudpm_socket_t_destroy (mpudpm_socket_t *sock)$/;"	f	file:
+mpudpm_str_hash	.\lcm\lcm_mpudpm.c	/^static uint32_t mpudpm_str_hash(const char* str) {$/;"	f	file:
+mpudpm_subscriber_t	.\lcm\lcm_mpudpm.c	/^} mpudpm_subscriber_t;$/;"	t	typeref:struct:_mpudpm_subscriber_t	file:
+mpudpm_subscriber_t_destroy	.\lcm\lcm_mpudpm.c	/^mpudpm_subscriber_t_destroy (mpudpm_subscriber_t *sub)$/;"	f	file:
+mpudpm_vtable	.\lcm\lcm_mpudpm.c	/^static lcm_provider_vtable_t mpudpm_vtable;$/;"	v	file:
+msg_control	.\lcm\windows\WinPorting.h	/^    char        *msg_control;$/;"	m	struct:msghdr
+msg_controllen	.\lcm\windows\WinPorting.h	/^    int         msg_controllen;$/;"	m	struct:msghdr
+msg_flags	.\lcm\windows\WinPorting.h	/^    ULONG       msg_flags;$/;"	m	struct:msghdr
+msg_iov	.\lcm\windows\WinPorting.h	/^    iovec       *msg_iov;$/;"	m	struct:msghdr
+msg_iovlen	.\lcm\windows\WinPorting.h	/^    ULONG       msg_iovlen;$/;"	m	struct:msghdr
+msg_name	.\lcm\windows\WinPorting.h	/^    sockaddr    *msg_name;$/;"	m	struct:msghdr
+msg_namelen	.\lcm\windows\WinPorting.h	/^    int         msg_namelen;$/;"	m	struct:msghdr
+msg_seqno	.\lcm\lcm_mpudpm.c	/^    uint32_t     msg_seqno;$/;"	m	struct:_lcm_provider_t	file:
+msg_seqno	.\lcm\lcm_udpm.c	/^    uint32_t     msg_seqno; \/\/ rolling counter of how many messages transmitted$/;"	m	struct:_lcm_provider_t	file:
+msg_seqno	.\lcm\udpm_util.h	/^    uint32_t  msg_seqno;$/;"	m	struct:_lcm_frag_buf
+msg_seqno	.\lcm\udpm_util.h	/^    uint32_t msg_seqno;$/;"	m	struct:_lcm2_header_long
+msg_seqno	.\lcm\udpm_util.h	/^    uint32_t msg_seqno;$/;"	m	struct:_lcm2_header_short
+msg_size	.\lcm\udpm_util.h	/^    uint32_t msg_size;$/;"	m	struct:_lcm2_header_long
+msghdr	.\lcm\windows\WinPorting.h	/^typedef struct msghdr$/;"	s
+msghdr	.\lcm\windows\WinPorting.h	/^} msghdr;$/;"	t	typeref:struct:msghdr
+mutex	.\lcm\lcm.c	/^    GStaticRecMutex mutex;  \/\/ guards data structures$/;"	m	struct:_lcm_t	file:
+mutex	.\lcm\lcm_memq.c	/^    GMutex* mutex;$/;"	m	struct:_lcm_provider_t	file:
+mutex	.\lcm\lcm_udpm.c	/^    GStaticRecMutex mutex; \/* Must be locked when reading\/writing to the$/;"	m	struct:_lcm_provider_t	file:
+n	.\obu_lcm\ins_info.hpp	/^/;"	m	class:obu_lcm::ins_info
+nCANInd_1	.\Streeing_CAN.h	/^	int nCANInd_1;$/;"	m	class:Streeing
+nCANInd_2	.\Streeing_CAN.h	/^	int nCANInd_2;$/;"	m	class:Streeing
+nCANInd_3	.\Streeing_CAN.h	/^	int nCANInd_3;$/;"	m	class:Streeing
+nDeviceInd	.\Streeing_CAN.h	/^	int nDeviceInd; \/* µÚ1¸öÉè±¸*\/$/;"	m	class:Streeing
+nDeviceIndCar	.\Streeing_CAN.h	/^	int nDeviceIndCar; \/* µÚ1¸öÉè±¸*\/$/;"	m	class:Streeing
+nDeviceType	.\Streeing_CAN.h	/^	int nDeviceType; \/* USBCAN-2A»òUSBCAN-2C»òCANalyst-II *\/$/;"	m	class:Streeing
+nDeviceTypeCar	.\Streeing_CAN.h	/^	int nDeviceTypeCar; \/* USBCAN-2A»òUSBCAN-2C»òCANalyst-II *\/$/;"	m	class:Streeing
+name	.\lcm\lcm_coretypes.h	/^    const char *name;$/;"	m	struct:_lcm_field_t
+name	.\lcm\lcm_internal.h	/^    char * name;$/;"	m	struct:_lcm_provider_info_t
+new_argument	.\lcm\lcm_file.c	/^new_argument (gpointer key, gpointer value, gpointer user)$/;"	f	file:
+new_argument	.\lcm\lcm_mpudpm.c	/^new_argument (gpointer key, gpointer value, gpointer user)$/;"	f	file:
+new_argument	.\lcm\lcm_udpm.c	/^new_argument (gpointer key, gpointer value, gpointer user)$/;"	f	file:
+next	.\lcm\ringbuffer.c	/^    lcm_ringbuf_rec_t *next;$/;"	m	struct:_lcm_ringbuf_rec	file:
+next	.\lcm\udpm_util.h	/^    struct _lcm_buf *next;$/;"	m	struct:_lcm_buf	typeref:struct:_lcm_buf::_lcm_buf
+next_clock_time	.\lcm\lcm_file.c	/^    int64_t next_clock_time;$/;"	m	struct:_lcm_provider_t	file:
+nfds_t	.\lcm\lcm_mpudpm.c	/^typedef int nfds_t;$/;"	t	file:
+notify_pipe	.\lcm\lcm_file.c	/^    int notify_pipe[2];$/;"	m	struct:_lcm_provider_t	file:
+notify_pipe	.\lcm\lcm_memq.c	/^    int notify_pipe[2];$/;"	m	struct:_lcm_provider_t	file:
+notify_pipe	.\lcm\lcm_mpudpm.c	/^    int notify_pipe[2];         \/\/ pipe to notify application when messages arrive$/;"	m	struct:_lcm_provider_t	file:
+notify_pipe	.\lcm\lcm_udpm.c	/^    int notify_pipe[2];         \/\/ pipe to notify application when messages arrive$/;"	m	struct:_lcm_provider_t	file:
+num_channels	.\lcm\lcmtypes\channel_port_map_update_t.h	/^    int16_t    num_channels;$/;"	m	struct:_channel_port_map_update_t
+num_dim	.\lcm\lcm_coretypes.h	/^    int num_dim;$/;"	m	struct:_lcm_field_t
+num_fields	.\lcm\lcm_coretypes.h	/^    lcm_num_fields_t      num_fields;$/;"	m	struct:_lcm_type_info_t
+num_mc_ports	.\lcm\lcm_mpudpm.c	/^    uint16_t num_mc_ports;$/;"	m	struct:_mpudpm_params_t	file:
+num_ports	.\lcm\lcmtypes\channel_port_map_update_t.h	/^    int16_t    num_ports;$/;"	m	struct:_channel_port_map_update_t
+num_queued_messages	.\lcm\lcm.c	/^    int num_queued_messages;$/;"	m	struct:_lcm_subscription_t	file:
+num_recv_socket_pollers	.\lcm\lcm_mpudpm.c	/^    int num_recv_socket_pollers;$/;"	m	struct:_lcm_provider_t	file:
+num_subscribers	.\lcm\lcm_mpudpm.c	/^    int num_subscribers;$/;"	m	struct:_mpudpm_socket_t	file:
+obu_lcm	.\obu_lcm\CAN_status.hpp	/^namespace obu_lcm$/;"	n
+obu_lcm	.\obu_lcm\CAN_value.hpp	/^namespace obu_lcm$/;"	n
+obu_lcm	.\obu_lcm\accelerate_feedback_info.hpp	/^namespace obu_lcm$/;"	n
+obu_lcm	.\obu_lcm\ins_info.hpp	/^/;"	n
+obu_lcm	.\obu_lcm\steering_control_info.hpp	/^namespace obu_lcm$/;"	n
+obu_lcm	.\obu_lcm\steering_feedback_info.hpp	/^namespace obu_lcm$/;"	n
+operator *	.\CnComm.h	/^			BYTE& operator *()$/;"	f	struct:CnComm::BlockBuffer::Iterator
+operator ++	.\CnComm.h	/^			Iterator& operator ++ ()$/;"	f	struct:CnComm::BlockBuffer::Iterator
+operator ++	.\CnComm.h	/^			Iterator& operator ++ (int)$/;"	f	struct:CnComm::BlockBuffer::Iterator
+operator +=	.\CnComm.h	/^			Iterator& operator += (DWORD dwOffset)$/;"	f	struct:CnComm::BlockBuffer::Iterator
+operator ==	.\CnComm.h	/^			bool operator == (const Iterator& iter)$/;"	f	struct:CnComm::BlockBuffer::Iterator
+operator HANDLE	.\CnComm.h	/^	operator HANDLE()$/;"	f	class:CnComm
+operator []	.\CnComm.h	/^		BYTE& operator[](DWORD dwOffset)$/;"	f	class:CnComm::BlockBuffer
+operator bool	.\CnComm.h	/^			operator bool()$/;"	f	struct:CnComm::BlockBuffer::Iterator
+operator bool	.\CnComm.h	/^	operator bool ()$/;"	f	class:CnComm
+owns_lcm	.\lcm\lcm-cpp.hpp	/^        bool owns_lcm;$/;"	m	class:lcm::LCM
+pCP_	.\CnComm.h	/^	COMMPROP*			pCP_;				\/\/!< ���ڲ���$/;"	m	class:CnComm
+packet_size	.\lcm\udpm_util.h	/^    int   packet_size;       \/\/ total bytes received$/;"	m	struct:_lcm_buf
+params	.\lcm\lcm_mpudpm.c	/^    mpudpm_params_t params;$/;"	m	struct:_lcm_provider_t	file:
+params	.\lcm\lcm_udpm.c	/^    udpm_params_t params;$/;"	m	struct:_lcm_provider_t	file:
+parent	.\lcm\lcm_coretypes.h	/^    const __lcm_hash_ptr *parent;$/;"	m	struct:___lcm_hash_ptr
+parse_mc_addr_and_port	.\lcm\lcm_mpudpm.c	/^parse_mc_addr_and_port (const char *str, mpudpm_params_t * params)$/;"	f	file:
+parse_mc_addr_and_port	.\lcm\lcm_udpm.c	/^parse_mc_addr_and_port (const char *str, udpm_params_t * params)$/;"	f	file:
+pitch	.\obu_lcm\ins_info.hpp	/^/;"	m	class:obu_lcm::ins_info
+pitch_speed	.\obu_lcm\ins_info.hpp	/^/;"	m	class:obu_lcm::ins_info
+poll	.\lcm\lcm_mpudpm.c	/^static inline int poll(struct pollfd fds[], nfds_t nfds, int timeout) {$/;"	f	file:
+port	.\lcm\lcm_mpudpm.c	/^    uint16_t port;$/;"	m	struct:_mpudpm_socket_t	file:
+port	.\lcm\lcmtypes\channel_to_port_t.h	/^    int16_t    port;$/;"	m	struct:_channel_to_port_t
+prev	.\lcm\ringbuffer.c	/^    lcm_ringbuf_rec_t *prev;$/;"	m	struct:_lcm_ringbuf_rec	file:
+provider	.\lcm\lcm.c	/^    lcm_provider_t * provider;$/;"	m	struct:_lcm_t	file:
+ptr	.\CnComm.h	/^			BlockBuffer* ptr;\/\/!<����ָ��$/;"	m	struct:CnComm::BlockBuffer::InnerLock
+ptr	.\CnComm.h	/^		CnComm* ptr;\/\/!< CnComm ����ָ��$/;"	m	struct:CnComm::InnerLock
+publish	.\lcm\lcm-cpp-impl.hpp	/^LCM::publish(const std::string& channel, const MessageType *msg) {$/;"	f	class:LCM
+publish	.\lcm\lcm-cpp-impl.hpp	/^LCM::publish(const std::string& channel, const void *data, unsigned int datalen) {$/;"	f	class:LCM
+publish	.\lcm\lcm_internal.h	/^    int (*publish)(lcm_provider_t *, const char *, const void *, $/;"	m	struct:_lcm_provider_vtable_t
+publish_channel_mapping_update	.\lcm\lcm_mpudpm.c	/^publish_channel_mapping_update(lcm_mpudpm_t *lcm){$/;"	f	file:
+publish_message_internal	.\lcm\lcm_mpudpm.c	/^publish_message_internal (lcm_mpudpm_t *lcm, const char *channel, const void *data,$/;"	f	file:
+queue	.\lcm\lcm_memq.c	/^    GQueue* queue;$/;"	m	struct:_lcm_provider_t	file:
+rbuf	.\lcm\lcm_memq.c	/^    lcm_recv_buf_t rbuf;$/;"	m	struct:_memq_msg	file:
+readNextEvent	.\lcm\lcm-cpp-impl.hpp	/^LogFile::readNextEvent()$/;"	f	class:LogFile
+read_thread	.\lcm\lcm_mpudpm.c	/^    GThread *read_thread;$/;"	m	struct:_lcm_provider_t	file:
+read_thread	.\lcm\lcm_udpm.c	/^    GThread *read_thread;$/;"	m	struct:_lcm_provider_t	file:
+receive_lock	.\lcm\lcm_mpudpm.c	/^    GStaticMutex receive_lock;$/;"	m	struct:_lcm_provider_t	file:
+recv_buf_size	.\lcm\lcm_mpudpm.c	/^    int recv_buf_size;$/;"	m	struct:_mpudpm_params_t	file:
+recv_buf_size	.\lcm\lcm_udpm.c	/^    int recv_buf_size;$/;"	m	struct:_udpm_params_t	file:
+recv_channel_buf	.\lcm\lcm_tcpq.c	/^    char *recv_channel_buf;$/;"	m	struct:_lcm_provider_t	file:
+recv_channel_buf_len	.\lcm\lcm_tcpq.c	/^    uint32_t recv_channel_buf_len;$/;"	m	struct:_lcm_provider_t	file:
+recv_message_fragment	.\lcm\lcm_mpudpm.c	/^recv_message_fragment (lcm_mpudpm_t *lcm, lcm_buf_t *lcmb, uint32_t sz)$/;"	f	file:
+recv_short_message	.\lcm\lcm_mpudpm.c	/^recv_short_message (lcm_mpudpm_t *lcm, lcm_buf_t *lcmb, int sz)$/;"	f	file:
+recv_socket_pollers	.\lcm\lcm_mpudpm.c	/^    struct pollfd * recv_socket_pollers;$/;"	m	struct:_lcm_provider_t	typeref:struct:_lcm_provider_t::pollfd	file:
+recv_sockets	.\lcm\lcm_mpudpm.c	/^    GSList* recv_sockets;$/;"	m	struct:_lcm_provider_t	file:
+recv_sockets_changed	.\lcm\lcm_mpudpm.c	/^    int8_t recv_sockets_changed;$/;"	m	struct:_lcm_provider_t	file:
+recv_thread	.\lcm\lcm_mpudpm.c	/^recv_thread(void * user) {$/;"	f	file:
+recv_thread	.\lcm\lcm_udpm.c	/^recv_thread (void * user)$/;"	f	file:
+recv_thread_created	.\lcm\lcm_mpudpm.c	/^    int8_t recv_thread_created;$/;"	m	struct:_lcm_provider_t	file:
+recv_thread_created_tx	.\lcm\lcm_mpudpm.c	/^    int8_t recv_thread_created_tx;$/;"	m	struct:_lcm_provider_t	file:
+recv_utime	.\lcm\lcm-cpp.hpp	/^    int64_t recv_utime;$/;"	m	struct:lcm::ReceiveBuffer
+recv_utime	.\lcm\lcm.h	/^    int64_t recv_utime;$/;"	m	struct:_lcm_recv_buf_t
+recv_utime	.\lcm\udpm_util.h	/^    int64_t recv_utime;      \/\/ timestamp of first datagram receipt$/;"	m	struct:_lcm_buf
+recvfd	.\lcm\lcm_udpm.c	/^    SOCKET recvfd;$/;"	m	struct:_lcm_provider_t	file:
+recvmsg	.\lcm\windows\WinPorting.cpp	/^size_t recvmsg ( SOCKET s, struct msghdr *msg, int flags )$/;"	f
+regex	.\lcm\lcm.c	/^    GRegex * regex;$/;"	m	struct:_lcm_subscription_t	file:
+regex	.\lcm\lcm_mpudpm.c	/^    GRegex * regex;   \/\/ compiled regex for the channel_string (if it's a regex)$/;"	m	struct:_mpudpm_subscriber_t	file:
+regex_finder_re	.\lcm\lcm_mpudpm.c	/^    GRegex* regex_finder_re;$/;"	m	struct:_lcm_provider_t	file:
+remove_recv_socket	.\lcm\lcm_mpudpm.c	/^remove_recv_socket(lcm_mpudpm_t *lcm, mpudpm_socket_t* sock){$/;"	f	file:
+ringbuf	.\lcm\lcm_mpudpm.c	/^    lcm_ringbuf_t * ringbuf;$/;"	m	struct:_lcm_provider_t	file:
+ringbuf	.\lcm\lcm_udpm.c	/^    lcm_ringbuf_t * ringbuf;$/;"	m	struct:_lcm_provider_t	file:
+ringbuf	.\lcm\udpm_util.h	/^    lcm_ringbuf_t *ringbuf;  \/\/ the ringbuffer used to allocate buf.  NULL if$/;"	m	struct:_lcm_buf
+ringbuf_self_test	.\lcm\ringbuffer.c	/^static inline void ringbuf_self_test(lcm_ringbuf_t *ring)$/;"	f	file:
+roll	.\obu_lcm\ins_info.hpp	/^/;"	m	class:obu_lcm::ins_info
+roll_speed	.\obu_lcm\ins_info.hpp	/^/;"	m	class:obu_lcm::ins_info
+seekToTimestamp	.\lcm\lcm-cpp-impl.hpp	/^LogFile::seekToTimestamp(int64_t timestamp)$/;"	f	class:LogFile
+self_test_handler	.\lcm\lcm_mpudpm.c	/^self_test_handler (const lcm_recv_buf_t *rbuf, const char *channel, void *user)$/;"	f	file:
+self_test_handler	.\lcm\lcm_udpm.c	/^self_test_handler (const lcm_recv_buf_t *rbuf, const char *channel, void *user)$/;"	f	file:
+send_fd	.\lcm\lcm_mpudpm.c	/^    SOCKET send_fd;$/;"	m	struct:_lcm_provider_t	file:
+sendfd	.\lcm\lcm_udpm.c	/^    SOCKET sendfd;$/;"	m	struct:_lcm_provider_t	file:
+sendmsg	.\lcm\windows\WinPorting.cpp	/^size_t sendmsg ( SOCKET s, const struct msghdr *msg, int flags )$/;"	f
+server_addr	.\lcm\lcm_tcpq.c	/^    struct in_addr server_addr;$/;"	m	struct:_lcm_provider_t	typeref:struct:_lcm_provider_t::in_addr	file:
+server_addr_str	.\lcm\lcm_tcpq.c	/^    char *server_addr_str;$/;"	m	struct:_lcm_provider_t	file:
+server_port	.\lcm\lcm_tcpq.c	/^    uint16_t server_port;$/;"	m	struct:_lcm_provider_t	file:
+setQueueCapacity	.\lcm\lcm-cpp-impl.hpp	/^Subscription::setQueueCapacity(int num_messages)$/;"	f	class:Subscription
+setup_pollers	.\lcm\lcm_mpudpm.c	/^static void setup_pollers(lcm_mpudpm_t * lcm) {$/;"	f	file:
+setup_recv_parts	.\lcm\lcm_mpudpm.c	/^setup_recv_parts (lcm_mpudpm_t *lcm)$/;"	f	file:
+size	.\lcm\ringbuffer.c	/^    unsigned int   size;                 \/\/ allocated size of data$/;"	m	struct:_lcm_ringbuf	file:
+snprintf	.\lcm\windows\WinPorting.h	8;"	d
+socket	.\lcm\lcm_tcpq.c	/^    int socket;$/;"	m	struct:_lcm_provider_t	file:
+sockets	.\lcm\lcm_mpudpm.c	/^    GSList* sockets;  \/\/type: mpudpm_socket_t$/;"	m	struct:_mpudpm_subscriber_t	file:
+speed	.\lcm\lcm_file.c	/^    double speed;$/;"	m	struct:_lcm_provider_t	file:
+start_timestamp	.\lcm\lcm_file.c	/^    int64_t start_timestamp;$/;"	m	struct:_lcm_provider_t	file:
+steering_angle	.\obu_lcm\CAN_value.hpp	/^        double     steering_angle;$/;"	m	class:obu_lcm::CAN_value
+steering_angle	.\obu_lcm\steering_control_info.hpp	/^        double     steering_angle;$/;"	m	class:obu_lcm::steering_control_info
+steering_angle	.\obu_lcm\steering_feedback_info.hpp	/^        double     steering_angle;$/;"	m	class:obu_lcm::steering_feedback_info
+steering_angle_speed	.\obu_lcm\CAN_value.hpp	/^        double     steering_angle_speed;$/;"	m	class:obu_lcm::CAN_value
+steering_angle_speed	.\obu_lcm\steering_control_info.hpp	/^        double     steering_angle_speed;$/;"	m	class:obu_lcm::steering_control_info
+steering_angle_speed	.\obu_lcm\steering_feedback_info.hpp	/^        double     steering_angle_speed;$/;"	m	class:obu_lcm::steering_feedback_info
+steering_control_info	.\obu_lcm\steering_control_info.hpp	/^class steering_control_info$/;"	c	namespace:obu_lcm
+steering_feedback	.\Streeing_CAN.cpp	/^obu_lcm::steering_feedback_info steering_feedback;$/;"	v
+steering_feedback_info	.\obu_lcm\steering_feedback_info.hpp	/^class steering_feedback_info$/;"	c	namespace:obu_lcm
+str_Serial_Num	.\ControlCAN.h	/^		CHAR	str_Serial_Num[20];$/;"	m	struct:_VCI_BOARD_INFO
+str_Serial_Num	.\ControlCAN.h	/^	CHAR	str_Serial_Num[8];$/;"	m	struct:_VCI_BOARD_INFO1
+str_Serial_Num	.\ControlCAN.h	/^	CHAR	str_Serial_Num[8];$/;"	m	struct:_VCI_BOARD_INFO2
+str_Usb_Serial	.\ControlCAN.h	/^	CHAR	str_Usb_Serial[10][4];$/;"	m	struct:_VCI_BOARD_INFO2
+str_Usb_Serial	.\ControlCAN.h	/^	CHAR	str_Usb_Serial[4][4];$/;"	m	struct:_VCI_BOARD_INFO1
+str_hw_Type	.\ControlCAN.h	/^		CHAR	str_hw_Type[40];$/;"	m	struct:_VCI_BOARD_INFO
+str_hw_Type	.\ControlCAN.h	/^	CHAR	str_hw_Type[16];$/;"	m	struct:_VCI_BOARD_INFO1
+str_hw_Type	.\ControlCAN.h	/^	CHAR	str_hw_Type[16];$/;"	m	struct:_VCI_BOARD_INFO2
+strdup	.\lcm\windows\WinPorting.h	6;"	d
+strtoll	.\lcm\windows\WinPorting.h	5;"	d
+struct_size	.\lcm\lcm_coretypes.h	/^    lcm_struct_size_t     struct_size;$/;"	m	struct:_lcm_type_info_t
+subs	.\lcm\lcm_tcpq.c	/^    GSList* subs;$/;"	m	struct:_lcm_provider_t	file:
+subscribe	.\lcm\lcm-cpp-impl.hpp	/^LCM::subscribe(const std::string& channel,$/;"	f	class:LCM
+subscribe	.\lcm\lcm_internal.h	/^    int (*subscribe)(lcm_provider_t *, const char *channel);$/;"	m	struct:_lcm_provider_vtable_t
+subscribeFunction	.\lcm\lcm-cpp-impl.hpp	/^LCM::subscribeFunction(const std::string& channel,$/;"	f	class:LCM
+subscribers	.\lcm\lcm_mpudpm.c	/^    GSList* subscribers;$/;"	m	struct:_lcm_provider_t	file:
+subscriptions	.\lcm\lcm-cpp.hpp	/^        std::vector<Subscription*> subscriptions;$/;"	m	class:lcm::LCM
+szMsg_	.\CnComm.h	/^		TCHAR szMsg_[256]; \/\/!< ������Ϣ ��ʽ��CN_ASSERT(����ʽ) failed; CnComm(�к�); Code(GetLastError()); ������������$/;"	m	class:CnComm::MfcException
+szName_	.\CnComm.h	/^	TCHAR				szName_[64];		\/\/!< ���洮������ ����COM1���ַ���$/;"	m	class:CnComm
+tail	.\lcm\ringbuffer.c	/^    lcm_ringbuf_rec_t *tail;$/;"	m	struct:_lcm_ringbuf	file:
+tail	.\lcm\udpm_util.h	/^    lcm_buf_t ** tail;$/;"	m	struct:_lcm_buf_queue
+tcpq_info	.\lcm\lcm_tcpq.c	/^static lcm_provider_info_t tcpq_info;$/;"	v	file:
+tcpq_vtable	.\lcm\lcm_tcpq.c	/^static lcm_provider_vtable_t tcpq_vtable;$/;"	v	file:
+thread_created	.\lcm\lcm_file.c	/^    int thread_created;$/;"	m	struct:_lcm_provider_t	file:
+thread_created	.\lcm\lcm_udpm.c	/^    int thread_created;$/;"	m	struct:_lcm_provider_t	file:
+thread_msg_pipe	.\lcm\lcm_mpudpm.c	/^    int thread_msg_pipe[2];     \/\/ pipe to notify read thread when to cancel a$/;"	m	struct:_lcm_provider_t	file:
+thread_msg_pipe	.\lcm\lcm_udpm.c	/^    int thread_msg_pipe[2];     \/\/ pipe to notify read thread when to quit$/;"	m	struct:_lcm_provider_t	file:
+timer_pipe	.\lcm\lcm_file.c	/^    int timer_pipe[2];$/;"	m	struct:_lcm_provider_t	file:
+timer_thread	.\lcm\lcm_file.c	/^    GThread *timer_thread;$/;"	m	struct:_lcm_provider_t	file:
+timer_thread	.\lcm\lcm_file.c	/^timer_thread (void * user)$/;"	f	file:
+timestamp	.\lcm\eventlog.h	/^    int64_t timestamp;$/;"	m	struct:_lcm_eventlog_event_t
+timestamp	.\lcm\lcm-cpp.hpp	/^    int64_t timestamp;$/;"	m	struct:lcm::LogEvent
+timestamp_now	.\lcm\lcm_file.c	/^timestamp_now (void)$/;"	f	file:
+timestamp_now	.\lcm\lcm_memq.c	/^timestamp_now (void)$/;"	f	file:
+timestamp_now	.\lcm\lcm_tcpq.c	/^timestamp_now (void)$/;"	f	file:
+total_size	.\lcm\udpm_util.h	/^    uint32_t total_size;$/;"	m	struct:_lcm_frag_buf_store
+transmit_lock	.\lcm\lcm_mpudpm.c	/^    GStaticMutex transmit_lock;$/;"	m	struct:_lcm_provider_t	file:
+transmit_lock	.\lcm\lcm_udpm.c	/^    GStaticMutex transmit_lock; \/\/ so that only thread at a time can transmit$/;"	m	struct:_lcm_provider_t	file:
+type	.\lcm\lcm_coretypes.h	/^    lcm_field_type_t type;$/;"	m	struct:_lcm_field_t
+typestr	.\lcm\lcm_coretypes.h	/^    const char *typestr;$/;"	m	struct:_lcm_field_t
+uchar	.\accelerator.h	11;"	d
+uchar	.\calculateCRC.h	1;"	d
+udp_discarded_bad	.\lcm\lcm_mpudpm.c	/^    uint32_t     udp_discarded_bad; \/\/ packets discarded because they were bad $/;"	m	struct:_lcm_provider_t	file:
+udp_discarded_bad	.\lcm\lcm_udpm.c	/^    uint32_t     udp_discarded_bad; \/\/ packets discarded because they were bad $/;"	m	struct:_lcm_provider_t	file:
+udp_last_report_secs	.\lcm\lcm_mpudpm.c	/^    int32_t      udp_last_report_secs;$/;"	m	struct:_lcm_provider_t	file:
+udp_last_report_secs	.\lcm\lcm_udpm.c	/^    int32_t      udp_last_report_secs;$/;"	m	struct:_lcm_provider_t	file:
+udp_low_watermark	.\lcm\lcm_mpudpm.c	/^    double       udp_low_watermark; \/\/ least buffer available$/;"	m	struct:_lcm_provider_t	file:
+udp_low_watermark	.\lcm\lcm_udpm.c	/^    double       udp_low_watermark; \/\/ least buffer available$/;"	m	struct:_lcm_provider_t	file:
+udp_read_packet	.\lcm\lcm_udpm.c	/^udp_read_packet (lcm_udpm_t *lcm)$/;"	f	file:
+udp_rx	.\lcm\lcm_mpudpm.c	/^    uint32_t     udp_rx;            \/\/ packets received and processed$/;"	m	struct:_lcm_provider_t	file:
+udp_rx	.\lcm\lcm_udpm.c	/^    uint32_t     udp_rx;            \/\/ packets received and processed$/;"	m	struct:_lcm_provider_t	file:
+udpm_info	.\lcm\lcm_udpm.c	/^static lcm_provider_info_t udpm_info;$/;"	v	file:
+udpm_params_t	.\lcm\lcm_udpm.c	/^typedef struct _udpm_params_t udpm_params_t;$/;"	t	typeref:struct:_udpm_params_t	file:
+udpm_self_test	.\lcm\lcm_udpm.c	/^udpm_self_test (lcm_udpm_t *lcm)$/;"	f	file:
+udpm_vtable	.\lcm\lcm_udpm.c	/^static lcm_provider_vtable_t udpm_vtable;$/;"	v	file:
+unsubscribe	.\lcm\lcm-cpp-impl.hpp	/^LCM::unsubscribe(Subscription *subscription) {$/;"	f	class:LCM
+unsubscribe	.\lcm\lcm_internal.h	/^    int (*unsubscribe)(lcm_provider_t *, const char *channel);$/;"	m	struct:_lcm_provider_vtable_t
+update_subscription_ports	.\lcm\lcm_mpudpm.c	/^update_subscription_ports(lcm_mpudpm_t* lcm){$/;"	f	file:
+used	.\lcm\ringbuffer.c	/^    unsigned int   used;                 \/\/ total bytes currently allocated$/;"	m	struct:_lcm_ringbuf	file:
+userdata	.\lcm\lcm.c	/^    void             *userdata;$/;"	m	struct:_lcm_subscription_t	file:
+v	.\lcm\lcm_coretypes.h	/^    void *v;$/;"	m	struct:___lcm_hash_ptr
+vco_receive	.\Streeing_CAN.h	/^	VCI_CAN_OBJ vco_receive[64];\/\/64$/;"	m	class:Streeing
+vco_receiveCar	.\Streeing_CAN.h	/^	VCI_CAN_OBJ vco_receiveCar[64];$/;"	m	class:Streeing
+vco_send	.\Streeing_CAN.h	/^	VCI_CAN_OBJ vco_send[8];$/;"	m	class:Streeing
+vic_1	.\Streeing_CAN.h	/^	VCI_INIT_CONFIG vic_1;$/;"	m	class:Streeing
+vic_2	.\Streeing_CAN.h	/^	VCI_INIT_CONFIG vic_2;$/;"	m	class:Streeing
+vic_3	.\Streeing_CAN.h	/^	VCI_INIT_CONFIG vic_3;$/;"	m	class:Streeing
+vtable	.\lcm\lcm.c	/^    lcm_provider_vtable_t * vtable;$/;"	m	struct:_lcm_t	file:
+vtable	.\lcm\lcm_internal.h	/^    lcm_provider_vtable_t * vtable;$/;"	m	struct:_lcm_provider_info_t
+warned_about_small_kernel_buf	.\lcm\lcm_mpudpm.c	/^    int warned_about_small_kernel_buf;$/;"	m	struct:_lcm_provider_t	file:
+warned_about_small_kernel_buf	.\lcm\lcm_udpm.c	/^    int warned_about_small_kernel_buf;$/;"	m	struct:_lcm_provider_t	file:
+week	.\obu_lcm\ins_info.hpp	/^/;"	m	class:obu_lcm::ins_info
+wheel_speed_BL	.\obu_lcm\CAN_value.hpp	/^        double     wheel_speed_BL;\/\/后左轮速度$/;"	m	class:obu_lcm::CAN_value
+wheel_speed_BR	.\obu_lcm\CAN_value.hpp	/^        double     wheel_speed_BR;\/\/后右轮速度$/;"	m	class:obu_lcm::CAN_value
+wheel_speed_FL	.\obu_lcm\CAN_value.hpp	/^        double     wheel_speed_FL;\/\/前左轮速度$/;"	m	class:obu_lcm::CAN_value
+wheel_speed_FR	.\obu_lcm\CAN_value.hpp	/^        double     wheel_speed_FR;\/\/前右轮速度$/;"	m	class:obu_lcm::CAN_value
+winFileExists	.\lcm\windows\WinPorting.cpp	/^BOOL	winFileExists( char *filename )$/;"	f
+writeEvent	.\lcm\lcm-cpp-impl.hpp	/^LogFile::writeEvent(LogEvent* event)$/;"	f	class:LogFile
+writer	.\lcm\lcm_file.c	/^    int8_t writer;$/;"	m	struct:_lcm_provider_t	file:
+~Accelerator_Comm	.\accelerator.h	/^	~Accelerator_Comm()$/;"	f	class:Accelerator_Comm
+~BlockBuffer	.\CnComm.h	/^		virtual ~BlockBuffer()$/;"	f	class:CnComm::BlockBuffer
+~CnComm	.\CnComm.h	/^	virtual ~CnComm()$/;"	f	class:CnComm
+~Handler_Ins	.\main_prj.cpp	/^	~Handler_Ins() {}$/;"	f	class:Handler_Ins
+~InnerLock	.\CnComm.h	/^			~InnerLock()$/;"	f	struct:CnComm::BlockBuffer::InnerLock
+~InnerLock	.\CnComm.h	/^		~InnerLock()$/;"	f	struct:CnComm::InnerLock
+~LCM	.\lcm\lcm-cpp-impl.hpp	/^LCM::~LCM() {$/;"	f	class:LCM
+~LogFile	.\lcm\lcm-cpp-impl.hpp	/^LogFile::~LogFile()$/;"	f	class:LogFile
+~Streeing	.\Streeing_CAN.h	/^	~Streeing()$/;"	f	class:Streeing
+~Subscription	.\lcm\lcm-cpp.hpp	/^        virtual ~Subscription() {}$/;"	f	class:lcm::Subscription
